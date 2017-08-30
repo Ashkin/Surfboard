@@ -1,0 +1,43 @@
+{
+  "name": "Surfboard",
+  "version": "0.0.1",
+  "description": "ItsOnMe Merchant-Onboarding App",
+  "main": "index.js",
+  "repository": "TBD",
+  "scripts": {
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
+    "test:watch": "npm run test -- --watch"
+  },
+  "author": "Terra Rain and Jon Gutwillig",
+  "license": "TBD",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "chai": "^4.1.1",
+    "css-loader": "^0.28.6",
+    "jsdom": "^11.2.0",
+    "mocha": "^3.5.0",
+    "node-sass": "^4.5.3",
+    "react-test-renderer": "^15.6.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1"
+  },
+  "dependencies": {
+    "axios": "^0.16.2",
+    "babel-preset-stage-1": "^6.24.1",
+    "lodash": "^4.17.4",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-form": "^7.0.3",
+    "redux-promise": "^0.5.3"
+  }
+}

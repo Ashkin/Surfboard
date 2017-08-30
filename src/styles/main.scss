@@ -1,0 +1,25 @@
+/*
+ * Styling for: Project Surfboard
+ * The ItsOnMe Merchant On-boarding site
+ */
+
+
+@import 'partials/reset';
+@import 'partials/colors';
+@import 'partials/fonts';
+
+
+/*** Top-level Styling ***/
+body, html {
+  font-family: $iom-font-normal;
+}
+
+
+/*** Controls ***/
+@import 'partials/buttons';
+
+
+/*** Views ***/
+@import 'header';
+@import 'http-errors';
+

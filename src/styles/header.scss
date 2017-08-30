@@ -1,0 +1,47 @@
+/* View: Header */
+
+header {
+  height: 6.5em;
+  background: $iom-grey;
+  box-shadow: 0px 1px 2px $iom-grey;
+
+  .logo {
+    float: left;
+    width: 6.5em;
+    height: 6.5em;
+    text-align: center;
+    line-height: 6.5em;
+    background: $iom-blue;
+  }
+
+  nav {
+    display: block;
+    width: calc(100% - 6.5em);
+    text-align: center;
+
+    .item {
+      float: left;
+      display: inline-block;
+      width: 6.5em;
+      color: $iom-dark-grey;
+      text-decoration: none;
+
+      &:hover {
+        color: $iom-light-silver;
+      }
+
+      img {
+        display: block;
+        width: 3em;
+        height: 3em;
+        margin: 1em auto 0;
+      }
+
+      span {
+        width: 6.5em;
+      }
+    }
+  }
+
+
+}
