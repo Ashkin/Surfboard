@@ -1,0 +1,85 @@
+/* Partial: Controls */
+
+
+// Reset ------------
+
+button, .button, label, input, fieldset {
+  font-size: 1em;
+}
+
+
+
+// Buttons ------------
+
+button, .button {
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin: 0.5em;
+  border: 1px solid $iom-dark-blue;
+  border-radius: 0.25em;
+  color: white;
+  text-decoration: none;
+  background: $iom-blue;
+
+  &:active, &:visited { color: white; }
+}
+
+
+@mixin button-color($background, $color, $border-color) {
+  background: $background;
+  color: $color;
+  border-color: $border-color;
+
+  &:active, &:visited { color: $color; }
+}
+
+
+.button-green { @include button-color(lightgreen, $iom-dark-silver, green) }
+.button-red   { @include button-color($danger, white, $dark-danger) }
+.button-grey  { @include button-color(darkgrey, lightgrey, $iom-dark-silver) }
+
+
+
+// Labels ------------
+
+label {
+  padding-left: 0.25em;
+  font-size: 80%;
+  color: $iom-dark-grey;
+}
+
+
+
+// Inputs ------------
+
+input {
+  font-size: 85%;
+
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid $iom-light-grey;
+  color: $iom-dark-grey;
+  background-color: $iom-light-silver;
+  box-shadow: 0.125rem 0.125rem 0.125rem $iom-silver;
+
+  &.error {
+    border-color: $danger;
+    outline-color: $danger;
+    color: $danger;
+  }
+
+  & + aside {
+    height: 1em;
+    font-size: 80%;
+
+    &.error { color: $danger; }
+  }
+}
+
+
+
+// Fieldsets ------------
+
+fieldset {
+  padding: 0.25em 0.5em;
+}
