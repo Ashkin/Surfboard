@@ -15,7 +15,7 @@ class ViewNotFound extends Component {
             <h1>Oh no!</h1>
             <h3>You've found yourself somewhere you're not meant to be.</h3>
             <aside>(Error 404)</aside>
-            <Link to="/" className="button button-blue">Back to safety</Link>
+            <Link to="/" className="button">Back to safety</Link>
           </div>
           <div className="side">
             <div className="missing-giftcard">???</div>

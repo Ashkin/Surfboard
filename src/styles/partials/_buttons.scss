@@ -3,11 +3,26 @@
 .button {
   display: inline-block;
   padding: 0.5em 1em;
+  margin: 0.5em;
+  border: 1px solid $iom-dark-blue;
   border-radius: 0.25em;
+  color: white;
   text-decoration: none;
+  background: $iom-blue;
+
+  &:active, &:visited { color: white; }
 }
 
-.button-blue {
-  background: $iom-blue;
-  color: white;
+
+@mixin button-color($background, $color, $border-color) {
+  background: $background;
+  color: $color;
+  border-color: $border-color;
+
+  &:active, &:visited { color: $color; }
 }
+
+
+.button-green { @include button-color(lightgreen, $iom-dark-silver, green) }
+.button-red   { @include button-color($danger, white, $dark-danger) }
+.button-grey  { @include button-color(darkgrey, lightgrey, $iom-dark-silver) }
