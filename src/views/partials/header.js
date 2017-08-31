@@ -11,15 +11,15 @@ class Header extends Component {
           ItsOnMe
         </div>
         <nav>
-          <Link to="/" className="item">
+          <Link to="/venue" className="item">
             <img src="nav-icon-venue.png" />
             <span>Venue</span>
           </Link>
-          <Link to="/" className="item">
+          <Link to="/photos" className="item">
             <img src="nav-icon-photos.png" />
             <span>Photos</span>
           </Link>
-          <Link to="/" className="item">
+          <Link to="/checkout" className="item">
             <img src="nav-icon-checkout.png" />
             <span>Checkout</span>
           </Link>
