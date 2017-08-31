@@ -1,0 +1,17 @@
+/* View: Venue */
+
+form.venue {
+  width: 25em;
+  padding: 1em;
+
+  fieldset {
+    label {
+      display: block;
+      color: $iom-dark-grey;
+    }
+    input {
+      display: block;
+      margin-bottom: 0.25em;
+    }
+  }
+}
