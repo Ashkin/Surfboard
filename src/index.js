@@ -23,8 +23,8 @@ ReactDOM.render(
       <div>
         <Header />
         <Switch>
-          <Route path="/"      component={ViewVenue} />
-          <Route path="/venue" component={ViewVenue} />
+          <Route exact path="/"      component={ViewVenue} />
+          <Route exact path="/venue" component={ViewVenue} />
           <Route path="*"      component={ViewNotFound} />
         </Switch>
       </div>
