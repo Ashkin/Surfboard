@@ -34,9 +34,10 @@ button, .button {
 }
 
 
-.button-green { @include button-color(lightgreen, $iom-dark-silver, green) }
-.button-red   { @include button-color($danger, white, $dark-danger) }
-.button-grey  { @include button-color(darkgrey, lightgrey, $iom-dark-silver) }
+.button-green       { @include button-color(lightgreen, $iom-dark-silver, green) }
+.button-red         { @include button-color($danger, white, $dark-danger) }
+.button-disabled    { @include button-color(darkgrey, lightgrey, $iom-dark-silver) }
+.button-dark-silver { @include button-color($iom-dark-silver, $iom-light-silver, black) }
 
 
 
