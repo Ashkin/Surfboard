@@ -20,7 +20,13 @@ body, html {
 @import 'partials/controls';
 
 
-/*** Views ***/
+/*** Main page ***/
 @import 'header';
 @import 'http-errors';
-@import 'venue';
+
+
+/*** Views ***/
+@import 'partials/views';
+@import 'views/venue';
+@import 'views/photos';
+@import 'views/checkout';

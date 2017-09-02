@@ -2,40 +2,57 @@
 
 header {
   height: 6.5em;
-  background: $iom-dark-blue;
+  background: $iom-dark-silver;
+
+  // Shadow
+  position: relative;
   box-shadow: 0px 1px 2px $iom-grey;
+  z-index: 1;
 
   .logo {
     float: left;
-    width: 6.5em;
+    width: 300px;
     height: 6.5em;
+    margin: 0 0.5em;
     text-align: center;
     line-height: 6.5em;
-    // background-image: url('../images/logo.png');
-    color: white;
+    background-image: url('http://res.cloudinary.com/drinkboard/image/upload/v1485211146/email_elements/IOM.logo_white_transbckgrd-300W.png');  // off-center
+    // background-image: url('http://res.cloudinary.com/drinkboard/image/upload/c_scale,h_84/www/branding/logo_white_nobg.png');  // centered, but incorrect matte
+    background-repeat: no-repeat;
+    background-position: left center;
   }
 
   nav {
     display: block;
-    width: calc(100% - 6.5em);
+    width: calc(100% - 300px);
     text-align: center;
 
+    & > hr {
+      display: inline-block;
+      width: 5em;
+      height: 2px;
+      margin: 2em 0;
+      background: white;
+    }
+
     .item {
-      float: left;
       display: inline-block;
       width: 6.5em;
-      color: $iom-dark-grey;
+      color: $iom-light-silver;
       text-decoration: none;
 
       &:hover {
-        color: $iom-light-silver;
+        color: $iom-blue;
+
+        img { filter: invert(0%); }
       }
 
       img {
         display: block;
         width: 3em;
         height: 3em;
-        margin: 1em auto 0;
+        margin: 1.5em auto 0;
+        filter: invert(100%);
       }
 
       span {

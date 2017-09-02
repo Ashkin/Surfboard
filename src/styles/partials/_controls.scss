@@ -52,7 +52,7 @@ label {
 
 // Inputs ------------
 
-input {
+input[type="text"], textarea {
   font-size: 85%;
 
   width: 100%;
@@ -74,6 +74,15 @@ input {
 
     &.error { color: $danger; }
   }
+}
+
+
+input[type="checkbox"] {
+  display: inline-block;
+  height: 1em;
+  margin: 0 0.5em;
+
+  // Can't style checkboxes.
 }
 
 
