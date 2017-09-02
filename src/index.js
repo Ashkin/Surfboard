@@ -29,7 +29,7 @@ ReactDOM.render(
           <Route exact path="/venue"    component={ViewVenue} />
           <Route exact path="/photos"   component={ViewPhotos} />
           <Route exact path="/checkout" component={ViewCheckout} />
-          <Route path="*"      component={ViewNotFound} />
+          <Route path="*"               component={ViewNotFound} />
         </Switch>
       </div>
     </BrowserRouter> 
