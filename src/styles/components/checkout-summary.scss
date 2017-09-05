@@ -1,1 +1,42 @@
 /* Component: Checkout Summary */
+
+
+section.checkout-summary {
+
+  dl {
+    text-align: left;
+
+    dt {
+      margin-bottom: 0.25em;
+      font-weight: bold;
+    }
+
+    dd {
+
+      margin-bottom: 2em;
+
+      .item {
+        clear: both;
+        margin-bottom: 0.5em;
+
+        &.total {
+          font-weight: bold;
+        }
+
+        .desc { float: left; }
+        .cost { float: right; }
+      }
+
+      hr {
+        margin: 1em 0;
+        clear: both;
+      }
+    }
+
+  }
+
+  button[type="submit"] {
+    margin-top: 2em;
+  }
+
+}

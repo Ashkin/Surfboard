@@ -19,6 +19,7 @@ button, .button {
   border-radius: 0.25em;
   color: white;
   text-decoration: none;
+  cursor: pointer;
   background: $iom-blue;
 
   &:active, &:visited { color: white; }
@@ -39,6 +40,11 @@ button, .button {
 .button-disabled    { @include button-color(darkgrey, lightgrey, $iom-dark-silver) }
 .button-dark-silver { @include button-color($iom-dark-silver, $iom-light-silver, black) }
 
+.button-disabled { cursor: not-allowed; }  //TODO: use disabled selector
+
+.button-large {
+  font-size: 1.35em;
+}
 
 
 // Labels ------------

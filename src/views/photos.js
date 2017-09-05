@@ -5,9 +5,11 @@ class ViewPhotos extends Component {
 
   render() {
     return (
-      <div>
-        Photos View
-      </div>
+      <main>
+        <section>
+          Photos View
+        </section>
+      </main>
     )
   }
 }

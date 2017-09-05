@@ -23,6 +23,7 @@ class ViewVenue extends Component {
     return (
       <fieldset>
         <input
+          value={field.input.value}
           className={className}
           type={type}
           placeholder={placeholder + (required ? "" : " (optional)")}
@@ -31,6 +32,17 @@ class ViewVenue extends Component {
         <aside className="error">
           {hasError ? error.message : ''}
         </aside>
+      </fieldset>
+    )
+  }
+
+  renderTOS(field) {
+    const { touched, error } = field.meta
+
+    return (
+      <fieldset>
+        <input type="checkbox" {...field.input} />
+        I agree to the <Link to="/tos">Terms of Service</Link>.
       </fieldset>
     )
   }
@@ -46,21 +58,24 @@ class ViewVenue extends Component {
 
     return (
       <main>
-        <form className="venue" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-          <Field component={this.renderField}  name="name"     required={true}  placeholder="Venue Name" />
-          <Field component={this.renderField}  name="address"  required={true}  placeholder="Address" />
-          <Field component={this.renderField}  name="address2" required={false} placeholder="Suite Number" />
-          <Field component={this.renderField}  name="city"     required={false} placeholder="City" />
-          <Field component={this.renderField}  name="state"    required={false} placeholder="State" />
-          <Field component={this.renderField}  name="zip"      required={true}  placeholder="Zip" />
-          <Field component={this.renderField}  name="phone"    required={true}  placeholder="Phone Number" />
-          <Field component={this.renderField}  name="email"    required={true}  placeholder="Email Address" />
-          <Field component={this.renderField}  name="url"      required={true}  placeholder="Website" />
-
-          <div className="center">
-            <button type="submit" className="button">Next</button>
-          </div>
-        </form>
+        <section className="active">
+          <form className="venue" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+            <Field component={this.renderField}  name="name"     required={true}  placeholder="Venue Name" />
+            <Field component={this.renderField}  name="address"  required={true}  placeholder="Address" />
+            <Field component={this.renderField}  name="address2" required={false} placeholder="Suite Number" />
+            <Field component={this.renderField}  name="city"     required={false} placeholder="City" />
+            <Field component={this.renderField}  name="state"    required={false} placeholder="State" />
+            <Field component={this.renderField}  name="zip"      required={true}  placeholder="Zip" />
+            <Field component={this.renderField}  name="phone"    required={true}  placeholder="Phone Number" />
+            <Field component={this.renderField}  name="email"    required={true}  placeholder="Email Address" />
+            <Field component={this.renderField}  name="url"      required={true}  placeholder="Website" />
+            <Field component={this.renderTOS}    name="tos" />
+  
+            <div className="center">
+              <button type="submit" className="button">Next</button>
+            </div>
+          </form>
+        </section>
       </main>
     )
   }
@@ -77,26 +92,29 @@ function validate(values) {
 
   if (!values.name)     addError(errors, "name",    "You must specify the venue name")
   if (!values.address)  addError(errors, "address", "Please provide an address")
-  if (!values.zip)      addError(errors, "zip",     "Please provide a valid Zip code")
-  if (!values.phone)    addError(errors, "phone",   "Please provide a valid phone number")
+  if (!values.zip)      addError(errors, "zip",     "Please provide a Zip code")
+  if (!values.phone)    addError(errors, "phone",   "Please provide a phone number")
   if (!values.email)    addError(errors, "email",   "Please provide an email address")
-  if (!values.url)      addError(errors, "url",     "Please specify your website address")
-
-
-  // Only display the first error message. (for e.g. a popup bubble)
-  // Object.keys(errors).forEach(key => {
-  //   if (key == "first_error")  return
-  //   if (key != errors.first_error)  errors[key].message = null
-  // })
-
+  if (!values.url)      addError(errors, "url",     "Please provide your website address")
 
   return errors
 }
 
 
+
+function mapStateToProps(state) {
+  const newState = { initialValues:  state.form.VenueForm.values }
+
+  console.log("[ViewVenue::mapStateToProps]. newState:", newState)
+  return newState
+}
+
+
+
 export default reduxForm({
   validate,
-  form: 'VenueForm'
+  form: 'VenueForm',
+  enableReinitialize: true
 })(
-  connect(null,{  })(ViewVenue)
+  connect(mapStateToProps,{  })(ViewVenue)
 )

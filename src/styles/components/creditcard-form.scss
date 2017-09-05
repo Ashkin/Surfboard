@@ -1,1 +1,58 @@
 /* Component: creditcard-form */
+
+$creditcard-form-cvv-width: 20%;
+$creditcard-form-spacing: 3px;
+
+
+section.creditcard-form {
+
+  form {
+    margin: 1em;
+
+    input {
+      display: inline-block;
+      border-color: black;
+      margin: 0.2rem 0;
+
+      &:focus {
+        // Fix for Chrome glow layering
+        position: relative;
+        z-index: 1;
+      }
+    }
+
+    input.creditcard-name {
+      width: 100%;
+    }
+    input.creditcard-number {
+      width: calc(100% - #{$creditcard-form-cvv-width});
+    }
+    input.cvv {
+      width: 20%;
+      border-left: 0;
+      text-align: center;
+    }
+    input.expiration {
+      float: left;
+      width: 30%;
+
+      &+ input.expiration {
+        // margin-left: 0.5em;
+        border-left: none;
+      }
+    }
+    input.zip {
+      float: right;
+      width: 35%;
+    }
+  }
+}
+
+
+
+// .creditcard-name
+// .creditcard-number
+// .cvv
+// .expiration
+// .expiration
+// .zip

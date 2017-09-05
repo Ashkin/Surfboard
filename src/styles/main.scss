@@ -13,6 +13,7 @@
 /*** Top-level Styling ***/
 body, html {
   font-family: $iom-font-normal;
+  background: linear-gradient(to right, $site-gradient-color, transparent, $site-gradient-color)
 }
 
 

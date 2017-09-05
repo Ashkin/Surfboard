@@ -1,10 +1,27 @@
 
 section {
   float: left;
-  width: 30%;
+  width: 32%;
+  text-align: center;
 
   &.active {
     // background: linear-gradient(to right, white, $iom-light-silver, white);
   }
+
+
+  header {
+    display: block;
+    margin: 1.5rem auto;
+    font-size: 1.5rem;
+  }
+
+  summary {
+    width: 85%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    min-height: 3rem;
+  }
+
 }
 
