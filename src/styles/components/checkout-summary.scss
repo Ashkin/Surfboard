@@ -6,13 +6,26 @@ section.checkout-summary {
   dl {
     text-align: left;
 
-    dt {
-      margin-bottom: 0.25em;
-      font-weight: bold;
+
+    div.venue, div.order {
+      margin-bottom: 1em;
     }
 
-    dd {
 
+
+    dt {
+      // fancy shmancy trailing underline
+      width: 25%;
+      text-indent: 0.25em;
+      border-bottom: 2px solid $iom-dark-blue;
+
+      margin-bottom: 0.25em;
+      font-weight: bold;
+      color: black;
+    }
+
+    dt + dd {
+      margin-left:   1em;
       margin-bottom: 2em;
 
       .item {
@@ -37,6 +50,27 @@ section.checkout-summary {
 
   button[type="submit"] {
     margin-top: 2em;
+  }
+
+
+  div.validation {
+    position: relative;
+    width: 75%;
+    min-height: 5em;
+    margin: 3em auto 2em;;
+    padding: 1em;
+    border: 2px dashed $danger;
+    border-radius: 0.75em;
+    background: transparentize($danger, 0.7);
+
+    div.title {
+      position: relative;
+      margin: 0 auto 0.5em;
+      font-weight: bold;
+      text-align: center;
+      color: $danger;
+    }
+
   }
 
 }
