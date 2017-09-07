@@ -89,7 +89,13 @@ input[type="checkbox"] {
   height: 1em;
   margin: 0 0.5em;
 
-  // Can't style checkboxes.
+  // Can't really style checkboxes. :/
+
+  &.error {
+    background: $danger;
+    box-shadow: 0px 0px 1em $danger,
+                0px 0px 2em $danger;
+  }
 }
 
 
