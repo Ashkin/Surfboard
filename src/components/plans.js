@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import PLANS          from '../config/plans'
+import classBuilder   from '../helpers/class-builder'
 import { selectPlan } from '../actions'
 
 
@@ -11,22 +13,6 @@ class Plans extends Component {
   constructor(props) {
     super(props)
 
-
-    //TODO: Add action to create a new plan, or set these as the default state in the reducer
-    this.planChoices = [{
-      id:            0,
-      name:          "Standard",
-      pricePerMonth: 100,
-      flavorText:    "paid monthly",
-      recommended:   false,
-    }, {
-      id:            1,
-      name:          "Prime",
-      pricePerMonth: 84,
-      flavorText:    "when paid annually",
-      recommended:   true,
-    }]
-
     this.state = {
       plans: {}
     }
@@ -34,14 +20,13 @@ class Plans extends Component {
 
 
   handleClick(id) {
-    console.log("User clicked a plan.  this:", this)
     this.props.selectPlan(id)
   }
 
 
   // Render Button or Selected
-  renderPlansButton(plan) {
-    if (this.props.plans.selectedPlan == plan.id) {
+  renderPlansButton(plan, planId) {
+    if (this.props.plans.selectedPlan == planId) {
       return (
         <div className="selected">
           <span className="checkmark-box"></span> Selected
@@ -52,28 +37,24 @@ class Plans extends Component {
     return (
       <button
         className={plan.recommended ? "" : "button-dark-silver"}
-        onClick={() => this.handleClick(plan.id)}>
+        onClick={() => this.handleClick(planId)}>
         Choose Plan
       </button>
     )
   }
 
   renderPlans() {
-    return this.planChoices.map(plan => {
+    return PLANS.map((plan, planId) => {
       // class list builder
       let planClasses = ["plan"]
-      if (plan.recommended)
-        planClasses.push("recommended")
-      if (this.props.plans.selectedPlan == plan.id)
-        planClasses.push("selected")
-      else {
-        console.log("Comparing selectedPlan", this.props.plans.selectedPlan, "to plan.id", plan.id)
-        planClasses.push("unselected")
-      }
+      if (plan.recommended) planClasses.push("recommended")
+      // mark as selected if the id matches
+      planClasses.push(this.props.plans.selectedPlan == planId ? "selected" : "unselected")
       planClasses = planClasses.join(" ")
 
+
       return (
-        <li className={planClasses} key={plan.id}>
+        <li className={planClasses} key={planId}>
           <div className="title">{plan.name}</div>
           <div className="details">
             <div className="cost">
@@ -82,7 +63,7 @@ class Plans extends Component {
             <div className="flavor-text">
               {plan.flavorText}
             </div>
-            {this.renderPlansButton(plan)}
+            {this.renderPlansButton(plan, planId)}
             <div className="recommended">
               {plan.recommended ? "Recommended" : ""}
             </div>
@@ -94,10 +75,8 @@ class Plans extends Component {
 
 
   render() {
-    console.log("[Plans component]::render()  props:", this.props)
-
     return (
-      <section className="plans">
+      <section className={classBuilder("plans", this.props.className)}>
         <header>
           <span className="filled-circle">1</span> Pick a Plan
         </header>
