@@ -1,7 +1,4 @@
 import React, { Component } from 'react'
-import { Field, reduxForm } from 'redux-form'
-import { Link }             from 'react-router-dom'
-import { connect }          from 'react-redux'
 
 import Plans           from '../components/plans'
 import CreditcardForm  from '../components/creditcard-form'
@@ -12,9 +9,9 @@ class ViewCheckout extends Component {
   render() {
     return (
       <main>
-        <Plans />
-        <CreditcardForm />
-        <CheckoutSummary />
+        <Plans           className="col-3" />
+        <CreditcardForm  className="col-3" />
+        <CheckoutSummary className="col-3" />
       </main>
     )
   }

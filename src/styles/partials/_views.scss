@@ -1,8 +1,11 @@
 
 section {
   float: left;
-  width: 32%;
+  width: 100%;
   text-align: center;
+
+  &.col-2 { width: 50%; }
+  &.col-3 { width: 33%; }
 
   &.active {
     // background: linear-gradient(to right, white, $iom-light-silver, white);
