@@ -7,44 +7,18 @@ export const ACTIONS = {
 }
 
 
-export function selectPlan(id=null) {
-  console.log("[ACTIONS::selectPlan]  id: ", id)
-
-  return {
-    type: ACTIONS.SELECT_PLAN,
-    payload: id
+// Basic action factory
+// Usage: actionFactory(action)(data)
+function actionFactory(action) {
+  return function(data) {
+    return { type: action, payload: data }
   }
 }
 
 
-
-export function saveStripeToken(data={}) {
-  return {
-    type: ACTIONS.UPDATE_STRIPE_TOKEN,
-    payload: data
-  }
-}
-
-
-export function saveVenueData(data={}) {
-  return {
-    type: ACTIONS.UPDATE_VENUE,
-    payload: data
-  }
-}
-
-export function saveContactData(data={}) {
-  return {
-    type: ACTIONS.UPDATE_CONTACT,
-    payload: data
-  }
-}
-
-
-export function saveCheckoutData(data={}) {
-  console.log("[actions::saveCheckoutData] data: ", data)
-  return {
-    type: ACTIONS.UPDATE_CHECKOUT,
-    payload: data
-  }
-}
+// Actions
+export function selectPlan(id=null)       { return actionFactory(ACTIONS.SELECT_PLAN)(id) }
+export function saveVenueData(data={})    { return actionFactory(ACTIONS.UPDATE_VENUE)(data) }
+export function saveContactData(data={})  { return actionFactory(ACTIONS.UPDATE_CONTACT)(data) }
+export function saveCheckoutData(data={}) { return actionFactory(ACTIONS.UPDATE_CHECKOUT)(data) }
+export function saveStripeToken(data={})  { return actionFactory(ACTIONS.UPDATE_STRIPE_TOKEN)(data) }
