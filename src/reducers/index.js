@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 import { reducer as reduxFormReducer } from 'redux-form'
 
 import plans      from './plans'
-import creditcard from './creditcard'
+import stripe     from './stripe'
 import venue      from './venue'
 import contact    from './contact'
 import checkout   from './checkout'
@@ -11,7 +11,7 @@ import checkout   from './checkout'
 const rootReducer = combineReducers({
   form:  reduxFormReducer,
   plans,
-  creditcard,
+  stripe,
   venue,
   contact,
   checkout,

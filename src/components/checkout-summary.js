@@ -18,7 +18,6 @@ class CheckoutSummary extends Component {
 
 
     if (!(venue.name && venue.address && venue.zip)) {
-      console.log("[CheckoutSummary::renderVenue]  Rendering error")
       return (
         <div className="venue">
           <dt>Venue</dt>
@@ -143,7 +142,7 @@ class CheckoutSummary extends Component {
 
   render() {
 
-    const { venue, contact, plans, creditcard, checkout } = this.props
+    const { venue, contact, plans, stripe, checkout } = this.props
 
 
     //TODO: only display error when clicking [submit]
@@ -161,12 +160,8 @@ class CheckoutSummary extends Component {
     // Plans
     if (plans.selectedPlan == null)  errors.plans = "You must select a plan"
 
-    // Credit card
-    if (!creditcard.exp_mo ||
-        !creditcard.exp_yr)   errors.creditcard = "Before submitting, you must fill out the creditcard information.  (Missing expiration date)"
-    if (!creditcard.cvv)      errors.creditcard = "Before submitting, you must fill out the creditcard information.  (Missing the CVV code)"
-    if (!creditcard.number)   errors.creditcard = "Before submitting, you must fill out the creditcard information.  (Missing the creditcard number)"
-    if (!creditcard.name)     errors.creditcard = "Before submitting, you must fill out the creditcard information.  (Missing the cardholder name)"
+    // Stripe (Creditcard)
+    if (!stripe.token)        errors.stripe = "Before submitting, you must submit your creditcard info to Stripe."
 
 
     //TODO: Factor out per-section error message, e.g. "Before submitting, you must fill out the ___ section."
@@ -174,7 +169,7 @@ class CheckoutSummary extends Component {
 
 
     // Pluck out first error message
-    const errorMessage = (errors.venue || errors.contact || errors.plans || errors.creditcard)
+    const errorMessage = (errors.venue || errors.contact || errors.plans || errors.stripe)
 
     let buttonClasses = ['button-large']
     if (!!errorMessage)        buttonClasses.push('hidden')
@@ -230,7 +225,7 @@ function mapStateToProps(state) {
     venue:      state.venue,
     contact:    state.contact,
     plans:      state.plans,
-    creditcard: state.creditcard,
+    stripe:     state.stripe,
     checkout:   state.checkout
   }
 }

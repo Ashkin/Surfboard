@@ -6,6 +6,66 @@ $creditcard-form-spacing: 3px;
 
 section.creditcard-form {
 
+
+  form#stripe-payment-form {
+    position: relative;
+    top: 1em;
+    padding: 1em 2em 0;
+    border: 2px solid $stripe-indigo;
+    background: transparentize($stripe-indigo, 0.7);
+    border-radius: 0.25em;
+
+    text-align: left;
+
+    label {
+      color: $iom-dark-silver;
+    }
+
+
+    div#card-element-wrapper {
+      @extend input[type="text"];
+      background: white;
+    }
+
+    div#stripe-success {
+      padding: 1.5em 0 0.5em;
+      color: $stripe-green;
+      text-align: center;
+    }
+
+    div#card-errors {
+      height: 1em;
+      padding: 0.125em 0.5em;
+      font-size: 0.9em;
+      text-align: left;
+      color: $danger;
+    }
+
+    .stripe-info {
+      position: absolute;
+      display: relative;
+      bottom: 0;
+      right:  0;
+      padding: 0.25em;
+      padding-left: 1em;
+      border: 1px solid $stripe-indigo;
+      border-width: 1px 0 0 1px;
+      border-bottom-right-radius: inherit;
+      border-top-left-radius: 2em;
+      font-size: 0.75em;
+      color: $stripe-green;
+      background: white;
+    }
+  }
+
+  aside {
+    padding: 0 1.5em;
+    font-size: 70%;
+    text-align: right;
+  }
+
+
+
   form {
     margin: 1em;
 

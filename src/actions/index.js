@@ -1,6 +1,6 @@
 export const ACTIONS = {
   SELECT_PLAN: 'SELECT_PLAN',
-  UPDATE_CARD: 'UPDATE_CARD',
+  UPDATE_STRIPE_TOKEN: 'UPDATE_STRIPE_TOKEN',
   UPDATE_VENUE: 'UPDATE_VENUE',
   UPDATE_CONTACT: 'UPDATE_CONTACT',
   UPDATE_CHECKOUT: 'UPDATE_CHECKOUT',
@@ -18,9 +18,9 @@ export function selectPlan(id=null) {
 
 
 
-export function saveCreditcardData(data={}) {
+export function saveStripeToken(data={}) {
   return {
-    type: ACTIONS.UPDATE_CARD,
+    type: ACTIONS.UPDATE_STRIPE_TOKEN,
     payload: data
   }
 }
