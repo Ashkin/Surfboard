@@ -11,6 +11,30 @@
 
 .hidden { display: none; }
 
+
+.aspect-ratio {
+  width: 100%;
+
+  &:before {
+    float: left;
+    padding-bottom: 56.25%;  // default to 16:9
+    content: "";
+  }
+
+  &:after {
+    display: table;
+    content: "";
+    clear: both;
+  }
+
+
+  &.square:before { padding-bottom: 100%; }
+  &.16-9:before   { padding-bottom: 56.25%; }
+  &.21-9:before   { padding-bottom: 42.857%; }
+  &.22-5:before   { padding-bottom: 22.72%; }
+}
+
+
 // Inline checkmark
 // (uses em for relative sizing)
 .checkmark::before {
