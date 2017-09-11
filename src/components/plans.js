@@ -20,7 +20,7 @@ class Plans extends Component {
 
 
   handleClick(id) {
-    this.props.selectPlan(id)
+    this.props.selectPlan({selectedPlan: id})
   }
 
 

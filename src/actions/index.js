@@ -19,6 +19,6 @@ function actionFactory(action) {
 // Actions
 export function saveVenueData(data={})    { return actionFactory(ACTIONS.UPDATE_VENUE)(data) }
 export function saveContactData(data={})  { return actionFactory(ACTIONS.UPDATE_CONTACT)(data) }
-export function selectPlan(id=null)       { return actionFactory(ACTIONS.SELECT_PLAN)(id) }
+export function selectPlan(data={})       { return actionFactory(ACTIONS.SELECT_PLAN)(data) }
 export function saveStripeToken(data={})  { return actionFactory(ACTIONS.UPDATE_STRIPE_TOKEN)(data) }
 export function saveCheckoutData(data={}) { return actionFactory(ACTIONS.UPDATE_CHECKOUT)(data) }
