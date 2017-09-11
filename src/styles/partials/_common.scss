@@ -28,10 +28,11 @@
   }
 
 
-  &.square:before { padding-bottom: 100%; }
-  &.16-9:before   { padding-bottom: 56.25%; }
-  &.21-9:before   { padding-bottom: 42.857%; }
-  &.22-5:before   { padding-bottom: 22.72%; }
+  &.ratio-square:before { padding-bottom: 100%; }
+  &.ratio-16-9:before   { padding-bottom: 56.25%; }
+  &.ratio-21-9:before   { padding-bottom: 42.857%; }
+  &.ratio-3-1:before    { padding-bottom: 30%; }
+  &.ratio-22-5:before   { padding-bottom: 22.72%; }
 }
 
 
