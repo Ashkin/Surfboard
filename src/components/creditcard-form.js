@@ -59,7 +59,6 @@ class CreditcardForm extends Component {
         <div id="card-element"></div>
       </div>
     )
-
   }
 
 
@@ -72,7 +71,7 @@ class CreditcardForm extends Component {
     return (
       <section className={classBuilder("creditcard-form", this.props.className)}>
         <header>
-          <span className="filled-circle">2</span> Billing
+          <span className="filled-circle">5</span> Billing
         </header>
         <summary>
           Creditcard Information

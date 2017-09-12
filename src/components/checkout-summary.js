@@ -185,7 +185,7 @@ class CheckoutSummary extends Component {
     return (
       <section className={classBuilder("checkout-summary", this.props.className)}>
         <header>
-          <span className="filled-circle">3</span> Checkout
+          <span className="filled-circle">6</span> Checkout
         </header>
         <summary>
           We will confirm everything with you by email<br/>

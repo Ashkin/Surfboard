@@ -78,7 +78,7 @@ class Plans extends Component {
     return (
       <section className={classBuilder("plans", this.props.className)}>
         <header>
-          <span className="filled-circle">1</span> Pick a Plan
+          <span className="filled-circle">4</span> Pick a Plan
         </header>
         <summary>
           The world's first on-demand gift card program with zero financial risk
