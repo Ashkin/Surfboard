@@ -34,6 +34,11 @@ class CreditcardForm extends Component {
 
 
   componentDidMount() {
+    // User already submitted their card info
+    if (this.props.stripe && this.props.stripe.token)
+      return
+
+    // Create the Stripe Elements controls
     this.stripe_card = this.stripe_elements.create('card', {style: this.stripe_style})
     this.stripe_card.mount('#card-element')
 
