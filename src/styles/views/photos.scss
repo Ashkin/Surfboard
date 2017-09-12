@@ -1,1 +1,118 @@
 /* View: Photos */
+
+section.photos {
+
+  // DRY: Used via @extend by `.cover-photo > img` and `.logo > img`
+  .full-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    // To allow using <img>'s as backgrounds
+    z-index: 0;
+  }
+
+
+  // To allow using <img>'s as backgrounds
+  * { z-index: 1; }
+
+
+  .wrapper {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+
+    .aspect-wrapper {
+      // Allow child to fill this div (since this has no real content besides padding)
+      position: relative;
+
+      .cover-photo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+
+        // Force-fill container div
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        margin-bottom: 2em;
+
+        border: 3px solid white;
+        box-shadow: 0px 0px 5px $iom-silver,
+                    0px 0px 8px $iom-silver;
+        background-color: $iom-light-silver;
+
+
+        // Actual cover photo image
+        & > img { @extend .full-image; }
+
+
+        // Empty space-filler to align the .logo div
+        .spacing-top {
+          flex-grow: 3;
+          flex-shrink: 1;
+        }
+
+
+        .logo {
+          // Allow pseudo-background <img> child to fill this div
+          position: relative;
+
+          flex-grow: 1;
+          flex-shrink: 1;
+
+          width: 200px;
+          height: 200px;
+          padding-top: 2em; // Hack: push the content down a bit.
+
+          // Required or the dimensions won't be correct; haven't looked into why.
+          max-width: 200px;
+          max-height: 200px;
+
+          // Round!
+          border: 0.5em solid white;
+          border-radius: 90em;
+          background-color: $iom-light-silver;
+          box-shadow: 0px 0px 5px $iom-silver,
+                      0px 0px 8px $iom-silver;
+
+
+          // Actual logo image
+          & > img { @extend .full-image; }
+
+
+          button {
+            position: relative;
+            top: 5em;
+          }
+        }
+
+
+        .venue {
+          flex-grow: 1;
+          flex-shrink: 1;
+
+          // White outline for contrast on dark cover images
+          text-shadow: -1px -1px white,
+                        1px -1px white,
+                       -1px  1px white,
+                        1px  1px white;
+
+          z-index: 1;
+        }
+
+
+        button.upload-cover-photo {
+          position: absolute;
+          bottom: 0.5em;
+          left: 0.5em;
+        }
+      }
+    }
+  }
+}
