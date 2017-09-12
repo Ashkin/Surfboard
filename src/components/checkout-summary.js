@@ -114,7 +114,7 @@ class CheckoutSummary extends Component {
           className={className}
           {...field.input}
           onChange={event => { handleChange(name, event.target.checked) }}
-          value={getValue(name)}
+          checked={getValue(name)}
         />
         <span>
           I agree to the <Link to="/tos">Terms of Service</Link>.
