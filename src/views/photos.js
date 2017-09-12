@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { CloudinaryContext, Transformation, Image } from 'cloudinary-react';
 import { connect } from 'react-redux'
-import axios from 'axios'
 
 import { savePhoto } from '../actions'
 //TODO: move Cloudinary config to its own file
