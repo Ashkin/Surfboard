@@ -1,14 +1,8 @@
-module.exports = {
-  context: __dirname + '/src',
-  entry: [
-    './index.js'
-  ],
-  output: {
-    path: __dirname,
-    publicPath: '/',
-    filename: 'bundle.js'
-  },
-  devtool: 'source-map',
+const merge = require('webpack-merge')
+
+const common = require('./webpack.common.js')
+
+module.exports = merge(common, {
   module: {
     loaders: [{
       exclude: /node_modules/,
@@ -24,22 +18,15 @@ module.exports = {
           loader: "style-loader"
         }, {
           // translates CSS into CommonJS
-          loader: "css-loader?sourceMap"
+          loader: "css-loader"
         }, {
           // compiles Sass to CSS
-          loader: "sass-loader?sourceMap",
+          loader: "sass-loader",
           options: {
             includePaths: ['styles']
           }
         }]
-      }],
+      }]
     }]
-  },
-  resolve: {
-    extensions: ['.js', '.jsx']
-  },
-  devServer: {
-    historyApiFallback: true,
-    contentBase: './'
   }
-};
+})

@@ -5,9 +5,12 @@
   "main": "index.js",
   "repository": "TBD",
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "build": "NODE_ENV=production webpack --config ./webpack.prod.js --progress --colors",
+    "dev": "NODE_ENV=development node ./src/app.js",
+    "start": "NODE_ENV=production node ./src/app.js",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "dev-broken": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --open --config webpack.dev.js"
   },
   "author": "Terra Rain and Jon Gutwillig",
   "license": "TBD",
@@ -31,6 +34,7 @@
     "axios": "^0.16.2",
     "babel-preset-stage-1": "^6.24.1",
     "cloudinary-react": "^1.0.4",
+    "express": "^4.15.4",
     "lodash": "^4.17.4",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
@@ -39,6 +43,9 @@
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "redux-form": "^7.0.3",
-    "redux-promise": "^0.5.3"
+    "redux-promise": "^0.5.3",
+    "webpack-dev-middleware": "^1.12.0",
+    "webpack-hot-middleware": "^2.19.1",
+    "webpack-merge": "^4.1.0"
   }
 }
