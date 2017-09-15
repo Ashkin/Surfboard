@@ -71,6 +71,7 @@ class VenueContact extends Component {
         </header>
         <summary></summary>
         <form className="venue" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+          <Field component={this.renderField}  name="name"     handleChange={handleChange} getValue={getContactValue} required={true}  placeholder="Contact Name" />
           <Field component={this.renderField}  name="email"    handleChange={handleChange} getValue={getContactValue} required={true}  placeholder="Email Address" />
           <Field component={this.renderField}  name="url"      handleChange={handleChange} getValue={getContactValue} required={false} placeholder="Website" />
           <Field component={this.renderField}  name="phone"    handleChange={handleChange} getValue={getContactValue} required={false} placeholder="Phone Number" />
