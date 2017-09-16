@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 import PLANS                from '../config/plans'
 import classBuilder         from '../helpers/class-builder'
-import { saveCheckoutData } from '../actions'
+import { saveCheckoutData, merchantSignup } from '../actions'
 
 
 
@@ -128,6 +128,42 @@ class CheckoutSummary extends Component {
   }
 
 
+  renderSignupStatus() {
+    const { signup } = this.props
+
+    // User hasn't submitted yet.
+    if (!signup.status)
+      return undefined
+
+
+
+    if (signup.status == "pending") {
+      return (
+        <div className="signup-status pending">
+          <h3>Awesome!</h3>
+          We're signing you up. Give us a sec ~
+        </div>
+      )
+    }
+
+    //TODO: read and react to the status code
+    if (signup.status == "failure") {
+      return (
+        <div className="signup-status error">
+          <h3>Oh no!</h3>
+          There was an error submitting your information.<br/>
+          Please try again in a little while.
+        </div>
+      )
+    }
+
+    if (signup.status == "success") {
+      // redirect user to `/success`
+    }
+
+  }
+
+
   handleChange(name, val) {
     console.log(`[CheckoutSummary::handleChange] Saving checkout data: ${name}=${val}`)
     this.props.saveCheckoutData({[name]: val})
@@ -140,13 +176,14 @@ class CheckoutSummary extends Component {
     return this.props.checkout[key] || ''
   }
 
-  render() {
 
-    const { venue, contact, plans, stripe, checkout } = this.props
+
+  //TODO: cleanup
+  render() {
+    const { venue, contact, plans, stripe, checkout, signup } = this.props
 
 
     //TODO: only display error when clicking [submit]
-
     let errors = {venue: null, contact: null, plans: null, creditcard: null}
 
     // Venue
@@ -165,7 +202,7 @@ class CheckoutSummary extends Component {
 
 
     //TODO: Factor out per-section error message, e.g. "Before submitting, you must fill out the ___ section."
-    
+
 
 
     // Pluck out first error message
@@ -174,7 +211,12 @@ class CheckoutSummary extends Component {
     let buttonClasses = ['button-large']
     if (!!errorMessage)        buttonClasses.push('hidden')
     if (checkout.tos !== true) buttonClasses.push('button-disabled')
+    if (signup.status == "pending" ) buttonClasses.push('button-disabled')
     buttonClasses = buttonClasses.join(' ')
+
+    let buttonText = "Complete Signup!"
+    if (signup.status == "pending")
+      buttonText = "Submitting ..."
 
 
     const { handleSubmit } = this.props  // Magic.  comes from redux-form
@@ -199,14 +241,18 @@ class CheckoutSummary extends Component {
         </dl>
 
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-          <button type="submit" className={buttonClasses} disabled={!checkout.tos || !!errorMessage}>Complete Signup!</button>
           <Field component={this.renderTOS} name="tos" handleChange={handleChange} getValue={getCheckoutValue} />
+          <button type="submit" className={buttonClasses} disabled={!checkout.tos || !!errorMessage}>
+            { buttonText }
+          </button>
         </form>
 
         <div className={!!errorMessage ? "validation" : "hidden"}>
           <div className="title">Missing info</div>
           {errorMessage}
         </div>
+
+        {this.renderSignupStatus()}
       </section>
     )
   }
@@ -215,8 +261,18 @@ class CheckoutSummary extends Component {
 
   onSubmit(values) {
     console.log("[CheckoutForm] Submitting!")
-  }
 
+    const { venue, contact, photos, plans, stripe, checkout } = this.props
+
+    this.props.merchantSignup({
+      venue,
+      contact,
+      photos,
+      plans,
+      stripe,
+      checkout
+    })
+  }
 }
 
 
@@ -224,11 +280,14 @@ function mapStateToProps(state) {
   return {
     venue:      state.venue,
     contact:    state.contact,
+    photos:     state.photos,
     plans:      state.plans,
     stripe:     state.stripe,
-    checkout:   state.checkout
+    checkout:   state.checkout,
+    signup:     state.signup
   }
 }
+
 
 function validate(values) {
   const errors = {}
@@ -245,5 +304,5 @@ export default reduxForm({
   validate,
   form: 'CheckoutForm'
 })(
-  connect(mapStateToProps,{ saveCheckoutData /* , completeSignup */ })(CheckoutSummary)
+  connect(mapStateToProps,{ saveCheckoutData, merchantSignup })(CheckoutSummary)
 )

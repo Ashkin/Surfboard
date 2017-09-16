@@ -67,14 +67,16 @@ class VenueContact extends Component {
     return (
       <section className={classBuilder("venue-contact", this.props.className)}>
         <header>
-          <span className="filled-circle">2</span> Venue Contact Info
+          <span className="filled-circle">2</span> Venue Contact and Info
         </header>
         <summary></summary>
         <form className="venue" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <Field component={this.renderField}  name="name"     handleChange={handleChange} getValue={getContactValue} required={true}  placeholder="Contact Name" />
+          <Field component={this.renderField}  name="position" handleChange={handleChange} getValue={getContactValue} required={false} placeholder="Contact Position" />
           <Field component={this.renderField}  name="email"    handleChange={handleChange} getValue={getContactValue} required={true}  placeholder="Email Address" />
           <Field component={this.renderField}  name="url"      handleChange={handleChange} getValue={getContactValue} required={false} placeholder="Website" />
           <Field component={this.renderField}  name="phone"    handleChange={handleChange} getValue={getContactValue} required={false} placeholder="Phone Number" />
+          <Field component={this.renderField}  name="pos"      handleChange={handleChange} getValue={getContactValue} required={false} placeholder="Point-of-Sale System" />
 
           <div className="center">
             <button type="submit" className="button">Next</button>

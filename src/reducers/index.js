@@ -2,6 +2,7 @@ import { combineReducers } from 'redux'
 import { reducer as reduxFormReducer } from 'redux-form'
 
 import { ACTIONS } from '../actions'
+import signup      from './merchant-signup'
 
 
 // Basic reducer factory
@@ -32,6 +33,7 @@ const rootReducer = combineReducers({
   plans,
   stripe,
   checkout,
+  signup,
 })
 
 

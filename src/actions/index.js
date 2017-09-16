@@ -5,6 +5,11 @@ export const ACTIONS = {
   SELECT_PLAN:         'SELECT_PLAN',
   UPDATE_STRIPE_TOKEN: 'UPDATE_STRIPE_TOKEN',
   UPDATE_CHECKOUT:     'UPDATE_CHECKOUT',
+  // Merchant API Actions
+  MERCHANT_SIGNUP:         'MERCHANT_SIGNUP',
+  MERCHANT_SIGNUP_PENDING: 'MERCHANT_SIGNUP_PENDING',
+  MERCHANT_SIGNUP_SUCCESS: 'MERCHANT_SIGNUP_SUCCESS',
+  MERCHANT_SIGNUP_FAILURE: 'MERCHANT_SIGNUP_FAILURE',
 }
 
 
@@ -24,3 +29,4 @@ export function savePhoto(data={})        { return actionFactory(ACTIONS.UPDATE_
 export function selectPlan(data={})       { return actionFactory(ACTIONS.SELECT_PLAN)(data) }
 export function saveStripeToken(data={})  { return actionFactory(ACTIONS.UPDATE_STRIPE_TOKEN)(data) }
 export function saveCheckoutData(data={}) { return actionFactory(ACTIONS.UPDATE_CHECKOUT)(data) }
+export { merchantSignup } from './merchant-signup'
