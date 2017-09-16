@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
+import ReduxThunk from 'redux-thunk'
 import ReduxPromise from 'redux-promise'
 import { createStore, applyMiddleware } from 'redux'
 
@@ -16,7 +17,7 @@ import ViewCheckout from './views/checkout'
 import ViewNotFound from './views/not_found'
 
 
-const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore)
+const createStoreWithMiddleware = applyMiddleware(ReduxPromise, ReduxThunk)(createStore)
 
 
 ReactDOM.render(
