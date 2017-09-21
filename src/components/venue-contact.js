@@ -31,6 +31,9 @@ class VenueContact extends Component {
 
 
 
+  //TODO: remove this and rely on redux-form's onChange instead
+  //      this will, ofc, require reading values from
+  //      `state.form.{formName}.{inputName}` or similar
   handleChange(key, val) {
     if (["name","position"].includes(key))
       console.log(`[VenueContact::handleChange()]  key: ${key}  val: `, val)
