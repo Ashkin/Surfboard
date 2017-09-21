@@ -5,6 +5,10 @@ import { Provider } from 'react-redux'
 import ReduxThunk from 'redux-thunk'
 import ReduxPromise from 'redux-promise'
 import { createStore, applyMiddleware } from 'redux'
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+
 
 import reducers from './reducers'
 
@@ -21,19 +25,21 @@ const createStoreWithMiddleware = applyMiddleware(ReduxPromise, ReduxThunk)(crea
 
 
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
-    <BrowserRouter>
-      <div>
-        <Header />
-        <Switch>
-          <Route exact path="/"         component={ViewVenue} />
-          <Route exact path="/venue"    component={ViewVenue} />
-          <Route exact path="/photos"   component={ViewPhotos} />
-          <Route exact path="/checkout" component={ViewCheckout} />
-          <Route path="*"               component={ViewNotFound} />
-        </Switch>
-      </div>
-    </BrowserRouter> 
-  </Provider>
+  <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
+    <Provider store={createStoreWithMiddleware(reducers)}>
+      <BrowserRouter>
+        <div>
+          <Header />
+          <Switch>
+            <Route exact path="/"         component={ViewVenue} />
+            <Route exact path="/venue"    component={ViewVenue} />
+            <Route exact path="/photos"   component={ViewPhotos} />
+            <Route exact path="/checkout" component={ViewCheckout} />
+            <Route path="*"               component={ViewNotFound} />
+          </Switch>
+        </div>
+      </BrowserRouter>
+    </Provider>
+  </MuiThemeProvider>
   , document.querySelector('#iom-surfboard')
 )
