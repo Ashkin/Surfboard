@@ -16,7 +16,7 @@ class VenueContact extends Component {
       <Field
         component={renderTextField}
         name={name}
-        label={label + (required ? " (required)" : "")}
+        label={label + (required ? "" : " (optional)")}
         hint={label}
       />
     )
@@ -52,7 +52,6 @@ class VenueContact extends Component {
   handleSubmit(values) {
     console.log("[VenueContact] Submitting!")
     this.props.saveContactData(values)
-    console.log(" | Done")
     // .then(() => {
     //   this.props.complete()
     // })
@@ -84,7 +83,7 @@ function mapStateToProps(state) {
 
 
 
-let formOptions = {
+const formOptions = {
   validate,
   form: 'contact',
 }
