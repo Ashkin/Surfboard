@@ -1,68 +1,30 @@
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
-import { Link } from 'react-router-dom'
-import { connect } from 'react-redux'
+import { connect }          from 'react-redux'
 
+import { renderTextField } from '../helpers/material-ui-redux-form'
 import classBuilder        from '../helpers/class-builder'
 import { saveContactData } from '../actions'
 
 
 class VenueContact extends Component {
 
-  renderField(field) {
-    const { placeholder, required, handleChange, getValue, input: { name } } = field
-    const { touched, error } = field.meta
-
-    const type = field.type || "text"   // allow checkbox, radio, etc; default to "text"
-    const hasError = (touched && error)
-
-    // className builder
-    let  classes = []
-    if ( hasError) classes.push('error')
-    if (!required) classes.push('optional')
-    const className = classes.join(" ")
-
+  buildTextField(options) {
+    const { name, required, label } = options
 
     return (
-      <fieldset>
-        <input
-          className={className}
-          type={type}
-          placeholder={placeholder + (required ? "" : " (optional)")}
-          {...field.input}
-          onChange={event => handleChange(name, event.target.value)}
-          value={getValue(name)}
-        />
-        <aside className="error">
-          {hasError ? error.message : ''}
-        </aside>
-      </fieldset>
+      <Field
+        component={renderTextField}
+        name={name}
+        label={label + (required ? "" : " (optional)")}
+        hint={label}
+      />
     )
   }
 
 
-  onSubmit(values) {
-    console.log("[VenueContact] Submitting!")
-  }
-
-  handleChange(name, val) {
-    this.props.saveContactData({[name]: val})
-  }
-
-  getContactValue(key) {
-    // State isn't populated yet
-    if (this.props == null)  return "ohnoes"
-
-    return this.props.contact[key] || ''
-  }
-
-
-
   render() {
     const { handleSubmit } = this.props  // Magic.  comes from redux-form
-
-    const handleChange    = this.handleChange.bind(this)
-    const getContactValue = this.getContactValue.bind(this)
 
     return (
       <section className={classBuilder("venue-contact", this.props.className)}>
@@ -70,13 +32,13 @@ class VenueContact extends Component {
           <span className="filled-circle">2</span> Venue Contact and Info
         </header>
         <summary></summary>
-        <form className="venue" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-          <Field component={this.renderField}  name="name"     handleChange={handleChange} getValue={getContactValue} required={true}  placeholder="Contact Name" />
-          <Field component={this.renderField}  name="position" handleChange={handleChange} getValue={getContactValue} required={false} placeholder="Contact Position" />
-          <Field component={this.renderField}  name="email"    handleChange={handleChange} getValue={getContactValue} required={true}  placeholder="Email Address" />
-          <Field component={this.renderField}  name="url"      handleChange={handleChange} getValue={getContactValue} required={false} placeholder="Website" />
-          <Field component={this.renderField}  name="phone"    handleChange={handleChange} getValue={getContactValue} required={false} placeholder="Phone Number" />
-          <Field component={this.renderField}  name="pos"      handleChange={handleChange} getValue={getContactValue} required={false} placeholder="Point-of-Sale System" />
+        <form className="venue" onSubmit={handleSubmit(this.handleSubmit.bind(this))}>
+          { this.buildTextField({name:"name",     required:true,  label:"Contact Name"}) }
+          { this.buildTextField({name:"position", required:false, label:"Contact Position"}) }
+          { this.buildTextField({name:"email",    required:true,  label:"Email Address"}) }
+          { this.buildTextField({name:"url",      required:false, label:"Website"}) }
+          { this.buildTextField({name:"phone",    required:false, label:"Phone Number"}) }
+          { this.buildTextField({name:"pos",      required:false, label:"Point-of-Sale System"}) }
 
           <div className="center">
             <button type="submit" className="button">Next</button>
@@ -85,36 +47,49 @@ class VenueContact extends Component {
       </section>
     )
   }
+
+
+  handleSubmit(values) {
+    console.log("[VenueContact] Submitting!")
+    this.props.saveContactData(values)
+    // .then(() => {
+    //   this.props.complete()
+    // })
+  }
 }
 
 
-function addError(errors, key, message) {
-  errors[key] = { message }
-  errors.first_error = errors.first_error || key
-}
+
 
 function validate(values) {
   const errors = {}
+  const requiredFields = ['name', 'email']
 
-  if (!values.email)    addError(errors, "email",   "Please provide an email address")
+  requiredFields.forEach((field) => {
+    if (!values[field])
+      errors[field] = ' '  // Displays invalid styles without displaying a message
+  })
 
   return errors
 }
 
-
-
 function mapStateToProps(state) {
   const contact = state.contact || {}
-  return { contact }
+  const initialValues = contact
+
+  return { contact, initialValues }
 }
 
 
 
 
-
-export default reduxForm({
+const formOptions = {
   validate,
-  form: 'ContactForm'
-})(
-  connect(mapStateToProps,{ saveContactData })(VenueContact)
+  form: 'contact',
+}
+
+export default connect(
+  mapStateToProps, { saveContactData }
+)(
+  reduxForm(formOptions)(VenueContact)
 )
