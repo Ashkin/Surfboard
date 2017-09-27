@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 
 import PLANS                from '../config/plans'
 import classBuilder         from '../helpers/class-builder'
+import { renderCheckbox }   from '../helpers/material-ui-redux-form'
 import { saveCheckoutData, merchantSignup } from '../actions'
 
 
@@ -101,33 +102,6 @@ class CheckoutSummary extends Component {
   }
 
 
-
-  renderTOS(field) {
-    const { getValue, handleChange, meta: { touched, error }, input: { name } } = field
-    const hasError  = (touched && error)
-    const className = (hasError ? 'error' : '')
-
-    return (
-      <fieldset>
-        <input
-          type="checkbox"
-          className={className}
-          {...field.input}
-          onChange={event => { handleChange(name, event.target.checked) }}
-          checked={getValue(name)}
-        />
-        <span>
-          I agree to the <Link to="/tos">Terms of Service</Link>.
-        </span>
-        <br/>
-        <span className="error">
-          {hasError ? error : ''}
-        </span>
-      </fieldset>
-    )
-  }
-
-
   renderSignupStatus() {
     const { signup } = this.props
 
@@ -161,19 +135,6 @@ class CheckoutSummary extends Component {
       // redirect user to `/success`
     }
 
-  }
-
-
-  handleChange(name, val) {
-    console.log(`[CheckoutSummary::handleChange] Saving checkout data: ${name}=${val}`)
-    this.props.saveCheckoutData({[name]: val})
-  }
-
-  getCheckoutValue(key) {
-    // State isn't populated yet
-    if (this.props == null)  return "ohnoes"
-
-    return this.props.checkout[key] || ''
   }
 
 
@@ -220,9 +181,6 @@ class CheckoutSummary extends Component {
 
 
     const { handleSubmit } = this.props  // Magic.  comes from redux-form
-    const handleChange     = this.handleChange.bind(this)
-    const getCheckoutValue = this.getCheckoutValue.bind(this)
-
 
     return (
       <section className={classBuilder("checkout-summary", this.props.className)}>
@@ -234,14 +192,31 @@ class CheckoutSummary extends Component {
           prior to charging your card.
         </summary>
 
+        <p>
+          Welcome, {contact.name || "Anon"}!<br/>
+          You're the {contact.position || "big cheese"} at {venue.name || "4chan"}.<br/>
+          Good on you!
+        </p>
+
 
         <dl>
           {this.renderVenue()}
           {this.renderOrder()}
         </dl>
 
-        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-          <Field component={this.renderTOS} name="tos" handleChange={handleChange} getValue={getCheckoutValue} />
+        <form onSubmit={handleSubmit(this.handleSubmit.bind(this))}>
+          <Field
+            component={renderCheckbox}
+            id="checkout-tos"
+            name="tos"
+            label={
+              <label htmlFor="checkout-tos">
+                I agree to the <a href="//itson.me/tos" target="_blank">Terms of Service</a>.
+              </label>
+            }
+            labelStyle={{zIndex: 3}}
+          />
+
           <button type="submit" className={buttonClasses} disabled={!checkout.tos || !!errorMessage}>
             { buttonText }
           </button>
@@ -259,7 +234,7 @@ class CheckoutSummary extends Component {
 
 
 
-  onSubmit(values) {
+  handleSubmit(values) {
     console.log("[CheckoutForm] Submitting!")
 
     const { venue, contact, photos, plans, stripe, checkout } = this.props
@@ -276,7 +251,12 @@ class CheckoutSummary extends Component {
 }
 
 
+
+
 function mapStateToProps(state) {
+  console.log("[CheckoutSummary::mapStateToProps()]")
+  console.log(" | state: ", state)
+
   return {
     venue:      state.venue,
     contact:    state.contact,
@@ -300,9 +280,15 @@ function validate(values) {
 }
 
 
-export default reduxForm({
+
+
+const formOptions = {
   validate,
   form: 'CheckoutForm'
-})(
-  connect(mapStateToProps,{ saveCheckoutData, merchantSignup })(CheckoutSummary)
+}
+
+export default connect(
+  mapStateToProps, { saveCheckoutData, merchantSignup }
+)(
+  reduxForm(formOptions)(CheckoutSummary)
 )
