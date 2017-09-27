@@ -192,13 +192,6 @@ class CheckoutSummary extends Component {
           prior to charging your card.
         </summary>
 
-        <p>
-          Welcome, {contact.name || "Anon"}!<br/>
-          You're the {contact.position || "big cheese"} at {venue.name || "4chan"}.<br/>
-          Good on you!
-        </p>
-
-
         <dl>
           {this.renderVenue()}
           {this.renderOrder()}
