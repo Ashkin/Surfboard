@@ -60,42 +60,8 @@ label {
 // Inputs ------------
 
 input[type="text"], textarea {
-  font-size: 85%;
-
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid $iom-light-grey;
-  color: $iom-dark-grey;
-  background-color: $iom-light-silver;
-  box-shadow: 0.125rem 0.125rem 0.125rem $iom-silver;
-
-  &.error {
-    border-color: $danger;
-    outline-color: $danger;
-    color: $danger;
-  }
-
-  & + aside {
-    height: 1em;
-    font-size: 80%;
-
-    &.error { color: $danger; }
-  }
-}
-
-
-input[type="checkbox"] {
-  display: inline-block;
-  height: 1em;
-  margin: 0 0.5em;
-
-  // Can't really style checkboxes. :/
-
-  &.error {
-    background: $danger;
-    box-shadow: 0px 0px 1em $danger,
-                0px 0px 2em $danger;
-  }
+  //TODO: remove this and the @extend from div#card-element-wrapper in creditcard-form.scss
+  cursor: text;
 }
 
 
