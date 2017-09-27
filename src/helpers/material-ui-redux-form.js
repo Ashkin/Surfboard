@@ -15,33 +15,33 @@ export const renderTextField = ({
   input,
   hint,
   label,
-  input_value,
   meta: { touched, error },
   ...custom
-}) => {
-  // `input_value` is a hack to make `value` work
-  // since the passed `value` is always blank and
-  // I still haven't been able to figure out why.
-  return (
-    <TextField
-      hintText={hint}
-      floatingLabelText={label}
-      errorText={touched && error}
-      {...input}
-      {...custom}
-      value={input_value}
-    />
-  )
-}
+}) =>
+  <TextField
+    hintText={hint}
+    floatingLabelText={label}
+    errorText={touched && error}
+    {...input}
+    {...custom}
+  />
+
 
 
 /* <Checkbox> */
-export const renderCheckbox = ({ input, label }) =>
-  <Checkbox
-    label={label}
-    checked={input.value ? true : false}
-    onCheck={input.onChange}
-  />
+export const renderCheckbox = ({ input, label, ...custom }) => {
+  // Hack to make `labelStyle` and `id` work
+  delete custom.meta
+
+  return (
+    <Checkbox
+      label={label}
+      {...custom}
+      checked={input.value ? true : false}
+      onCheck={input.onChange}
+    />
+  )
+}
 
 
 /* <RadioGroup> */
