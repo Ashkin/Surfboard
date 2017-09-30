@@ -1,13 +1,32 @@
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { connect }          from 'react-redux'
+import Paper                from 'material-ui/Paper'
 
 import { renderTextField } from '../helpers/material-ui-redux-form'
 import classBuilder        from '../helpers/class-builder'
 import { saveVenueData }   from '../actions'
 
 
-class VenueAddress extends Component {
+class FormVenue extends Component {
+  render() {
+    return (
+      <section className={classBuilder("venue", this.props.className)}>
+        <Paper className="paper" zDepth={2}>
+          <header>
+            <span className="filled-circle">{this.props.step}</span> Venue information
+          </header>
+          <summary>
+            From which amazingly awesome venue do you hail?
+          </summary>
+
+          { this.renderForm() }
+        </Paper>
+      </section>
+    )
+  }
+
+
 
   buildTextField(options) {
     const { name, required, label } = options
@@ -16,45 +35,37 @@ class VenueAddress extends Component {
       <Field
         component={renderTextField}
         name={name}
-        label={label + (required ? "" : " (optional)")}
+        label={label + (required ? " (required)" : "")}
         hint={label}
       />
     )
   }
 
 
-  render() {
+  renderForm() {
     const { handleSubmit } = this.props  // Magic.  comes from redux-form
 
     return (
-      <section className={classBuilder("venue-address", this.props.className)}>
-        <header>
-          <span className="filled-circle">1</span> Venue Address
-        </header>
-        <summary></summary>
-        <form className="venue" onSubmit={handleSubmit(this.handleSubmit.bind(this))}>
-          { this.buildTextField({name:"name",     required:true,   label:"Venue Name"}) }
-          { this.buildTextField({name:"address",  required:true,   label:"Address"}) }
-          { this.buildTextField({name:"address2", required:false,  label:"Suite Number"}) }
-          { this.buildTextField({name:"city",     required:false,  label:"City"}) }
-          { this.buildTextField({name:"state",    required:false,  label:"State"}) }
-          { this.buildTextField({name:"zip",      required:true,   label:"Zip"}) }
+      <form className="venue" onSubmit={handleSubmit(this.handleSubmit.bind(this))}>
+        { this.buildTextField({name:"name",     required:true,   label:"Venue Name"}) }
+        { this.buildTextField({name:"address",  required:true,   label:"Address"}) }
+        { this.buildTextField({name:"address2", required:false,  label:"Suite Number"}) }
+        { this.buildTextField({name:"city",     required:false,  label:"City"}) }
+        { this.buildTextField({name:"state",    required:false,  label:"State"}) }
+        { this.buildTextField({name:"zip",      required:true,   label:"Zip"}) }
 
-          <div className="center">
-            <button type="submit" className="button">Next</button>
-          </div>
-        </form>
-      </section>
+        <div className="center">
+          <button type="button" onClick={this.props.prevStep}>Back</button>
+          <button type="submit" className="button">Next</button>
+        </div>
+      </form>
     )
   }
 
 
   handleSubmit(values) {
-    console.log("[VenueAddress] Submitting!")
     this.props.saveVenueData(values)
-    // .then(() => {
-    //   this.props.complete()
-    // })
+    this.props.nextStep()
   }
 }
 
@@ -92,5 +103,5 @@ const formOptions = {
 export default connect(
   mapStateToProps, { saveVenueData }
 )(
-  reduxForm(formOptions)(VenueAddress)
+  reduxForm(formOptions)(FormVenue)
 )

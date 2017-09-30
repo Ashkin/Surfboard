@@ -1,0 +1,18 @@
+/* View: Contact */
+
+section.contact {
+
+  form {
+    padding: 1em;
+
+    .mui-textfield {
+      // Using !important because MaterialUI uses only inline styles
+      display: block !important;
+      // Make sure controls are neither too large nor too small
+      min-width: 20rem;
+      width: 50% !important;
+      // Center them in their container.
+      margin: 0 auto;
+    }
+  }
+}

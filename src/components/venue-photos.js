@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { CloudinaryContext, Transformation, Image } from 'cloudinary-react';
 import { connect } from 'react-redux'
+import Paper from 'material-ui/Paper'
 
 import { savePhoto } from '../actions'
 //TODO: move Cloudinary config to its own file
 
 
-class ViewPhotos extends Component {
+class VenuePhotos extends Component {
 
   uploadWidget(which) {
     const { venue } = this.props
@@ -97,11 +98,15 @@ class ViewPhotos extends Component {
     const buttonClass  = (venueMissing ? 'button-disabled' : '')
 
     return (
-      <main>
-        <section className="photos">
+      <section className="photos">
+        <Paper className="paper" zDepth={2}>
           <header>
-            <span className="filled-circle">3</span> Add Cover Photo and Logo
+            <span className="filled-circle">{this.props.step}</span> Cover Photo and logo
           </header>
+          <summary>
+            A picture is worth a thousand words.<br/>
+            Represent your brand with quality, high resolution images
+          </summary>
           <CloudinaryContext cloudName="drinkboard">
             <div className="wrapper">
               <div className="aspect-wrapper aspect-ratio ratio-21-9">
@@ -128,8 +133,16 @@ class ViewPhotos extends Component {
               </div>
             </div>
           </CloudinaryContext>
-        </section>
-      </main>
+          <div className="center">
+            <button type="button" onClick={this.props.prevStep}>Back</button>
+            <button type="button" onClick={this.props.nextStep}>Next</button>
+          </div>
+        </Paper>
+
+        <Paper className="paper">
+          If you don't have professional photos right now, that's okay, too.  Take your time and set up some great shots; we'll add them when you're ready.
+        </Paper>
+      </section>
     )
   }
 }
@@ -144,4 +157,4 @@ function mapStateToProps(state) {
 }
 
 
-export default connect(mapStateToProps, { savePhoto })(ViewPhotos)
+export default connect(mapStateToProps, { savePhoto })(VenuePhotos)

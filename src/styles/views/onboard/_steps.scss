@@ -1,7 +1,18 @@
+.step {
+  min-width: 30rem;
+  width: 75%;
+
+  margin: 0 auto;
+
+  .paper {
+    padding: 1em;
+    margin-bottom: 1em;
+  }
+
+}
+
 
 section {
-  float: left;
-  width: 100%;
   text-align: center;
 
   &.col-2 { width: 50%; }
@@ -21,10 +32,9 @@ section {
   summary {
     width: 85%;
     margin: 0 auto;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     font-weight: bold;
-    min-height: 3rem;
+    min-height: 2rem;
   }
 
 }
-

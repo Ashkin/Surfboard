@@ -16,23 +16,23 @@ const reducerFactory = function(actionConst, defaultState={}) {
 }
 
 // Basic reduers
+const onboard  = reducerFactory(ACTIONS.SET_STEP)
 const venue    = reducerFactory(ACTIONS.UPDATE_VENUE)
 const contact  = reducerFactory(ACTIONS.UPDATE_CONTACT)
 const photos   = reducerFactory(ACTIONS.UPDATE_PHOTO)
 const plans    = reducerFactory(ACTIONS.SELECT_PLAN)
 const stripe   = reducerFactory(ACTIONS.UPDATE_STRIPE_TOKEN)
-const checkout = reducerFactory(ACTIONS.UPDATE_CHECKOUT)
 
 
 
 const rootReducer = combineReducers({
+  onboard,
   form:  reduxFormReducer,
   venue,
   contact,
   photos,
   plans,
   stripe,
-  checkout,
   signup,
 })
 

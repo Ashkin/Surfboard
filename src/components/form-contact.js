@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { connect }          from 'react-redux'
-// import Paper                from 'material-ui/Paper'
+import Paper                from 'material-ui/Paper'
 
 import { renderTextField }  from '../helpers/material-ui-redux-form'
 import classBuilder         from '../helpers/class-builder'
@@ -12,14 +12,17 @@ class FormContact extends Component {
   render() {
     return (
       <section className={classBuilder("contact", this.props.className)}>
-        <summary>
-          Please fill out your contact information
-        </summary>
+        <Paper className="paper" zDepth={2}>
+          <header>
+            <span className="filled-circle">{this.props.step}</span> Contact information
+          </header>
+          <summary>
+            Who will be our main contact for your team?
+          </summary>
 
-        { this.renderForm() }
+          { this.renderForm() }
+        </Paper>
       </section>
-
-      <aside>Copy placeholder</aside>
     )
   }
 
@@ -32,7 +35,7 @@ class FormContact extends Component {
       <Field
         component={renderTextField}
         name={name}
-        label={label + (required ? "" : " (optional)")}
+        label={label + (required ? " (required)" : "")}
         hint={label}
       />
     )
@@ -52,6 +55,7 @@ class FormContact extends Component {
         { this.buildTextField({name:"pos",      required:false, label:"Point-of-Sale System"}) }
 
         <div className="center">
+          <button type="button" onClick={this.props.prevStep}>Back</button>
           <button type="submit" className="button">Next</button>
         </div>
       </form>
@@ -60,11 +64,8 @@ class FormContact extends Component {
 
 
   handleSubmit(values) {
-    console.log("[VenueContact] Submitting!")
     this.props.saveContactData(values)
-    // .then(() => {
-    //   this.props.complete()
-    // })
+    this.props.nextStep()
   }
 }
 

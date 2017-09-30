@@ -15,9 +15,8 @@ import reducers from './reducers'
 require('./styles/main.scss')
 
 import Header from './views/partials/header'
-import ViewVenue from './views/venue'
-import ViewPhotos from './views/photos'
-import ViewCheckout from './views/checkout'
+import Background from './views/partials/background'
+import ViewOnboard from './views/onboard'
 import ViewNotFound from './views/not_found'
 
 
@@ -30,11 +29,9 @@ ReactDOM.render(
       <BrowserRouter>
         <div>
           <Header />
+          <Background />
           <Switch>
-            <Route exact path="/"         component={ViewVenue} />
-            <Route exact path="/venue"    component={ViewVenue} />
-            <Route exact path="/photos"   component={ViewPhotos} />
-            <Route exact path="/checkout" component={ViewCheckout} />
+            <Route exact path="/"         component={ViewOnboard} />
             <Route path="*"               component={ViewNotFound} />
           </Switch>
         </div>
