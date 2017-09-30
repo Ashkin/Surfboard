@@ -1,6 +1,8 @@
 /* View: Header */
 
 header.site {
+  display: flex;
+
   height: 6.5em;
   background: $iom-dark-silver;
 
@@ -9,9 +11,11 @@ header.site {
   box-shadow: 0px 1px 2px $iom-grey;
   z-index: 1;
 
+
   .logo {
-    float: left;
-    width: 300px;
+    // Left-most, and fixed size
+    flex: 0 0 calc(300px + 1em);
+
     height: 6.5em;
     margin: 0 0.5em;
     text-align: center;
@@ -22,44 +26,16 @@ header.site {
     background-position: left center;
   }
 
-  nav {
-    display: block;
-    width: calc(100% - 300px);
+
+  .title {
+    // Fill the remainder of the header
+    flex: 20 0 10rem;
+    // Proper height and sizing
+    height: 6.5rem;
+    line-height: 6.5rem;
+
     text-align: center;
-
-    & > hr {
-      display: inline-block;
-      width: 5em;
-      height: 2px;
-      margin: 2em 0;
-      background: white;
-    }
-
-    .item {
-      display: inline-block;
-      width: 6.5em;
-      color: $iom-light-silver;
-      text-decoration: none;
-
-      &:hover {
-        color: $iom-blue;
-
-        img { filter: invert(0%); }
-      }
-
-      img {
-        display: block;
-        width: 3em;
-        height: 3em;
-        margin: 1.5em auto 0;
-        filter: invert(100%);
-      }
-
-      span {
-        width: 6.5em;
-      }
-    }
+    font-size: 3em;
+    color: white;
   }
-
-
 }
