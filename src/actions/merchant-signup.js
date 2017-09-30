@@ -41,7 +41,7 @@ export function merchantSignup(data) {
           venue_url: data.contact.url,
           email: data.contact.email,
           phone: data.contact.phone,
-          point_of_sale_system: data.contact.pos,
+          point_of_sale_system: data.contact.pos || 'Surfboard',  // Required by the backend
           // message: '',
 
           // but it will store everything else, too
