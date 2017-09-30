@@ -12,8 +12,10 @@
 
 /*** Top-level Styling ***/
 body, html {
+  // Full height!
+  height: 100%;
+
   font-family: $iom-font-normal;
-  background: linear-gradient(to right, $site-gradient-color, transparent, $site-gradient-color)
 }
 
 
@@ -23,11 +25,19 @@ body, html {
 
 /*** Main page ***/
 @import 'header';
+@import 'background';
 @import 'http-errors';
 
 
 /*** Views ***/
-@import 'partials/views';
-@import 'views/venue';
-@import 'views/photos';
-@import 'views/checkout';
+@import 'views/onboard';
+
+
+/*** Onboard Steps ***/
+@import 'views/onboard/steps';
+@import 'views/onboard/venue';
+@import 'views/onboard/contact';
+@import 'views/onboard/photos';
+@import 'views/onboard/plans';
+@import 'views/onboard/form-creditcard';
+@import 'views/onboard/checkout-summary';

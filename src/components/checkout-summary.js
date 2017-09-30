@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { Field, reduxForm } from 'redux-form'
+import { Field, reduxForm, formValueSelector } from 'redux-form'
 import { connect } from 'react-redux'
+import Paper from 'material-ui/Paper'
 
 import PLANS                from '../config/plans'
 import classBuilder         from '../helpers/class-builder'
 import { renderCheckbox }   from '../helpers/material-ui-redux-form'
-import { saveCheckoutData, merchantSignup } from '../actions'
+import { merchantSignup } from '../actions'
 
 
 
@@ -31,7 +32,6 @@ class CheckoutSummary extends Component {
       )
     }
 
-    console.log("[CheckoutSummary::renderVenue]  Rendering venue")
     return (
       <div className="venue">
         <dt>Venue</dt>
@@ -132,7 +132,7 @@ class CheckoutSummary extends Component {
     }
 
     if (signup.status == "success") {
-      // redirect user to `/success`
+      this.props.nextStep()
     }
 
   }
@@ -169,9 +169,9 @@ class CheckoutSummary extends Component {
     // Pluck out first error message
     const errorMessage = (errors.venue || errors.contact || errors.plans || errors.stripe)
 
-    let buttonClasses = ['button-large']
-    if (!!errorMessage)        buttonClasses.push('hidden')
-    if (checkout.tos !== true) buttonClasses.push('button-disabled')
+    let buttonClasses = []
+    if (!!errorMessage)              buttonClasses.push('hidden')
+    if (checkout.tos !== true)       buttonClasses.push('button-disabled')
     if (signup.status == "pending" ) buttonClasses.push('button-disabled')
     buttonClasses = buttonClasses.join(' ')
 
@@ -184,52 +184,55 @@ class CheckoutSummary extends Component {
 
     return (
       <section className={classBuilder("checkout-summary", this.props.className)}>
-        <header>
-          <span className="filled-circle">6</span> Checkout
-        </header>
-        <summary>
-          We will confirm everything with you by email<br/>
-          prior to charging your card.
-        </summary>
+        <Paper className="paper" zDepth={2}>
+          <header>
+            <span className="filled-circle">{this.props.step}</span> Checkout
+          </header>
+          <summary>
+            We will confirm everything with you by email<br/>
+            prior to charging your card.
+          </summary>
 
-        <dl>
-          {this.renderVenue()}
-          {this.renderOrder()}
-        </dl>
+          <dl>
+            {this.renderVenue()}
+            {this.renderOrder()}
+          </dl>
 
-        <form onSubmit={handleSubmit(this.handleSubmit.bind(this))}>
-          <Field
-            component={renderCheckbox}
-            id="checkout-tos"
-            name="tos"
-            label={
-              <label htmlFor="checkout-tos">
-                I agree to the <a href="//itson.me/tos" target="_blank">Terms of Service</a>.
-              </label>
-            }
-            labelStyle={{zIndex: 3}}
-          />
+          <form onSubmit={handleSubmit(this.handleSubmit.bind(this))}>
+            <Field
+              component={renderCheckbox}
+              id="checkout-tos"
+              name="tos"
+              label={
+                <label htmlFor="checkout-tos">
+                  I agree to the <a href="//itson.me/tos" target="_blank">Terms of Service</a>.
+                </label>
+              }
+              labelStyle={{zIndex: 3}}
+            />
 
-          <button type="submit" className={buttonClasses} disabled={!checkout.tos || !!errorMessage}>
-            { buttonText }
-          </button>
-        </form>
 
-        <div className={!!errorMessage ? "validation" : "hidden"}>
-          <div className="title">Missing info</div>
-          {errorMessage}
-        </div>
+            <div className="center">
+              <button type="button" onClick={this.props.prevStep}>Back</button>
+              <button type="submit" className={buttonClasses} disabled={!checkout.tos || !!errorMessage}>
+                { buttonText }
+              </button>
+            </div>
+          </form>
 
-        {this.renderSignupStatus()}
+          <div className={!!errorMessage ? "validation" : "hidden"}>
+            <div className="title">Missing info</div>
+            {errorMessage}
+          </div>
+
+          {this.renderSignupStatus()}
+        </Paper>
       </section>
     )
   }
 
 
-
   handleSubmit(values) {
-    console.log("[CheckoutForm] Submitting!")
-
     const { venue, contact, photos, plans, stripe, checkout } = this.props
 
     this.props.merchantSignup({
@@ -247,8 +250,7 @@ class CheckoutSummary extends Component {
 
 
 function mapStateToProps(state) {
-  console.log("[CheckoutSummary::mapStateToProps()]")
-  console.log(" | state: ", state)
+  const selector = formValueSelector('CheckoutForm')
 
   return {
     venue:      state.venue,
@@ -256,32 +258,19 @@ function mapStateToProps(state) {
     photos:     state.photos,
     plans:      state.plans,
     stripe:     state.stripe,
-    checkout:   state.checkout,
+    checkout:   { tos: selector(state, 'tos') },
     signup:     state.signup
   }
 }
 
 
-function validate(values) {
-  const errors = {}
-
-  if (values.tos !== true) {
-    errors.tos = "You must agree to the Terms of Service"
-  }
-
-  return errors;
-}
-
-
-
 
 const formOptions = {
-  validate,
   form: 'CheckoutForm'
 }
 
 export default connect(
-  mapStateToProps, { saveCheckoutData, merchantSignup }
+  mapStateToProps, { merchantSignup }
 )(
   reduxForm(formOptions)(CheckoutSummary)
 )

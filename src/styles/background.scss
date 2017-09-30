@@ -1,0 +1,11 @@
+/* View: Background */
+
+img.site.background {
+  position: fixed;
+  top: 0vh;
+  left: 0vh;
+  min-height: 60rem;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+}

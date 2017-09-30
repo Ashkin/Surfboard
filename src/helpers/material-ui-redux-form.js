@@ -9,6 +9,8 @@ import { RadioButton,
 import Checkbox             from 'material-ui/Checkbox'
 import SelectField          from 'material-ui/SelectField'
 
+import classBuilder         from '../helpers/class-builder'
+
 
 /* <TextField> */
 export const renderTextField = ({
@@ -24,6 +26,7 @@ export const renderTextField = ({
     errorText={touched && error}
     {...input}
     {...custom}
+    className={classBuilder("mui-textfield", input.className, custom.className)}
   />
 
 

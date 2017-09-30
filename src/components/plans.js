@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import Paper from 'material-ui/Paper'
 
 import PLANS          from '../config/plans'
 import classBuilder   from '../helpers/class-builder'
@@ -74,18 +75,41 @@ class Plans extends Component {
   }
 
 
+  renderNextButton() {
+    const { selectedPlan } = this.props.plans
+
+    if (selectedPlan == null) {
+      return <button className="button-disabled">Next</button>
+    }
+
+    return <button onClick={this.props.nextStep}>Next</button>
+  }
+
+
+
   render() {
+    // The world's first on-demand gift card program with zero financial risk
     return (
       <section className={classBuilder("plans", this.props.className)}>
-        <header>
-          <span className="filled-circle">4</span> Pick a Plan
-        </header>
-        <summary>
-          The world's first on-demand gift card program with zero financial risk
-        </summary>
-        <ul>
-          { this.renderPlans() }
-        </ul>
+        <Paper className="paper" zDepth={2}>
+          <header>
+            <span className="filled-circle">{this.props.step}</span> Choose a Plan
+          </header>
+          <summary>
+            Pay monthly or yearly?<br/>
+            Yearly's cheaper ~
+          </summary>
+          <ul>
+            { this.renderPlans() }
+          </ul>
+          <div className="center">
+            <button type="button" onClick={this.props.prevStep}>Back</button>
+            { this.renderNextButton() }
+          </div>
+        </Paper>
+        <Paper className="paper">
+          Need help? Text 310.235.3835 for immediate assistance, or email <a href="mailto:sales@itson.me" target="_blank">sales@itson.me</a>
+        </Paper>
       </section>
     )
   }
