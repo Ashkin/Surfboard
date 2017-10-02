@@ -78,7 +78,7 @@ class ViewOnboard extends Component {
           <Step><StepLabel>Contact</StepLabel></Step>
           <Step><StepLabel>Photos</StepLabel></Step>
           <Step><StepLabel>Plans</StepLabel></Step>
-          <Step><StepLabel>Stripe</StepLabel></Step>
+          <Step><StepLabel>Billing</StepLabel></Step>
           <Step><StepLabel>Checkout</StepLabel></Step>
         </Stepper>
       </Paper>
