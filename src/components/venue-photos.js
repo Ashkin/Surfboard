@@ -105,7 +105,7 @@ class VenuePhotos extends Component {
           </header>
           <summary>
             A picture is worth a thousand words.<br/>
-            Represent your brand with quality, high resolution images
+            Be sure to represent your brand with quality, high resolution images.
           </summary>
           <CloudinaryContext cloudName="drinkboard">
             <div className="wrapper">
