@@ -1,0 +1,27 @@
+/* Step: Welcome */
+
+section.welcome {
+
+  .paper.item {
+
+    aside {
+      padding-top: 0.5em;
+      border-top: 1px solid $iom-silver;
+      font-size: 0.85em;
+      color: $iom-grey;
+
+      transition: border-top-color 0.75s, color 0.75s;
+    }
+
+
+    &:hover {
+
+      aside {
+        border-top-color: $iom-blue;
+        color: black;
+
+        transition: border-top-color 0.75s, color 0.75s;
+      }
+    }
+  }
+}
