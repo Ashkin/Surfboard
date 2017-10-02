@@ -91,7 +91,7 @@ class FormCreditcard extends Component {
             <span className="filled-circle">{this.props.step}</span> Billing
           </header>
           <summary>
-            Creditcard Information<br/>
+            Credit Card Information<br/>
             (We let Stripe handle this part)
           </summary>
 
@@ -108,7 +108,7 @@ class FormCreditcard extends Component {
               </div>
             </div>
             <aside>
-              Creditcard information is handled exclusively by Stripe, Inc.<br/>
+              Credit card information is handled exclusively by Stripe, Inc.<br/>
               ItsOnMe never stores (or even sees) any of this data.
             </aside>
 
