@@ -16,9 +16,7 @@ class FormVenue extends Component {
           <header>
             <span className="filled-circle">{this.props.step}</span> Venue information
           </header>
-          <summary>
-            From which amazingly awesome venue do you hail?
-          </summary>
+          <summary></summary>
 
           { this.renderForm() }
         </Paper>
