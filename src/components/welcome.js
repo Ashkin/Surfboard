@@ -53,7 +53,7 @@ const Welcome = ({nextStep}) => {
           </div>
         </article>
 
-        <button onClick={nextStep}>Next</button>
+        <button onClick={nextStep}>Begin Signup</button>
       </Paper>
     </section>
   )

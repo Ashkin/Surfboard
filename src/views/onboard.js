@@ -72,7 +72,7 @@ class ViewOnboard extends Component {
     const { activeStep } = this.props
 
     return (
-      <Paper className="stepper paper" zDepth={3}>
+      <Paper className="stepper paper" zDepth={3} rounded={false}>
         <Stepper activeStep={activeStep}>
           <Step><StepLabel>Venue</StepLabel></Step>
           <Step><StepLabel>Contact</StepLabel></Step>

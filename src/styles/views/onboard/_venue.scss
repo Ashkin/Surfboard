@@ -14,5 +14,16 @@ section.venue {
       // Center them in their container.
       margin: 0 auto;
     }
+
+    .group-title {
+      width: 50%;
+      margin: 0 auto;
+      text-align: left;
+
+      aside {
+        font-size: 0.85em;
+        color: $iom-silver;
+      }
+    }
   }
 }
