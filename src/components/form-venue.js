@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Field, reduxForm } from 'redux-form'
+import { Field, reduxForm, formValueSelector } from 'redux-form'
 import { connect }          from 'react-redux'
 import Paper                from 'material-ui/Paper'
 
@@ -27,14 +27,9 @@ class FormVenue extends Component {
 
 
   buildTextField(options) {
-    const { name, required, multiLine } = options
+    const { name, required, multiLine, maxChars } = options
     let   { label, hint }   = options
     let   { rows, rowsMax } = options
-
-    // Set label and hint
-    hint = hint || label
-    if (required)
-      label += " (required)"
 
     // Fix the floating label styling for generated MUI <textarea>s
     let floatingLabelStyle = null
@@ -44,9 +39,24 @@ class FormVenue extends Component {
       hintStyle          = {fontSize: '0.8em', textAlign: 'justify'}
     }
 
+    // Handle field length
+    let charCount = null
+    if (maxChars) {
+      // Extract the field's value from redux-form's state
+      const fieldValue = this.props.getFieldValue(name) || ''  // undefined -> ''
+
+      charCount = fieldValue.length
+      label += ` (chars: ${charCount}/${maxChars})`
+    }
+
     // Set default row values for multiLine
     rows    = rows    || (multiLine ? 2 : undefined)
     rowsMax = rowsMax || undefined
+
+    // Set label and hint
+    hint = hint || label
+    if (required)
+      label += " (required)"
 
 
     return (
@@ -89,14 +99,15 @@ class FormVenue extends Component {
         { this.buildTextField({name:"zinger",
           required:true, multiLine:true,
           label:"One-line description, aka 'Zinger'",
-          hint:"(90 characters or less)  American-Vietnamese comfort plates paired with wine & cocktails in a casual, modern space"})
-        }
+          hint:"(90 characters or less)  American-Vietnamese comfort plates paired with wine & cocktails in a casual, modern space",
+          maxChars:90
+        })}
         { this.buildTextField({name:"description",
           required:true, multiLine:true,
           label:"Long description",
           hint:"(500 characters or less)  The owners Cathy & Jon opened this restaurant to honor their mother’s cooking. Since their opening in 2014, they have made the commitment to offering traditional dishes with flavors reminiscent of those you would find in the homes and on the streets of Vietnam. Dedicated to using the freshest ingredients including pasture-raised chickens, cage-free eggs, and the finest cuts of beef, guests will experience distinctly developed fresh and unique Vietnamese flavors.",
-          rows:6, rowsMax:6})
-        }
+          maxChars:500, rows:6, rowsMax:6,
+        })}
 
         <div className="center">
           <button type="button" onClick={this.props.prevStep}>Back</button>
@@ -119,9 +130,16 @@ class FormVenue extends Component {
 function validate(values) {
   const errors = {}
   const requiredFields = ['name', 'address', 'zip', 'zinger', 'description']
+  const maxFieldLengths = {zinger: 90, description: 500}
 
   requiredFields.forEach((field) => {
     if (!values[field])
+      errors[field] = ' '  // Displays invalid styles without displaying a message
+  })
+
+  Object.keys(maxFieldLengths).forEach((field) => {
+    if (!values[field]) return
+    if ( values[field].length > maxFieldLengths[field])
       errors[field] = ' '  // Displays invalid styles without displaying a message
   })
 
@@ -134,7 +152,11 @@ function mapStateToProps(state) {
   const venue = state.venue || {}
   const initialValues = venue
 
-  return { venue, initialValues }
+  // Allow extracting the values from the state for character counts
+  const selector = formValueSelector('venue')
+  const getFieldValue = (name) => selector(state, name)
+
+  return { venue, initialValues, getFieldValue }
 }
 
 
