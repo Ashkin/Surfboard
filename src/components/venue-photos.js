@@ -139,7 +139,7 @@ class VenuePhotos extends Component {
           </div>
         </Paper>
 
-        <Paper className="paper">
+        <Paper className="paper help-text">
           If you don't have professional photos right now, that's okay, too.  Take your time and set up some great shots; we'll add them when you're ready.
         </Paper>
       </section>

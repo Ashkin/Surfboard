@@ -107,7 +107,7 @@ class Plans extends Component {
             { this.renderNextButton() }
           </div>
         </Paper>
-        <Paper className="paper">
+        <Paper className="paper help-text">
           Need help? Text 310.235.3835 for immediate assistance, or email <a href="mailto:sales@itson.me" target="_blank">sales@itson.me</a>
         </Paper>
       </section>
