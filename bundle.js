@@ -79966,18 +79966,15 @@ var FormVenue = function (_Component) {
     value: function buildTextField(options) {
       var name = options.name,
           required = options.required,
-          multiLine = options.multiLine;
+          multiLine = options.multiLine,
+          maxChars = options.maxChars;
       var label = options.label,
           hint = options.hint;
       var rows = options.rows,
           rowsMax = options.rowsMax;
 
-      // Set label and hint
-
-      hint = hint || label;
-      if (required) label += " (required)";
-
       // Fix the floating label styling for generated MUI <textarea>s
+
       var floatingLabelStyle = null;
       var hintStyle = null;
       if (multiLine) {
@@ -79985,9 +79982,23 @@ var FormVenue = function (_Component) {
         hintStyle = { fontSize: '0.8em', textAlign: 'justify' };
       }
 
+      // Handle field length
+      var charCount = null;
+      if (maxChars) {
+        // Extract the field's value from redux-form's state
+        var fieldValue = this.props.getFieldValue(name) || ''; // undefined -> ''
+
+        charCount = fieldValue.length;
+        label += ' (chars: ' + charCount + '/' + maxChars + ')';
+      }
+
       // Set default row values for multiLine
       rows = rows || (multiLine ? 2 : undefined);
       rowsMax = rowsMax || undefined;
+
+      // Set label and hint
+      hint = hint || label;
+      if (required) label += " (required)";
 
       return _react2.default.createElement(_reduxForm.Field, {
         component: _materialUiReduxForm.renderTextField,
@@ -80037,12 +80048,15 @@ var FormVenue = function (_Component) {
         this.buildTextField({ name: "zinger",
           required: true, multiLine: true,
           label: "One-line description, aka 'Zinger'",
-          hint: "(90 characters or less)  American-Vietnamese comfort plates paired with wine & cocktails in a casual, modern space" }),
+          hint: "(90 characters or less)  American-Vietnamese comfort plates paired with wine & cocktails in a casual, modern space",
+          maxChars: 90
+        }),
         this.buildTextField({ name: "description",
           required: true, multiLine: true,
           label: "Long description",
           hint: "(500 characters or less)  The owners Cathy & Jon opened this restaurant to honor their mother’s cooking. Since their opening in 2014, they have made the commitment to offering traditional dishes with flavors reminiscent of those you would find in the homes and on the streets of Vietnam. Dedicated to using the freshest ingredients including pasture-raised chickens, cage-free eggs, and the finest cuts of beef, guests will experience distinctly developed fresh and unique Vietnamese flavors.",
-          rows: 6, rowsMax: 6 }),
+          maxChars: 500, rows: 6, rowsMax: 6
+        }),
         _react2.default.createElement(
           'div',
           { className: 'center' },
@@ -80073,9 +80087,15 @@ var FormVenue = function (_Component) {
 function validate(values) {
   var errors = {};
   var requiredFields = ['name', 'address', 'zip', 'zinger', 'description'];
+  var maxFieldLengths = { zinger: 90, description: 500 };
 
   requiredFields.forEach(function (field) {
     if (!values[field]) errors[field] = ' '; // Displays invalid styles without displaying a message
+  });
+
+  Object.keys(maxFieldLengths).forEach(function (field) {
+    if (!values[field]) return;
+    if (values[field].length > maxFieldLengths[field]) errors[field] = ' '; // Displays invalid styles without displaying a message
   });
 
   return errors;
@@ -80085,7 +80105,13 @@ function mapStateToProps(state) {
   var venue = state.venue || {};
   var initialValues = venue;
 
-  return { venue: venue, initialValues: initialValues };
+  // Allow extracting the values from the state for character counts
+  var selector = (0, _reduxForm.formValueSelector)('venue');
+  var getFieldValue = function getFieldValue(name) {
+    return selector(state, name);
+  };
+
+  return { venue: venue, initialValues: initialValues, getFieldValue: getFieldValue };
 }
 
 var formOptions = {
