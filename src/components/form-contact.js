@@ -50,9 +50,7 @@ class FormContact extends Component {
         { this.buildTextField({name:"name",     required:true,  label:"Contact Name"}) }
         { this.buildTextField({name:"position", required:false, label:"Contact Position"}) }
         { this.buildTextField({name:"email",    required:true,  label:"Email Address"}) }
-        { this.buildTextField({name:"url",      required:false, label:"Website"}) }
         { this.buildTextField({name:"phone",    required:false, label:"Phone Number"}) }
-        { this.buildTextField({name:"pos",      required:false, label:"Point-of-Sale System"}) }
 
         <div className="center">
           <button type="button" onClick={this.props.prevStep}>Back</button>

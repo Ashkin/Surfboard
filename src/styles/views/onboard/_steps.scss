@@ -38,3 +38,13 @@ section {
   }
 
 }
+
+
+
+.paper.help-text {
+  text-align: justify;
+  font-size: 0.9em;
+
+  // Override MUI's inline styles
+  color: $iom-dark-blue  !important;
+}

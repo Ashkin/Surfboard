@@ -5,7 +5,7 @@ section.venue {
   form {
     padding: 1em;
 
-    .mui-textfield {
+    .mui-textfield, .mui-textarea {
       // Using !important because MaterialUI uses only inline styles
       display: block !important;
       // Make sure controls are neither too large nor too small
