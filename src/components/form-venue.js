@@ -20,19 +20,6 @@ class FormVenue extends Component {
 
           { this.renderForm() }
         </Paper>
-
-        <Paper className="paper help-text">
-          <p>
-            The Zinger text can be anything like "We've got the strongest drinks in town!",
-            whereas the long description goes into much greater detail, telling the prospective
-            customer what they should expect and why they should choose your venue.
-            Good descriptions include the style of cuisine, the ambience, and anything noteworthy
-            about your establishment (well-known chef, Michelin stars, etc.).  Be creative and descriptive!
-          </p>
-          <p>
-            Remember, you will be able to change these at any time.
-          </p>
-        </Paper>
       </section>
     )
   }
@@ -43,7 +30,6 @@ class FormVenue extends Component {
     const { name, required, multiLine } = options
     let   { label, hint }   = options
     let   { rows, rowsMax } = options
-    let floatingLabelStyle = null
 
     // Set label and hint
     hint = hint || label
@@ -51,8 +37,12 @@ class FormVenue extends Component {
       label += " (required)"
 
     // Fix the floating label styling for generated MUI <textarea>s
-    if (multiLine)
+    let floatingLabelStyle = null
+    let hintStyle          = null
+    if (multiLine) {
       floatingLabelStyle = {width: '100%', left: '0px', textAlign: 'left'}
+      hintStyle          = {fontSize: '0.8em', textAlign: 'justify'}
+    }
 
     // Set default row values for multiLine
     rows    = rows    || (multiLine ? 2 : undefined)
@@ -69,6 +59,7 @@ class FormVenue extends Component {
         label={label}
         hint={hint}
         floatingLabelStyle={floatingLabelStyle}
+        hintStyle={hintStyle}
       />
     )
   }
@@ -89,8 +80,23 @@ class FormVenue extends Component {
         { this.buildTextField({name:"url",      required:false,  label:"Website"}) }
         { this.buildTextField({name:"pos",      required:false,  label:"Point-of-Sale System"}) }
 
-        { this.buildTextField({name:"zinger",      required:true, multiLine:true, label:"One-line description, aka 'Zinger'", hint:"One-line description, aka 'Zinger' (90 characters or less)"}) }
-        { this.buildTextField({name:"description", required:true, multiLine:true, label:"Long description",                   hint:"Long description (500 characters or less)"}) }
+        <br/><br/><br/>
+        <div className="group-title">
+          <strong>Venue Descriptions</strong>
+          <aside>Remember, you will be able to change these at any time.</aside>
+        </div>
+
+        { this.buildTextField({name:"zinger",
+          required:true, multiLine:true,
+          label:"One-line description, aka 'Zinger'",
+          hint:"(90 characters or less)  American-Vietnamese comfort plates paired with wine & cocktails in a casual, modern space"})
+        }
+        { this.buildTextField({name:"description",
+          required:true, multiLine:true,
+          label:"Long description",
+          hint:"(500 characters or less)  The owners Cathy & Jon opened this restaurant to honor their mother’s cooking. Since their opening in 2014, they have made the commitment to offering traditional dishes with flavors reminiscent of those you would find in the homes and on the streets of Vietnam. Dedicated to using the freshest ingredients including pasture-raised chickens, cage-free eggs, and the finest cuts of beef, guests will experience distinctly developed fresh and unique Vietnamese flavors.",
+          rows:4, rowsMax:6})
+        }
 
         <div className="center">
           <button type="button" onClick={this.props.prevStep}>Back</button>
