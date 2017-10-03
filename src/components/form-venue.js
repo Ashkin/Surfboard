@@ -20,6 +20,19 @@ class FormVenue extends Component {
 
           { this.renderForm() }
         </Paper>
+
+        <Paper className="paper help-text">
+          <p>
+            The Zinger text can be anything like "We've got the strongest drinks in town!",
+            whereas the long description goes into much greater detail, telling the prospective
+            customer what they should expect and why they should choose your venue.
+            Good descriptions include the style of cuisine, the ambience, and anything noteworthy
+            about your establishment (well-known chef, Michelin stars, etc.).  Be creative and descriptive!
+          </p>
+          <p>
+            Remember, you will be able to change these at any time.
+          </p>
+        </Paper>
       </section>
     )
   }
@@ -27,17 +40,39 @@ class FormVenue extends Component {
 
 
   buildTextField(options) {
-    const { name, required, label } = options
+    const { name, required, multiLine } = options
+    let   { label, hint }   = options
+    let   { rows, rowsMax } = options
+    let floatingLabelStyle = null
+
+    // Set label and hint
+    hint = hint || label
+    if (required)
+      label += " (required)"
+
+    // Fix the floating label styling for generated MUI <textarea>s
+    if (multiLine)
+      floatingLabelStyle = {width: '100%', left: '0px', textAlign: 'left'}
+
+    // Set default row values for multiLine
+    rows    = rows    || (multiLine ? 2 : undefined)
+    rowsMax = rowsMax || undefined
+
 
     return (
       <Field
         component={renderTextField}
         name={name}
-        label={label + (required ? " (required)" : "")}
-        hint={label}
+        multiLine={multiLine}
+        rows={rows}
+        rowsMax={rowsMax}
+        label={label}
+        hint={hint}
+        floatingLabelStyle={floatingLabelStyle}
       />
     )
   }
+
 
 
   renderForm() {
@@ -51,6 +86,11 @@ class FormVenue extends Component {
         { this.buildTextField({name:"city",     required:false,  label:"City"}) }
         { this.buildTextField({name:"state",    required:false,  label:"State"}) }
         { this.buildTextField({name:"zip",      required:true,   label:"Zip"}) }
+        { this.buildTextField({name:"url",      required:false,  label:"Website"}) }
+        { this.buildTextField({name:"pos",      required:false,  label:"Point-of-Sale System"}) }
+
+        { this.buildTextField({name:"zinger",      required:true, multiLine:true, label:"One-line description, aka 'Zinger'", hint:"One-line description, aka 'Zinger' (90 characters or less)"}) }
+        { this.buildTextField({name:"description", required:true, multiLine:true, label:"Long description",                   hint:"Long description (500 characters or less)"}) }
 
         <div className="center">
           <button type="button" onClick={this.props.prevStep}>Back</button>
@@ -72,7 +112,7 @@ class FormVenue extends Component {
 
 function validate(values) {
   const errors = {}
-  const requiredFields = ['name', 'address', 'zip', 'phone', 'email']
+  const requiredFields = ['name', 'address', 'zip', 'zinger', 'description']
 
   requiredFields.forEach((field) => {
     if (!values[field])

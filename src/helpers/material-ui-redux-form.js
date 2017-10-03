@@ -19,15 +19,20 @@ export const renderTextField = ({
   label,
   meta: { touched, error },
   ...custom
-}) =>
-  <TextField
-    hintText={hint}
-    floatingLabelText={label}
-    errorText={touched && error}
-    {...input}
-    {...custom}
-    className={classBuilder("mui-textfield", input.className, custom.className)}
-  />
+}) => {
+  const muiClassName = (!!custom.multiLine ? "mui-textarea" : "mui-textfield")
+
+  return (
+    <TextField
+      hintText={hint}
+      floatingLabelText={label}
+      errorText={touched && error}
+      {...input}
+      {...custom}
+      className={classBuilder(muiClassName, input.className, custom.className)}
+    />
+  )
+}
 
 
 

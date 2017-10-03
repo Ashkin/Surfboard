@@ -20,6 +20,12 @@ const Welcome = ({nextStep}) => {
             Your venue's name and address
           </Paper>
           <Paper className="paper item">
+            A short one-liner, and a longer venue description
+            <aside>
+              These will help entice potential customers to choose your venue.  You can update these at any time.
+            </aside>
+          </Paper>
+          <Paper className="paper item">
             Contact name and email for following up
             <aside>This will be our primary contact on your team.</aside>
           </Paper>
@@ -32,12 +38,12 @@ const Welcome = ({nextStep}) => {
           <Paper className="paper item">
             A high-res cover photo (e.g. your front-of-house)
             <aside>
-              The cover photo must be rectangular and landscape, and <em>at least</em> 1500px wide by 500px tall.
+              The cover photo must be rectangular and landscape, and <u>at least</u> 1500px wide by 500px tall.
             </aside>
           </Paper>
           <Paper className="paper item">
             Credit card info
-            <aside>We won't bill you until we've confirmed everything with you over email.</aside>
+            <aside>We won't bill you until we have confirmed everything with you over email.</aside>
           </Paper>
 
           <br/>

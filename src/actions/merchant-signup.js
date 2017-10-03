@@ -38,16 +38,18 @@ export function merchantSignup(data) {
           position: data.contact.position || 'Surfboard',  // Mimic the CLOVER behavior and include the signup source
           address: data.venue.address,
           venue_name: data.venue.name,
-          venue_url: data.contact.url,
+          venue_url: data.venue.url,
           email: data.contact.email,
           phone: data.contact.phone,
-          point_of_sale_system: data.contact.pos || 'Surfboard',  // Required by the backend
+          point_of_sale_system: data.venue.pos || 'Surfboard',  // Required by the backend
           // message: '',
 
           // but it will store everything else, too
           // so let's make sure we send everything!
           data: {
             signup_source: 'Surfboard',  // and a semantic signup_source here, too.
+            zinger: data.venue.zinger,
+            description: data.venue.description,
             ...data
           }
         }
