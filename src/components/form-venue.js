@@ -95,7 +95,7 @@ class FormVenue extends Component {
           required:true, multiLine:true,
           label:"Long description",
           hint:"(500 characters or less)  The owners Cathy & Jon opened this restaurant to honor their mother’s cooking. Since their opening in 2014, they have made the commitment to offering traditional dishes with flavors reminiscent of those you would find in the homes and on the streets of Vietnam. Dedicated to using the freshest ingredients including pasture-raised chickens, cage-free eggs, and the finest cuts of beef, guests will experience distinctly developed fresh and unique Vietnamese flavors.",
-          rows:4, rowsMax:6})
+          rows:6, rowsMax:6})
         }
 
         <div className="center">
