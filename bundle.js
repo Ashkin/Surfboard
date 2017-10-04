@@ -57841,8 +57841,8 @@ function merchantSignup(data) {
       url: _api.ONBOARD_API_URL,
       method: 'post',
       headers: {
-        'X_AUTH_TOKEN': undefined,
-        'X_APPLICATION_KEY': undefined
+        'X_AUTH_TOKEN': "vm5HgXSW1OsrQjGlUbh9Qw",
+        'X_APPLICATION_KEY': "cl_w4uusFwVD9kaNtyM8Xo5P36A6zyVrytPP3IWDvlKN"
       },
       data: {
         // Everything needs to live within `data`
