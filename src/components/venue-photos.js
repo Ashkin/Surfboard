@@ -140,6 +140,16 @@ class VenuePhotos extends Component {
         </Paper>
 
         <Paper className="paper help-text">
+          <h3>Requirements</h3>
+          <ul>
+            <li>
+              Your logo must be square, and should be between 150px and 1000px on a side.
+            </li>
+            <li>
+              Your Cover photo must be rectangular and landscape, and <u>at least</u> 1500px wide by 500px tall.
+            </li>
+          </ul>
+          <br/>
           If you don't have professional photos right now, that's okay, too.  Take your time and set up some great shots; we'll add them when you're ready.
         </Paper>
       </section>
