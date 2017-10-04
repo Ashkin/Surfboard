@@ -200,12 +200,14 @@ class CheckoutSummary extends Component {
 
 
           <div className="center">
-            <button type="button" onClick={this.props.prevStep}>Back</button>
-            <button type="submit" className={buttonClasses} disabled={!checkout.tos || !!errorMessage}>
-              { buttonText }
-            </button>
-
             <form onSubmit={handleSubmit(this.handleSubmit.bind(this))}>
+              <div className="center">
+                <button type="button" onClick={this.props.prevStep}>Back</button>
+                <button type="submit" className={buttonClasses} disabled={!checkout.tos || !!errorMessage}>
+                  { buttonText }
+                </button>
+              </div>
+
               <Field
                 component={renderCheckbox}
                 id="checkout-tos"
