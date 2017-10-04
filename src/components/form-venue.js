@@ -90,15 +90,14 @@ class FormVenue extends Component {
         { this.buildTextField({name:"url",      required:false,  label:"Website"}) }
         { this.buildTextField({name:"pos",      required:false,  label:"Point-of-Sale System"}) }
 
-        <br/><br/><br/>
         <div className="group-title">
-          <strong>Venue Descriptions</strong>
+          <strong>Descriptions</strong>
           <aside>Remember, you will be able to change these at any time.</aside>
         </div>
 
         { this.buildTextField({name:"zinger",
           required:true, multiLine:true,
-          label:"One-line description, aka 'Zinger'",
+          label:"One-line description",
           hint:"(90 characters or less)  American-Vietnamese comfort plates paired with wine & cocktails in a casual, modern space",
           maxChars:90
         })}
