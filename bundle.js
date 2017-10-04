@@ -79797,9 +79797,7 @@ var Welcome = function Welcome(_ref) {
       ),
       _react2.default.createElement(
         'article',
-        { style: { textAlign: 'left', width: '50%', margin: '0 auto' } },
-        _react2.default.createElement('br', null),
-        _react2.default.createElement('br', null),
+        null,
         _react2.default.createElement(
           'span',
           null,
@@ -79809,73 +79807,92 @@ var Welcome = function Welcome(_ref) {
         _react2.default.createElement('br', null),
         _react2.default.createElement(
           _Paper2.default,
-          { className: 'paper item' },
-          'Your venue\'s name and address'
-        ),
-        _react2.default.createElement(
-          _Paper2.default,
-          { className: 'paper item' },
-          'A short one-liner, and a longer venue description',
+          { className: 'paper item', zDepth: 2 },
           _react2.default.createElement(
-            'aside',
+            'ul',
             null,
-            'These will help entice potential customers to choose your venue.  You can update these at any time.'
-          )
-        ),
-        _react2.default.createElement(
-          _Paper2.default,
-          { className: 'paper item' },
-          'Contact name and email for following up',
-          _react2.default.createElement(
-            'aside',
-            null,
-            'This will be our primary contact on your team.'
-          )
-        ),
-        _react2.default.createElement(
-          _Paper2.default,
-          { className: 'paper item' },
-          'A high-res logo for your venue',
-          _react2.default.createElement(
-            'aside',
-            null,
-            'The logo must be square, and should be between 150px and 1000px on a side.  (Higher-res will always look better)'
-          )
-        ),
-        _react2.default.createElement(
-          _Paper2.default,
-          { className: 'paper item' },
-          'A high-res cover photo (e.g. your front-of-house)',
-          _react2.default.createElement(
-            'aside',
-            null,
-            'The cover photo must be rectangular and landscape, and ',
             _react2.default.createElement(
-              'u',
+              'li',
               null,
-              'at least'
-            ),
-            ' 1500px wide by 500px tall.'
+              'Your venue\'s name and address'
+            )
           )
         ),
         _react2.default.createElement(
           _Paper2.default,
-          { className: 'paper item' },
-          'Credit card info',
+          { className: 'paper item', zDepth: 2 },
           _react2.default.createElement(
-            'aside',
+            'ul',
             null,
-            'We won\'t bill you until we have confirmed everything with you over email.'
+            _react2.default.createElement(
+              'li',
+              null,
+              'A short one-liner, and a longer venue description',
+              _react2.default.createElement(
+                'aside',
+                null,
+                'These will help entice potential customers to choose your venue.  You can update these at any time.'
+              )
+            )
           )
         ),
-        _react2.default.createElement('br', null),
-        _react2.default.createElement('br', null),
         _react2.default.createElement(
-          'div',
-          { className: 'center' },
-          'Click the button below and let\'s get started!'
+          _Paper2.default,
+          { className: 'paper item', zDepth: 2 },
+          _react2.default.createElement(
+            'ul',
+            null,
+            _react2.default.createElement(
+              'li',
+              null,
+              'Contact name and email for following up',
+              _react2.default.createElement(
+                'aside',
+                null,
+                'This will be our primary contact on your team.'
+              )
+            )
+          )
+        ),
+        _react2.default.createElement(
+          _Paper2.default,
+          { className: 'paper item', zDepth: 2 },
+          _react2.default.createElement(
+            'ul',
+            null,
+            _react2.default.createElement(
+              'li',
+              null,
+              'A high-res logo and cover photo for your venue',
+              _react2.default.createElement(
+                'aside',
+                null,
+                'Be sure to represent your brand with quality, high-res images.'
+              )
+            )
+          )
+        ),
+        _react2.default.createElement(
+          _Paper2.default,
+          { className: 'paper item', zDepth: 2 },
+          _react2.default.createElement(
+            'ul',
+            null,
+            _react2.default.createElement(
+              'li',
+              null,
+              'Credit card info',
+              _react2.default.createElement(
+                'aside',
+                null,
+                'We will confirm everything with you via email prior to charging your card.'
+              )
+            )
+          )
         )
       ),
+      'Click the button below and let\'s get started!',
+      _react2.default.createElement('br', null),
       _react2.default.createElement(
         'button',
         { onClick: nextStep },
@@ -80028,16 +80045,13 @@ var FormVenue = function (_Component) {
         this.buildTextField({ name: "zip", required: true, label: "Zip" }),
         this.buildTextField({ name: "url", required: false, label: "Website" }),
         this.buildTextField({ name: "pos", required: false, label: "Point-of-Sale System" }),
-        _react2.default.createElement('br', null),
-        _react2.default.createElement('br', null),
-        _react2.default.createElement('br', null),
         _react2.default.createElement(
           'div',
           { className: 'group-title' },
           _react2.default.createElement(
             'strong',
             null,
-            'Venue Descriptions'
+            'Descriptions'
           ),
           _react2.default.createElement(
             'aside',
@@ -80047,7 +80061,7 @@ var FormVenue = function (_Component) {
         ),
         this.buildTextField({ name: "zinger",
           required: true, multiLine: true,
-          label: "One-line description, aka 'Zinger'",
+          label: "One-line description",
           hint: "(90 characters or less)  American-Vietnamese comfort plates paired with wine & cocktails in a casual, modern space",
           maxChars: 90
         }),
@@ -87240,6 +87254,32 @@ var VenuePhotos = function (_Component) {
         _react2.default.createElement(
           _Paper2.default,
           { className: 'paper help-text' },
+          _react2.default.createElement(
+            'h3',
+            null,
+            'Requirements'
+          ),
+          _react2.default.createElement(
+            'ul',
+            null,
+            _react2.default.createElement(
+              'li',
+              null,
+              'Your logo must be square, and should be between 150px and 1000px on a side.'
+            ),
+            _react2.default.createElement(
+              'li',
+              null,
+              'Your Cover photo must be rectangular and landscape, and ',
+              _react2.default.createElement(
+                'u',
+                null,
+                'at least'
+              ),
+              ' 1500px wide by 500px tall.'
+            )
+          ),
+          _react2.default.createElement('br', null),
           'If you don\'t have professional photos right now, that\'s okay, too.  Take your time and set up some great shots; we\'ll add them when you\'re ready.'
         )
       );
@@ -88053,38 +88093,39 @@ var CheckoutSummary = function (_Component) {
             this.renderOrder()
           ),
           _react2.default.createElement(
-            'form',
-            { onSubmit: handleSubmit(this.handleSubmit.bind(this)) },
-            _react2.default.createElement(_reduxForm.Field, {
-              component: _materialUiReduxForm.renderCheckbox,
-              id: 'checkout-tos',
-              name: 'tos',
-              label: _react2.default.createElement(
-                'label',
-                { htmlFor: 'checkout-tos' },
-                'I agree to the ',
-                _react2.default.createElement(
-                  'a',
-                  { href: '//itson.me/tos', target: '_blank' },
-                  'Terms of Service'
-                ),
-                '.'
-              ),
-              labelStyle: { zIndex: 3 }
-            }),
+            'div',
+            { className: 'center' },
             _react2.default.createElement(
-              'div',
-              { className: 'center' },
-              _react2.default.createElement(
-                'button',
-                { type: 'button', onClick: this.props.prevStep },
-                'Back'
-              ),
-              _react2.default.createElement(
-                'button',
-                { type: 'submit', className: buttonClasses, disabled: !checkout.tos || !!errorMessage },
-                buttonText
-              )
+              'button',
+              { type: 'button', onClick: this.props.prevStep },
+              'Back'
+            ),
+            _react2.default.createElement(
+              'button',
+              { type: 'submit', className: buttonClasses, disabled: !checkout.tos || !!errorMessage },
+              buttonText
+            ),
+            _react2.default.createElement(
+              'form',
+              { onSubmit: handleSubmit(this.handleSubmit.bind(this)) },
+              _react2.default.createElement(_reduxForm.Field, {
+                component: _materialUiReduxForm.renderCheckbox,
+                id: 'checkout-tos',
+                name: 'tos',
+                className: 'tos',
+                label: _react2.default.createElement(
+                  'label',
+                  { htmlFor: 'checkout-tos' },
+                  'I agree to the ',
+                  _react2.default.createElement(
+                    'a',
+                    { href: '//itson.me/tos', target: '_blank' },
+                    'Terms of Service'
+                  ),
+                  '.'
+                ),
+                labelStyle: { zIndex: 3, textAlign: 'left' }
+              })
             )
           ),
           _react2.default.createElement(
@@ -88208,6 +88249,12 @@ var Success = function (_Component) {
             'p',
             null,
             'We\'ll contact you by email within 24 hours to go over the details and complete your account setup.'
+          ),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement(
+            'a',
+            { className: 'button', href: 'https://www.itson.me' },
+            'Back to ItsOnMe'
           )
         )
       );
@@ -88264,7 +88311,7 @@ exports = module.exports = __webpack_require__(806)(undefined);
 
 
 // module
-exports.push([module.i, "/*\n * Styling for: Project Surfboard\n * The ItsOnMe Merchant On-boarding site\n */\n/* Partial: Reset */\n* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\nimg {\n  border: none; }\n\nfieldset {\n  border: none; }\n\np {\n  margin-bottom: 1em; }\n\nul {\n  margin-bottom: 1em; }\n  ul li {\n    margin-left: 2em; }\n\n/* Partial: Colors */\n/* itsonme.com logo */\n/* merchant.itson.me infographic */\n/* merchant.itson.me support graphic */\n/* blahh */\n/* Partial: Fonts */\n/* Partial: Common classes */\n.left {\n  float: left; }\n\n.right {\n  float: right; }\n\n.clearfix {\n  clear: both; }\n\n.center {\n  text-align: center; }\n\n.inverted {\n  filter: invert(100%); }\n\n.error {\n  color: #f32; }\n\n.hidden {\n  display: none; }\n\n.aspect-ratio {\n  width: 100%; }\n  .aspect-ratio:before {\n    float: left;\n    padding-bottom: 56.25%;\n    content: \"\"; }\n  .aspect-ratio:after {\n    display: table;\n    content: \"\";\n    clear: both; }\n  .aspect-ratio.ratio-square:before {\n    padding-bottom: 100%; }\n  .aspect-ratio.ratio-16-9:before {\n    padding-bottom: 56.25%; }\n  .aspect-ratio.ratio-21-9:before {\n    padding-bottom: 42.857%; }\n  .aspect-ratio.ratio-3-1:before {\n    padding-bottom: 30%; }\n  .aspect-ratio.ratio-22-5:before {\n    padding-bottom: 22.72%; }\n\n.filled-circle {\n  display: inline-block;\n  width: 1.5em;\n  height: 1.5em;\n  margin-right: 0.25em;\n  color: white;\n  text-align: center;\n  line-height: 1.5em;\n  border-radius: 10em;\n  background-color: #28a7df; }\n\n/*** Top-level Styling ***/\nbody, html {\n  height: 100%;\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif; }\n\n/*** Controls ***/\n/* Partial: Controls */\nbutton, .button, label, input, fieldset {\n  font-size: 1em; }\n\ninput:-webkit-autofill,\ninput:-webkit-autofill:hover,\ninput:-webkit-autofill:focus,\ninput:-webkit-autofill:active {\n  transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;\n  transition-delay: background-color 5000s, color 5000s; }\n\nbutton, .button {\n  display: inline-block;\n  padding: 0.5em 1em;\n  margin: 0.5em;\n  border: 1px solid #286090;\n  border-radius: 0.25em;\n  color: white;\n  text-decoration: none;\n  cursor: pointer;\n  background: #28a7df; }\n  button:active, button:visited, .button:active, .button:visited {\n    color: white; }\n\n.button-green {\n  background: lightgreen;\n  color: #3a424d;\n  border-color: green; }\n  .button-green:active, .button-green:visited {\n    color: #3a424d; }\n\n.button-red {\n  background: #f32;\n  color: white;\n  border-color: #a10; }\n  .button-red:active, .button-red:visited {\n    color: white; }\n\n.button-disabled {\n  background: darkgrey;\n  color: lightgrey;\n  border-color: #3a424d; }\n  .button-disabled:active, .button-disabled:visited {\n    color: lightgrey; }\n\n.button-dark-silver {\n  background: #3a424d;\n  color: #eaedf1;\n  border-color: black; }\n  .button-dark-silver:active, .button-dark-silver:visited {\n    color: #eaedf1; }\n\n.button-disabled {\n  cursor: not-allowed; }\n\n.button-large {\n  font-size: 1.35em; }\n\nlabel {\n  padding-left: 0.25em;\n  font-size: 80%;\n  color: #20252b; }\n\ninput[type=\"text\"], section.form-creditcard form#stripe-payment-form .stripe-wrapper div#card-element-wrapper, textarea {\n  cursor: text; }\n\nfieldset {\n  padding: 0.25em 0.5em; }\n\n.checkmark::before {\n  display: inline-block;\n  font-size: 1.25em;\n  line-height: 1.25em;\n  content: \"\\2713\";\n  color: #28a7df; }\n\n.checkmark-box::before {\n  display: inline-block;\n  width: 1.25rem;\n  height: 1.25rem;\n  font-size: 1.5em;\n  line-height: 0.25em;\n  content: \"\\2713\";\n  color: #28a7df;\n  border: 1px solid black; }\n\n/*** Main page ***/\n/* View: Header */\nheader.site {\n  display: flex;\n  height: 6.5em;\n  background: #3a424d;\n  position: relative;\n  box-shadow: 0px 1px 2px #89949B;\n  z-index: 1; }\n  header.site .logo {\n    flex: 0 0 calc(300px + 1em);\n    height: 6.5em;\n    margin: 0 0.5em;\n    text-align: center;\n    line-height: 6.5em;\n    background-image: url(\"https://res.cloudinary.com/drinkboard/image/upload/v1485211146/email_elements/IOM.logo_white_transbckgrd-300W.png\");\n    background-repeat: no-repeat;\n    background-position: left center; }\n  header.site .title {\n    flex: 20 0 10rem;\n    height: 6.5rem;\n    line-height: 6.5rem;\n    text-align: center;\n    font-size: 3em;\n    color: white; }\n\n/* View: Background */\nimg.site.background {\n  position: fixed;\n  top: 0vh;\n  left: 0vh;\n  min-height: 60rem;\n  height: 100vh;\n  z-index: -1;\n  overflow: hidden; }\n\n/* View: Errors */\nmain.http-error .wrapper {\n  margin: 2em 5em 0; }\n  main.http-error .wrapper .side {\n    display: inline-block;\n    float: left;\n    width: 30%; }\n  main.http-error .wrapper .missing-giftcard {\n    width: 17.5rem;\n    height: 10rem;\n    margin-left: 3rem;\n    border: 5px dashed #eaedf1;\n    border-radius: 1rem;\n    text-align: center;\n    transform: rotate(-6deg);\n    line-height: 10rem;\n    font-size: 3em;\n    color: #eaedf1; }\n  main.http-error .wrapper h1 {\n    color: #f32; }\n  main.http-error .wrapper h3 {\n    color: #20252b; }\n  main.http-error .wrapper aside {\n    font-size: 75%;\n    color: grey; }\n  main.http-error .wrapper .button {\n    margin-top: 2em; }\n\n/*** Views ***/\n/* View: Onboard */\n.paper.stepper {\n  margin-bottom: 1.5rem; }\n\n/*** Onboard Steps ***/\n.step {\n  min-width: 30rem;\n  width: 75%;\n  margin: 0 auto; }\n  .step .paper {\n    padding: 1em;\n    margin-bottom: 1em; }\n\nsection {\n  text-align: center; }\n  section.col-2 {\n    width: 50%; }\n  section.col-3 {\n    width: 33%; }\n  section header {\n    display: block;\n    margin: 1.5rem auto;\n    font-size: 1.5rem; }\n  section summary {\n    width: 85%;\n    margin: 0 auto;\n    margin-bottom: 0.5rem;\n    font-weight: bold;\n    min-height: 2rem; }\n\n.paper.help-text {\n  text-align: justify;\n  font-size: 0.9em;\n  color: #286090 !important; }\n\n/* Step: Welcome */\nsection.welcome .paper.item aside {\n  padding-top: 0.5em;\n  border-top: 1px solid #eaedf1;\n  font-size: 0.85em;\n  color: #89949B;\n  transition: border-top-color 0.75s, color 0.75s; }\n\nsection.welcome .paper.item:hover aside {\n  border-top-color: #28a7df;\n  color: black;\n  transition: border-top-color 0.75s, color 0.75s; }\n\n/* View: Venue */\nsection.venue form {\n  padding: 1em; }\n  section.venue form .mui-textfield, section.venue form .mui-textarea {\n    display: block !important;\n    min-width: 20rem;\n    width: 50% !important;\n    margin: 0 auto; }\n  section.venue form .group-title {\n    width: 50%;\n    margin: 0 auto;\n    text-align: left; }\n    section.venue form .group-title aside {\n      font-size: 0.85em;\n      color: #92989F; }\n\n/* View: Contact */\nsection.contact form {\n  padding: 1em; }\n  section.contact form .mui-textfield {\n    display: block !important;\n    min-width: 20rem;\n    width: 50% !important;\n    margin: 0 auto; }\n\n/* View: Photos */\nsection.photos .full-image, section.photos .wrapper .aspect-wrapper .cover-photo > img, section.photos .wrapper .aspect-wrapper .cover-photo .logo > img {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 100%;\n  height: 100%;\n  background-size: cover;\n  background-repeat: no-repeat;\n  z-index: 0; }\n\nsection.photos * {\n  z-index: 1; }\n\nsection.photos .wrapper {\n  position: relative;\n  width: 80%;\n  margin: 0 auto; }\n  section.photos .wrapper .aspect-wrapper {\n    position: relative; }\n    section.photos .wrapper .aspect-wrapper .cover-photo {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      align-content: center;\n      position: absolute;\n      height: 100%;\n      width: 100%;\n      margin-bottom: 2em;\n      border: 3px solid white;\n      box-shadow: 0px 0px 5px #92989F, 0px 0px 8px #92989F;\n      background-color: #eaedf1; }\n      section.photos .wrapper .aspect-wrapper .cover-photo .spacing-top {\n        flex-grow: 3;\n        flex-shrink: 1; }\n      section.photos .wrapper .aspect-wrapper .cover-photo .logo {\n        position: relative;\n        flex-grow: 1;\n        flex-shrink: 1;\n        width: 200px;\n        height: 200px;\n        padding-top: 2em;\n        max-width: 200px;\n        max-height: 200px;\n        border: 0.5em solid white;\n        border-radius: 90em;\n        background-color: #eaedf1;\n        box-shadow: 0px 0px 5px #92989F, 0px 0px 8px #92989F; }\n        section.photos .wrapper .aspect-wrapper .cover-photo .logo button {\n          position: relative;\n          top: 5em; }\n      section.photos .wrapper .aspect-wrapper .cover-photo .venue {\n        flex-grow: 1;\n        flex-shrink: 1;\n        text-shadow: -1px -1px white, 1px -1px white, -1px  1px white, 1px  1px white;\n        z-index: 1; }\n      section.photos .wrapper .aspect-wrapper .cover-photo button.upload-cover-photo {\n        position: absolute;\n        bottom: 0.5em;\n        left: 0.5em; }\n\n/* Component: Plans */\nsection.plans {\n  text-align: center; }\n  section.plans ul {\n    display: block;\n    width: 100%;\n    text-align: center; }\n  section.plans .plan {\n    display: inline-block;\n    position: relative;\n    vertical-align: top;\n    width: 13rem;\n    height: 18rem;\n    margin: 1rem 0.125rem;\n    border: 1px solid black;\n    border-radius: 0.4rem;\n    text-align: center;\n    background-color: #daf0f9;\n    box-shadow: 2px 2px 3px #92989F; }\n    section.plans .plan .title {\n      width: 100%;\n      border-bottom: 1px solid black;\n      height: 3rem;\n      font-weight: bold;\n      font-size: 1.25rem;\n      line-height: 3rem;\n      border-top-left-radius: 0.4rem;\n      border-top-right-radius: 0.4rem;\n      color: white;\n      background: #286090; }\n    section.plans .plan .details {\n      height: calc(100% - 3rem); }\n      section.plans .plan .details .cost {\n        margin-top: 2rem;\n        font-size: 250%;\n        color: #6bb87e; }\n        section.plans .plan .details .cost .unit {\n          font-size: 1.2rem; }\n      section.plans .plan .details .flavor-text {\n        height: 2rem;\n        font-size: 0.8rem;\n        color: #6bb87e; }\n      section.plans .plan .details .selected {\n        height: 1.5rem;\n        margin-top: 0.5rem;\n        line-height: 1.5rem;\n        font-size: 1.5rem; }\n      section.plans .plan .details .recommended {\n        position: absolute;\n        bottom: 0px;\n        width: 100%;\n        height: 2rem;\n        line-height: 2rem;\n        border-bottom-left-radius: 0.4rem;\n        border-bottom-right-radius: 0.4rem;\n        font-weight: 100; }\n    section.plans .plan.recommended .recommended {\n      border-top: 1px solid #28a7df;\n      background: #286090;\n      color: white; }\n\n/* Component: form-creditcard */\nsection.form-creditcard form#stripe-payment-form .stripe-wrapper {\n  position: relative;\n  padding: 1em 2em;\n  border: 2px solid #7795f8;\n  background: rgba(119, 149, 248, 0.3);\n  border-radius: 0.25em;\n  text-align: left; }\n  section.form-creditcard form#stripe-payment-form .stripe-wrapper label {\n    color: #3a424d; }\n  section.form-creditcard form#stripe-payment-form .stripe-wrapper div#card-element-wrapper {\n    border: 1px inset #8f6ed5;\n    background: white; }\n    section.form-creditcard form#stripe-payment-form .stripe-wrapper div#card-element-wrapper #card-element {\n      padding: 0.5em 0.75em; }\n  section.form-creditcard form#stripe-payment-form .stripe-wrapper div#stripe-success {\n    padding: 1.5em 0 0.5em;\n    color: #24b47e;\n    text-align: center; }\n  section.form-creditcard form#stripe-payment-form .stripe-wrapper div#card-errors {\n    height: 1em;\n    padding: 0.125em 0.5em;\n    font-size: 0.9em;\n    text-align: left;\n    color: #f32; }\n  section.form-creditcard form#stripe-payment-form .stripe-wrapper .stripe-info {\n    position: absolute;\n    display: relative;\n    bottom: 0;\n    right: 0;\n    padding: 0.25em;\n    padding-left: 1em;\n    border: 1px solid #7795f8;\n    border-width: 1px 0 0 1px;\n    border-bottom-right-radius: inherit;\n    border-top-left-radius: 2em;\n    font-size: 0.75em;\n    color: #24b47e;\n    background: white; }\n\nsection.form-creditcard form#stripe-payment-form aside {\n  font-size: 70%;\n  text-align: right; }\n\nsection.form-creditcard form {\n  margin: 1em; }\n  section.form-creditcard form input {\n    display: inline-block;\n    border-color: black;\n    margin: 0.2rem 0; }\n    section.form-creditcard form input:focus {\n      position: relative;\n      z-index: 1; }\n  section.form-creditcard form input.creditcard-name {\n    width: 100%; }\n  section.form-creditcard form input.creditcard-number {\n    width: calc(100% - 20%); }\n  section.form-creditcard form input.cvv {\n    width: 20%;\n    border-left: 0;\n    text-align: center; }\n  section.form-creditcard form input.expiration {\n    float: left;\n    width: 30%; }\n    section.form-creditcard form input.expiration + input.expiration {\n      border-left: none; }\n  section.form-creditcard form input.zip {\n    float: right;\n    width: 35%; }\n\n/* Component: Checkout Summary */\nsection.checkout-summary dl {\n  text-align: left; }\n  section.checkout-summary dl div.venue, section.checkout-summary dl div.order {\n    margin-bottom: 1em; }\n  section.checkout-summary dl dt {\n    width: 25%;\n    text-indent: 0.25em;\n    border-bottom: 2px solid #286090;\n    margin-bottom: 0.25em;\n    font-weight: bold;\n    color: black; }\n  section.checkout-summary dl dt + dd {\n    margin-left: 1em;\n    margin-bottom: 2em; }\n    section.checkout-summary dl dt + dd .item {\n      clear: both;\n      margin-bottom: 0.5em; }\n      section.checkout-summary dl dt + dd .item.total {\n        font-weight: bold; }\n      section.checkout-summary dl dt + dd .item .desc {\n        float: left; }\n      section.checkout-summary dl dt + dd .item .cost {\n        float: right; }\n    section.checkout-summary dl dt + dd hr {\n      margin: 1em 0;\n      clear: both; }\n\nsection.checkout-summary form {\n  text-align: left; }\n\nsection.checkout-summary button[type=\"submit\"] {\n  margin-top: 2em; }\n\nsection.checkout-summary div.validation {\n  position: relative;\n  width: 75%;\n  min-height: 5em;\n  margin: 3em auto 2em;\n  padding: 1em;\n  border: 2px dashed #f32;\n  border-radius: 0.75em;\n  background: rgba(255, 51, 34, 0.3); }\n  section.checkout-summary div.validation div.title {\n    position: relative;\n    margin: 0 auto 0.5em;\n    font-weight: bold;\n    text-align: center;\n    color: #f32; }\n", ""]);
+exports.push([module.i, "/*\n * Styling for: Project Surfboard\n * The ItsOnMe Merchant On-boarding site\n */\n/* Partial: Reset */\n* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\nimg {\n  border: none; }\n\nfieldset {\n  border: none; }\n\np {\n  margin-bottom: 1em; }\n\nul li {\n  margin-left: 2em; }\n\n/* Partial: Colors */\n/* itsonme.com logo */\n/* merchant.itson.me infographic */\n/* merchant.itson.me support graphic */\n/* blahh */\n/* Partial: Fonts */\n/* Partial: Common classes */\n.left {\n  float: left; }\n\n.right {\n  float: right; }\n\n.clearfix {\n  clear: both; }\n\n.center {\n  text-align: center; }\n\n.inverted {\n  filter: invert(100%); }\n\n.error {\n  color: #f32; }\n\n.hidden {\n  display: none; }\n\n.aspect-ratio {\n  width: 100%; }\n  .aspect-ratio:before {\n    float: left;\n    padding-bottom: 56.25%;\n    content: \"\"; }\n  .aspect-ratio:after {\n    display: table;\n    content: \"\";\n    clear: both; }\n  .aspect-ratio.ratio-square:before {\n    padding-bottom: 100%; }\n  .aspect-ratio.ratio-16-9:before {\n    padding-bottom: 56.25%; }\n  .aspect-ratio.ratio-21-9:before {\n    padding-bottom: 42.857%; }\n  .aspect-ratio.ratio-3-1:before {\n    padding-bottom: 30%; }\n  .aspect-ratio.ratio-22-5:before {\n    padding-bottom: 22.72%; }\n\n.filled-circle {\n  display: inline-block;\n  width: 1.5em;\n  height: 1.5em;\n  margin-right: 0.25em;\n  color: white;\n  text-align: center;\n  line-height: 1.5em;\n  border-radius: 10em;\n  background-color: #28a7df; }\n\n/*** Top-level Styling ***/\nbody, html {\n  height: 100%;\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif; }\n\n/*** Controls ***/\n/* Partial: Controls */\nbutton, .button, label, input, fieldset {\n  font-size: 1em; }\n\ninput:-webkit-autofill,\ninput:-webkit-autofill:hover,\ninput:-webkit-autofill:focus,\ninput:-webkit-autofill:active {\n  transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;\n  transition-delay: background-color 5000s, color 5000s; }\n\nbutton, .button {\n  display: inline-block;\n  padding: 0.5em 1em;\n  margin: 0.5em;\n  border: 1px solid #286090;\n  border-radius: 0.25em;\n  color: white;\n  text-decoration: none;\n  cursor: pointer;\n  background: #28a7df; }\n  button:active, button:visited, .button:active, .button:visited {\n    color: white; }\n\n.button-green {\n  background: lightgreen;\n  color: #3a424d;\n  border-color: green; }\n  .button-green:active, .button-green:visited {\n    color: #3a424d; }\n\n.button-red {\n  background: #f32;\n  color: white;\n  border-color: #a10; }\n  .button-red:active, .button-red:visited {\n    color: white; }\n\n.button-disabled {\n  background: darkgrey;\n  color: lightgrey;\n  border-color: #3a424d; }\n  .button-disabled:active, .button-disabled:visited {\n    color: lightgrey; }\n\n.button-dark-silver {\n  background: #3a424d;\n  color: #eaedf1;\n  border-color: black; }\n  .button-dark-silver:active, .button-dark-silver:visited {\n    color: #eaedf1; }\n\n.button-disabled {\n  cursor: not-allowed; }\n\n.button-large {\n  font-size: 1.35em; }\n\nlabel {\n  padding-left: 0.25em;\n  font-size: 80%;\n  color: #20252b; }\n\ninput[type=\"text\"], section.form-creditcard form#stripe-payment-form .stripe-wrapper div#card-element-wrapper, textarea {\n  cursor: text; }\n\nfieldset {\n  padding: 0.25em 0.5em; }\n\n.checkmark::before {\n  display: inline-block;\n  font-size: 1.25em;\n  line-height: 1.25em;\n  content: \"\\2713\";\n  color: #28a7df; }\n\n.checkmark-box::before {\n  display: inline-block;\n  width: 1.25rem;\n  height: 1.25rem;\n  font-size: 1.5em;\n  line-height: 0.25em;\n  content: \"\\2713\";\n  color: #28a7df;\n  border: 1px solid black; }\n\n/*** Main page ***/\n/* View: Header */\nheader.site {\n  display: flex;\n  height: 6.5em;\n  background: #3a424d;\n  position: relative;\n  box-shadow: 0px 1px 2px #89949B;\n  z-index: 1; }\n  header.site .logo {\n    flex: 0 0 calc(300px + 1em);\n    height: 6.5em;\n    margin: 0 0.5em;\n    text-align: center;\n    line-height: 6.5em;\n    background-image: url(\"https://res.cloudinary.com/drinkboard/image/upload/v1485211146/email_elements/IOM.logo_white_transbckgrd-300W.png\");\n    background-repeat: no-repeat;\n    background-position: left center; }\n  header.site .title {\n    flex: 20 0 10rem;\n    height: 6.5rem;\n    line-height: 6.5rem;\n    text-align: center;\n    font-size: 3em;\n    color: white; }\n\n/* View: Background */\nimg.site.background {\n  position: fixed;\n  top: 0vh;\n  left: 0vh;\n  min-height: 60rem;\n  height: 100vh;\n  z-index: -1;\n  overflow: hidden; }\n\n/* View: Errors */\nmain.http-error .wrapper {\n  margin: 2em 5em 0; }\n  main.http-error .wrapper .side {\n    display: inline-block;\n    float: left;\n    width: 30%; }\n  main.http-error .wrapper .missing-giftcard {\n    width: 17.5rem;\n    height: 10rem;\n    margin-left: 3rem;\n    border: 5px dashed #eaedf1;\n    border-radius: 1rem;\n    text-align: center;\n    transform: rotate(-6deg);\n    line-height: 10rem;\n    font-size: 3em;\n    color: #eaedf1; }\n  main.http-error .wrapper h1 {\n    color: #f32; }\n  main.http-error .wrapper h3 {\n    color: #20252b; }\n  main.http-error .wrapper aside {\n    font-size: 75%;\n    color: grey; }\n  main.http-error .wrapper .button {\n    margin-top: 2em; }\n\n/*** Views ***/\n/* View: Onboard */\n.paper.stepper {\n  margin-bottom: 1.5rem; }\n\n/*** Onboard Steps ***/\n.step {\n  min-width: 30rem;\n  width: 75%;\n  margin: 0 auto; }\n  .step .paper {\n    padding: 1em;\n    margin-bottom: 1em; }\n\nsection {\n  text-align: center; }\n  section.col-2 {\n    width: 50%; }\n  section.col-3 {\n    width: 33%; }\n  section header {\n    display: block;\n    margin: 1.5rem auto;\n    font-size: 1.5rem; }\n  section summary {\n    width: 85%;\n    margin: 0 auto;\n    margin-bottom: 0.5rem;\n    font-weight: bold;\n    min-height: 2rem; }\n\n.paper.help-text {\n  text-align: justify;\n  font-size: 0.9em;\n  color: #286090 !important; }\n\n/* Step: Welcome */\nsection.welcome article {\n  width: 50%;\n  margin: 2em auto;\n  text-align: left; }\n\nsection.welcome .paper.item {\n  padding: 0.75em 0.5em;\n  margin-bottom: 0.5em; }\n  section.welcome .paper.item aside {\n    padding-top: 0.5em;\n    border-top: 1px solid #eaedf1;\n    font-size: 0.85em;\n    color: #89949B;\n    transition: border-top-color 0.75s, color 0.75s; }\n  section.welcome .paper.item:hover aside {\n    border-top-color: #28a7df;\n    color: black;\n    transition: border-top-color 0.75s, color 0.75s; }\n\n/* View: Venue */\nsection.venue form {\n  padding: 1em; }\n  section.venue form .mui-textfield, section.venue form .mui-textarea {\n    display: block !important;\n    min-width: 20rem;\n    width: 50% !important;\n    margin: 0 auto; }\n  section.venue form .group-title {\n    width: 50%;\n    margin: 3em auto 0.25em;\n    text-align: left;\n    font-size: 1.2rem; }\n    section.venue form .group-title aside {\n      font-size: 0.85rem;\n      color: #92989F; }\n\n/* View: Contact */\nsection.contact form {\n  padding: 1em; }\n  section.contact form .mui-textfield {\n    display: block !important;\n    min-width: 20rem;\n    width: 50% !important;\n    margin: 0 auto; }\n\n/* View: Photos */\nsection.photos .full-image, section.photos .wrapper .aspect-wrapper .cover-photo > img, section.photos .wrapper .aspect-wrapper .cover-photo .logo > img {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 100%;\n  height: 100%;\n  background-size: cover;\n  background-repeat: no-repeat;\n  z-index: 0; }\n\nsection.photos * {\n  z-index: 1; }\n\nsection.photos .wrapper {\n  position: relative;\n  width: 80%;\n  margin: 0 auto; }\n  section.photos .wrapper .aspect-wrapper {\n    position: relative; }\n    section.photos .wrapper .aspect-wrapper .cover-photo {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      align-content: center;\n      position: absolute;\n      height: 100%;\n      width: 100%;\n      margin-bottom: 2em;\n      border: 3px solid white;\n      box-shadow: 0px 0px 5px #92989F, 0px 0px 8px #92989F;\n      background-color: #eaedf1; }\n      section.photos .wrapper .aspect-wrapper .cover-photo .spacing-top {\n        flex-grow: 3;\n        flex-shrink: 1; }\n      section.photos .wrapper .aspect-wrapper .cover-photo .logo {\n        position: relative;\n        flex-grow: 1;\n        flex-shrink: 1;\n        width: 200px;\n        height: 200px;\n        padding-top: 2em;\n        max-width: 200px;\n        max-height: 200px;\n        border: 0.5em solid white;\n        border-radius: 90em;\n        background-color: #eaedf1;\n        box-shadow: 0px 0px 5px #92989F, 0px 0px 8px #92989F; }\n        section.photos .wrapper .aspect-wrapper .cover-photo .logo button {\n          position: relative;\n          top: 5em; }\n      section.photos .wrapper .aspect-wrapper .cover-photo .venue {\n        flex-grow: 1;\n        flex-shrink: 1;\n        text-shadow: -1px -1px white, 1px -1px white, -1px  1px white, 1px  1px white;\n        z-index: 1; }\n      section.photos .wrapper .aspect-wrapper .cover-photo button.upload-cover-photo {\n        position: absolute;\n        bottom: 0.5em;\n        left: 0.5em; }\n\n/* Component: Plans */\nsection.plans {\n  text-align: center; }\n  section.plans ul {\n    display: block;\n    width: 100%;\n    text-align: center; }\n  section.plans .plan {\n    display: inline-block;\n    position: relative;\n    vertical-align: top;\n    width: 13rem;\n    height: 18rem;\n    margin: 1rem 0.125rem;\n    border: 1px solid black;\n    border-radius: 0.4rem;\n    text-align: center;\n    background-color: #daf0f9;\n    box-shadow: 2px 2px 3px #92989F; }\n    section.plans .plan .title {\n      width: 100%;\n      border-bottom: 1px solid black;\n      height: 3rem;\n      font-weight: bold;\n      font-size: 1.25rem;\n      line-height: 3rem;\n      border-top-left-radius: 0.4rem;\n      border-top-right-radius: 0.4rem;\n      color: white;\n      background: #286090; }\n    section.plans .plan .details {\n      height: calc(100% - 3rem); }\n      section.plans .plan .details .cost {\n        margin-top: 2rem;\n        font-size: 250%;\n        color: #6bb87e; }\n        section.plans .plan .details .cost .unit {\n          font-size: 1.2rem; }\n      section.plans .plan .details .flavor-text {\n        height: 2rem;\n        font-size: 0.8rem;\n        color: #6bb87e; }\n      section.plans .plan .details .selected {\n        height: 1.5rem;\n        margin-top: 0.5rem;\n        line-height: 1.5rem;\n        font-size: 1.5rem; }\n      section.plans .plan .details .recommended {\n        position: absolute;\n        bottom: 0px;\n        width: 100%;\n        height: 2rem;\n        line-height: 2rem;\n        border-bottom-left-radius: 0.4rem;\n        border-bottom-right-radius: 0.4rem;\n        font-weight: 100; }\n    section.plans .plan.recommended .recommended {\n      border-top: 1px solid #28a7df;\n      background: #286090;\n      color: white; }\n\n/* Component: form-creditcard */\nsection.form-creditcard form#stripe-payment-form .stripe-wrapper {\n  position: relative;\n  padding: 1em 2em;\n  border: 2px solid #7795f8;\n  background: rgba(119, 149, 248, 0.3);\n  border-radius: 0.25em;\n  text-align: left; }\n  section.form-creditcard form#stripe-payment-form .stripe-wrapper label {\n    color: #3a424d; }\n  section.form-creditcard form#stripe-payment-form .stripe-wrapper div#card-element-wrapper {\n    border: 1px inset #8f6ed5;\n    background: white; }\n    section.form-creditcard form#stripe-payment-form .stripe-wrapper div#card-element-wrapper #card-element {\n      padding: 0.5em 0.75em; }\n  section.form-creditcard form#stripe-payment-form .stripe-wrapper div#stripe-success {\n    padding: 1.5em 0 0.5em;\n    color: #24b47e;\n    text-align: center; }\n  section.form-creditcard form#stripe-payment-form .stripe-wrapper div#card-errors {\n    height: 1em;\n    padding: 0.125em 0.5em;\n    font-size: 0.9em;\n    text-align: left;\n    color: #f32; }\n  section.form-creditcard form#stripe-payment-form .stripe-wrapper .stripe-info {\n    position: absolute;\n    display: relative;\n    bottom: 0;\n    right: 0;\n    padding: 0.25em;\n    padding-left: 1em;\n    border: 1px solid #7795f8;\n    border-width: 1px 0 0 1px;\n    border-bottom-right-radius: inherit;\n    border-top-left-radius: 2em;\n    font-size: 0.75em;\n    color: #24b47e;\n    background: white; }\n\nsection.form-creditcard form#stripe-payment-form aside {\n  font-size: 70%;\n  text-align: right; }\n\nsection.form-creditcard form {\n  margin: 1em; }\n  section.form-creditcard form input {\n    display: inline-block;\n    border-color: black;\n    margin: 0.2rem 0; }\n    section.form-creditcard form input:focus {\n      position: relative;\n      z-index: 1; }\n  section.form-creditcard form input.creditcard-name {\n    width: 100%; }\n  section.form-creditcard form input.creditcard-number {\n    width: calc(100% - 20%); }\n  section.form-creditcard form input.cvv {\n    width: 20%;\n    border-left: 0;\n    text-align: center; }\n  section.form-creditcard form input.expiration {\n    float: left;\n    width: 30%; }\n    section.form-creditcard form input.expiration + input.expiration {\n      border-left: none; }\n  section.form-creditcard form input.zip {\n    float: right;\n    width: 35%; }\n\n/* Component: Checkout Summary */\nsection.checkout-summary dl {\n  text-align: left; }\n  section.checkout-summary dl div.venue, section.checkout-summary dl div.order {\n    margin-bottom: 1em; }\n  section.checkout-summary dl dt {\n    width: 25%;\n    text-indent: 0.25em;\n    border-bottom: 2px solid #286090;\n    margin-bottom: 0.25em;\n    font-weight: bold;\n    color: black; }\n  section.checkout-summary dl dt + dd {\n    margin-left: 1em;\n    margin-bottom: 2em; }\n    section.checkout-summary dl dt + dd .item {\n      clear: both;\n      margin-bottom: 0.5em; }\n      section.checkout-summary dl dt + dd .item.total {\n        font-weight: bold; }\n      section.checkout-summary dl dt + dd .item .desc {\n        float: left; }\n      section.checkout-summary dl dt + dd .item .cost {\n        float: right; }\n    section.checkout-summary dl dt + dd hr {\n      margin: 1em 0;\n      clear: both; }\n\nsection.checkout-summary form {\n  text-align: left; }\n  section.checkout-summary form .tos {\n    width: 15rem !important;\n    margin: 0 auto !important; }\n\nsection.checkout-summary button[type=\"submit\"] {\n  margin-top: 2em; }\n\nsection.checkout-summary div.validation {\n  position: relative;\n  width: 75%;\n  min-height: 5em;\n  margin: 3em auto 2em;\n  padding: 1em;\n  border: 2px dashed #f32;\n  border-radius: 0.75em;\n  background: rgba(255, 51, 34, 0.3); }\n  section.checkout-summary div.validation div.title {\n    position: relative;\n    margin: 0 auto 0.5em;\n    font-weight: bold;\n    text-align: center;\n    color: #f32; }\n", ""]);
 
 // exports
 
