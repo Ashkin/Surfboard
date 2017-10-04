@@ -51,6 +51,12 @@ section.checkout-summary {
 
   form {
     text-align: left;
+
+    .tos {
+      // Override Mui inline styles
+      width: 15rem !important;
+      margin: 0 auto !important;
+    }
   }
 
   button[type="submit"] {
