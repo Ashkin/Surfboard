@@ -11,47 +11,45 @@ const Welcome = ({nextStep}) => {
           and you can start selling gift cards online as soon as tomorrow.
         </summary>
 
-        <article style={{textAlign: 'left', width: '50%', margin: '0 auto'}}>
-          <br/>
-          <br/>
+        <article>
           <span>Here's what we'll need from you:</span>
           <br/><br/>
-          <Paper className="paper item">
-            Your venue's name and address
+          <Paper className="paper item" zDepth={2}>
+            <ul><li>
+              Your venue's name and address
+            </li></ul>
           </Paper>
-          <Paper className="paper item">
-            A short one-liner, and a longer venue description
-            <aside>
-              These will help entice potential customers to choose your venue.  You can update these at any time.
-            </aside>
+          <Paper className="paper item" zDepth={2}>
+            <ul><li>
+              A short one-liner, and a longer venue description
+              <aside>
+                These will help entice potential customers to choose your venue.  You can update these at any time.
+              </aside>
+            </li></ul>
           </Paper>
-          <Paper className="paper item">
-            Contact name and email for following up
-            <aside>This will be our primary contact on your team.</aside>
+          <Paper className="paper item" zDepth={2}>
+            <ul><li>
+              Contact name and email for following up
+              <aside>This will be our primary contact on your team.</aside>
+            </li></ul>
           </Paper>
-          <Paper className="paper item">
-            A high-res logo for your venue
-            <aside>
-              The logo must be square, and should be between 150px and 1000px on a side.  (Higher-res will always look better)
-            </aside>
+          <Paper className="paper item" zDepth={2}>
+            <ul><li>
+              A high-res logo and cover photo for your venue
+              <aside>
+                Be sure to represent your brand with quality, high-res images.
+              </aside>
+            </li></ul>
           </Paper>
-          <Paper className="paper item">
-            A high-res cover photo (e.g. your front-of-house)
-            <aside>
-              The cover photo must be rectangular and landscape, and <u>at least</u> 1500px wide by 500px tall.
-            </aside>
+          <Paper className="paper item" zDepth={2}>
+            <ul><li>
+              Credit card info
+              <aside>We will confirm everything with you via email prior to charging your card.</aside>
+            </li></ul>
           </Paper>
-          <Paper className="paper item">
-            Credit card info
-            <aside>We won't bill you until we have confirmed everything with you over email.</aside>
-          </Paper>
-
-          <br/>
-          <br/>
-          <div className="center">
-            Click the button below and let's get started!
-          </div>
         </article>
+
+        Click the button below and let's get started!<br/>
 
         <button onClick={nextStep}>Begin Signup</button>
       </Paper>

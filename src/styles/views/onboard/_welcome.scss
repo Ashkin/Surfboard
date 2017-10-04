@@ -2,7 +2,15 @@
 
 section.welcome {
 
+  article {
+    width: 50%;
+    margin: 2em auto;
+    text-align: left;
+  }
+
   .paper.item {
+    padding: 0.75em 0.5em;
+    margin-bottom: 0.5em;
 
     aside {
       padding-top: 0.5em;

@@ -16,6 +16,8 @@ class Success extends Component {
             We'll contact you by email within 24 hours
             to go over the details and complete your account setup.
           </p>
+          <br/>
+          <a className="button" href="https://www.itson.me">Back to ItsOnMe</a>
         </Paper>
       </section>
     )

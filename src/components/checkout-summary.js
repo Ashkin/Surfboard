@@ -198,27 +198,28 @@ class CheckoutSummary extends Component {
             {this.renderOrder()}
           </dl>
 
-          <form onSubmit={handleSubmit(this.handleSubmit.bind(this))}>
-            <Field
-              component={renderCheckbox}
-              id="checkout-tos"
-              name="tos"
-              label={
-                <label htmlFor="checkout-tos">
-                  I agree to the <a href="//itson.me/tos" target="_blank">Terms of Service</a>.
-                </label>
-              }
-              labelStyle={{zIndex: 3}}
-            />
 
+          <div className="center">
+            <button type="button" onClick={this.props.prevStep}>Back</button>
+            <button type="submit" className={buttonClasses} disabled={!checkout.tos || !!errorMessage}>
+              { buttonText }
+            </button>
 
-            <div className="center">
-              <button type="button" onClick={this.props.prevStep}>Back</button>
-              <button type="submit" className={buttonClasses} disabled={!checkout.tos || !!errorMessage}>
-                { buttonText }
-              </button>
-            </div>
-          </form>
+            <form onSubmit={handleSubmit(this.handleSubmit.bind(this))}>
+              <Field
+                component={renderCheckbox}
+                id="checkout-tos"
+                name="tos"
+                className="tos"
+                label={
+                  <label htmlFor="checkout-tos">
+                    I agree to the <a href="//itson.me/tos" target="_blank">Terms of Service</a>.
+                  </label>
+                }
+                labelStyle={{zIndex: 3, textAlign: 'left'}}
+              />
+            </form>
+          </div>
 
           <div className={!!errorMessage ? "validation" : "hidden"}>
             <div className="title">Missing info</div>

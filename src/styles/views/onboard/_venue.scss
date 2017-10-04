@@ -17,11 +17,12 @@ section.venue {
 
     .group-title {
       width: 50%;
-      margin: 0 auto;
+      margin: 3em auto 0.25em;
       text-align: left;
+      font-size: 1.2rem;
 
       aside {
-        font-size: 0.85em;
+        font-size: 0.85rem;
         color: $iom-silver;
       }
     }
