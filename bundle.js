@@ -88096,18 +88096,22 @@ var CheckoutSummary = function (_Component) {
             'div',
             { className: 'center' },
             _react2.default.createElement(
-              'button',
-              { type: 'button', onClick: this.props.prevStep },
-              'Back'
-            ),
-            _react2.default.createElement(
-              'button',
-              { type: 'submit', className: buttonClasses, disabled: !checkout.tos || !!errorMessage },
-              buttonText
-            ),
-            _react2.default.createElement(
               'form',
               { onSubmit: handleSubmit(this.handleSubmit.bind(this)) },
+              _react2.default.createElement(
+                'div',
+                { className: 'center' },
+                _react2.default.createElement(
+                  'button',
+                  { type: 'button', onClick: this.props.prevStep },
+                  'Back'
+                ),
+                _react2.default.createElement(
+                  'button',
+                  { type: 'submit', className: buttonClasses, disabled: !checkout.tos || !!errorMessage },
+                  buttonText
+                )
+              ),
               _react2.default.createElement(_reduxForm.Field, {
                 component: _materialUiReduxForm.renderCheckbox,
                 id: 'checkout-tos',
