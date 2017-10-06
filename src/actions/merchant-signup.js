@@ -50,6 +50,8 @@ export function merchantSignup(data) {
             signup_source: 'Surfboard',  // and a semantic signup_source here, too.
             zinger: data.venue.zinger,
             description: data.venue.description,
+            address: data.venue.address,
+            address_2: data.venue.address_2,
             ...data
           }
         }
