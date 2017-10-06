@@ -79800,7 +79800,7 @@ var Welcome = function Welcome(_ref) {
       _react2.default.createElement(
         'summary',
         null,
-        'Creating your merchant account will only take a few minutes, and you can start selling gift cards online as soon as tomorrow.'
+        'Register your business, create your account, and go live in 15 minutes. Sign up today & sell your first gift card online tomorrow.'
       ),
       _react2.default.createElement(
         'article',
@@ -79838,7 +79838,7 @@ var Welcome = function Welcome(_ref) {
               _react2.default.createElement(
                 'aside',
                 null,
-                'These will help entice potential customers to choose your venue.  You can update these at any time.'
+                'These descriptions drive awareness and increased gift card sales. You can update these at any time.'
               )
             )
           )
@@ -79852,11 +79852,11 @@ var Welcome = function Welcome(_ref) {
             _react2.default.createElement(
               'li',
               null,
-              'Contact name and email for following up',
+              'Primary contact name and email',
               _react2.default.createElement(
                 'aside',
                 null,
-                'This will be our primary contact on your team.'
+                'This will be who our customer success and support teams will reach out to.'
               )
             )
           )
@@ -79870,7 +79870,7 @@ var Welcome = function Welcome(_ref) {
             _react2.default.createElement(
               'li',
               null,
-              'A high-res logo and cover photo for your venue',
+              'A high-res logo and cover photo for your venue listing',
               _react2.default.createElement(
                 'aside',
                 null,
@@ -79892,7 +79892,7 @@ var Welcome = function Welcome(_ref) {
               _react2.default.createElement(
                 'aside',
                 null,
-                'We will confirm everything with you via email prior to charging your card.'
+                'Once you\'ve submitted payment, your customer success rep will contact you.'
               )
             )
           )
@@ -87623,7 +87623,7 @@ var FormCreditcard = function (_Component) {
         return _react2.default.createElement(
           'div',
           { id: 'stripe-success' },
-          'Successfully received and verified!'
+          'Submitted successfully!'
         );
       }
 
@@ -87645,7 +87645,7 @@ var FormCreditcard = function (_Component) {
         return _react2.default.createElement(
           'button',
           { type: 'submit' },
-          'Verify with Stripe'
+          'Submit to Stripe'
         );
       }
 
@@ -88195,9 +88195,7 @@ var CheckoutSummary = function (_Component) {
           _react2.default.createElement(
             'summary',
             null,
-            'We will confirm everything with you by email',
-            _react2.default.createElement('br', null),
-            'prior to charging your card.'
+            'Once you have submitted payment, your customer success rep will contact you.'
           ),
           _react2.default.createElement(
             'dl',
@@ -88363,12 +88361,12 @@ var Success = function (_Component) {
           _react2.default.createElement(
             'summary',
             null,
-            'Congratulations! You\'ve created a merchant account.'
+            'Congratulations! You\'ve created an ItsOnMe merchant account.'
           ),
           _react2.default.createElement(
             'p',
             null,
-            'We\'ll contact you by email within 24 hours to go over the details and complete your account setup.'
+            'We will contact you within 24 hours to introduce you to your rep and finalize your account setup.'
           ),
           _react2.default.createElement('br', null),
           _react2.default.createElement(
