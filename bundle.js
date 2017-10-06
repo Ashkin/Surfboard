@@ -57869,7 +57869,8 @@ function merchantSignup(data) {
             zinger: data.venue.zinger,
             description: data.venue.description,
             address: data.venue.address,
-            address_2: data.venue.address_2
+            address_2: data.venue.address_2,
+            yelp_url: data.venue.yelp_url
           }, data)
         }
       }
@@ -80050,6 +80051,7 @@ var FormVenue = function (_Component) {
         this.buildTextField({ name: "state", required: true, label: "State" }),
         this.buildTextField({ name: "zip", required: true, label: "Zip" }),
         this.buildTextField({ name: "url", required: false, label: "Website" }),
+        this.buildTextField({ name: "yelp_url", required: false, label: "Yelp URL" }),
         this.buildTextField({ name: "pos", required: false, label: "Point-of-Sale System" }),
         _react2.default.createElement(
           'div',
