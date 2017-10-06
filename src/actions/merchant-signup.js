@@ -52,6 +52,7 @@ export function merchantSignup(data) {
             description: data.venue.description,
             address: data.venue.address,
             address_2: data.venue.address_2,
+            yelp_url: data.venue.yelp_url,
             ...data
           }
         }

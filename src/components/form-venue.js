@@ -88,6 +88,7 @@ class FormVenue extends Component {
         { this.buildTextField({name:"state",    required:true,   label:"State"}) }
         { this.buildTextField({name:"zip",      required:true,   label:"Zip"}) }
         { this.buildTextField({name:"url",      required:false,  label:"Website"}) }
+        { this.buildTextField({name:"yelp_url", required:false,  label:"Yelp URL"}) }
         { this.buildTextField({name:"pos",      required:false,  label:"Point-of-Sale System"}) }
 
         <div className="group-title">
