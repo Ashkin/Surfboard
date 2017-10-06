@@ -9,12 +9,12 @@ class Success extends Component {
         <Paper className="paper" zDepth={2}>
           <header>Success!</header>
           <summary>
-            Congratulations! You've created a merchant account.
+            Congratulations! You've created an ItsOnMe merchant account.
           </summary>
 
           <p>
-            We'll contact you by email within 24 hours
-            to go over the details and complete your account setup.
+            We will contact you within 24 hours to 
+            introduce you to your rep and finalize your account setup.
           </p>
           <br/>
           <a className="button" href="https://www.itson.me">Back to ItsOnMe</a>
