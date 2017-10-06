@@ -4,12 +4,13 @@
 .right    { float: right; }
 .clearfix { clear: both; }
 
-.center { text-align: center; }
+.center   { text-align: center; }
 
 .inverted { filter: invert(100%); }
-.error { color: $danger; }
+.error    { color: $danger; }
+.tel      { font-family: courier, monospace;  color: $iom-dark-blue; }
 
-.hidden { display: none; }
+.hidden   { display: none; }
 
 
 .aspect-ratio {
@@ -47,3 +48,4 @@
   border-radius: 10em;
   background-color: $iom-blue;
 }
+

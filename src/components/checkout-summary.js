@@ -15,6 +15,24 @@ class CheckoutSummary extends Component {
 
 
 
+
+  renderContact() {
+    // Ex: Sally (Maître d'hôtel)  <sally@pfchangs.com>
+    return (
+      <div className="contact">
+        <dt>Primary Contact</dt>
+        <dd>
+          <span className="name">{this.props.contact.name}</span>
+          <span className="position">{this.props.contact.position ? ` (${this.props.contact.position})` : ''}</span>
+          &nbsp; &lt;<span className="email">{this.props.contact.email}</span>&gt;<br/>
+          <span className="tel">{this.props.contact.phone}</span>
+        </dd>
+      </div>
+    )
+  }
+
+
+
   renderVenue() {
     const { venue } = this.props
 
@@ -22,7 +40,7 @@ class CheckoutSummary extends Component {
     if (!(venue.name && venue.address && venue.zip)) {
       return (
         <div className="venue">
-          <dt>Venue</dt>
+          <dt>Venue Address</dt>
           <dd>
             <span className="error">
               Please fill out the venue information
@@ -34,15 +52,42 @@ class CheckoutSummary extends Component {
 
     return (
       <div className="venue">
-        <dt>Venue</dt>
+        <dt>Venue Address</dt>
         <dd>
           <span>{venue.name}</span><br/>
           <span>{venue.address}</span><br/>
-          <span>{venue.zip}</span>
+          <span>{venue.city}, {venue.state} &nbsp;{venue.zip}</span>
         </dd>
       </div>
     )
   }
+
+
+
+  renderZinger() {
+    return (
+      <div className="zinger">
+        <dt>Description (short)</dt>
+        <dd>
+          <span>{this.props.venue.zinger}</span>
+        </dd>
+      </div>
+    )
+  }
+
+
+
+  renderDescription() {
+    return (
+      <div className="description">
+        <dt>Description (full)</dt>
+        <dd>
+          <span>{this.props.venue.description}</span>
+        </dd>
+      </div>
+    )
+  }
+
 
 
   renderOrder() {
@@ -52,7 +97,7 @@ class CheckoutSummary extends Component {
     if (selectedPlan == null) {
       return (
         <div className="order">
-          <dt>Order</dt>
+          <dt>ItsOnMe Order</dt>
           <dd>
             <span className="error">
               Please select a plan
@@ -77,10 +122,9 @@ class CheckoutSummary extends Component {
 
     return (
       <div className="order">
-        <dt>Order</dt>
+        <dt>ItsOnMe Order</dt>
         <dd>
           {this.renderItem(planItemName, planItemCost)}
-          {this.renderItem("Tax", "0")}
           <hr/>
           {this.renderItem("Total", planItemCost, "total")}
         </dd>
@@ -91,7 +135,7 @@ class CheckoutSummary extends Component {
 
 
 
-  renderItem(desc, cost, className) {
+  renderItem(desc, cost, className='') {
     const classes=`item ${className}`.trim()
     return (
       <div className={classes}>
@@ -124,9 +168,14 @@ class CheckoutSummary extends Component {
     if (signup.status == "failure") {
       return (
         <div className="signup-status error">
-          <h3>Oh no!</h3>
+          <h2>Oh no!</h2>
           There was an error submitting your information.<br/>
-          Please try again in a little while.
+          <br/>
+          Please try again in 5-10 minutes.<br/>
+          (Do not refresh the page or you will lose your data.)<br/>
+          <br/>
+          You may also contact support here:<br/>
+          Text <span className="tel">310.235.3835</span> for immediate assistance, or email <a href="mailto:sales@itson.me" target="_blank">sales@itson.me</a>.
         </div>
       )
     }
@@ -194,7 +243,10 @@ class CheckoutSummary extends Component {
           </summary>
 
           <dl>
+            {this.renderContact()}
             {this.renderVenue()}
+            {this.renderZinger()}
+            {this.renderDescription()}
             {this.renderOrder()}
           </dl>
 

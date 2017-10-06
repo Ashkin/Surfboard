@@ -83,7 +83,10 @@ section.photos {
 
 
           // Actual logo image
-          & > img { @extend .full-image; }
+          & > img {
+            @extend .full-image;
+            border-radius: inherit;
+          }
 
 
           button {

@@ -83,9 +83,9 @@ class FormVenue extends Component {
       <form className="venue" onSubmit={handleSubmit(this.handleSubmit.bind(this))}>
         { this.buildTextField({name:"name",     required:true,   label:"Venue Name"}) }
         { this.buildTextField({name:"address",  required:true,   label:"Address"}) }
-        { this.buildTextField({name:"address2", required:false,  label:"Suite Number"}) }
-        { this.buildTextField({name:"city",     required:false,  label:"City"}) }
-        { this.buildTextField({name:"state",    required:false,  label:"State"}) }
+        { this.buildTextField({name:"address_2",required:false,  label:"Suite Number"}) }
+        { this.buildTextField({name:"city",     required:true,   label:"City"}) }
+        { this.buildTextField({name:"state",    required:true,   label:"State"}) }
         { this.buildTextField({name:"zip",      required:true,   label:"Zip"}) }
         { this.buildTextField({name:"url",      required:false,  label:"Website"}) }
         { this.buildTextField({name:"pos",      required:false,  label:"Point-of-Sale System"}) }
@@ -109,7 +109,7 @@ class FormVenue extends Component {
         })}
 
         <div className="center">
-          <button type="button" onClick={this.props.prevStep}>Back</button>
+          {/* <button type="button" onClick={this.props.prevStep}>Back</button> */}
           <button type="submit" className="button">Next</button>
         </div>
       </form>
@@ -128,7 +128,7 @@ class FormVenue extends Component {
 
 function validate(values) {
   const errors = {}
-  const requiredFields = ['name', 'address', 'zip', 'zinger', 'description']
+  const requiredFields = ['name', 'address', 'city', 'state', 'zip', 'zinger', 'description']
   const maxFieldLengths = {zinger: 90, description: 500}
 
   requiredFields.forEach((field) => {
