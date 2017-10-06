@@ -16,4 +16,4 @@ const PrimePlan = {
 }
 
 
-export default [StandardPlan, PrimePlan]
+export default [PrimePlan, StandardPlan]
