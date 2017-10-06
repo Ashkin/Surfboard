@@ -37,9 +37,8 @@ class Plans extends Component {
 
     return (
       <button
-        className={plan.recommended ? "" : "button-dark-silver"}
         onClick={() => this.handleClick(planId)}>
-        Choose Plan
+        Select Plan
       </button>
     )
   }
