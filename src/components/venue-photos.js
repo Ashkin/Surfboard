@@ -44,7 +44,8 @@ class VenuePhotos extends Component {
 
         // On success, save the image data  (`path` for the database, `public_id` for displaying locally)
         // The updated state will trigger a rerender, displaying our new image.
-        const { path, public_id } = result[0]
+        let { path, public_id } = result[0]
+        path = "http://res.cloudinary.com/drinkboard/image/upload/" + path
         this.props.savePhoto( {[which]: {path, public_id}} )
       }
     )
