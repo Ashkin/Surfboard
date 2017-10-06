@@ -7,8 +7,8 @@ const Welcome = ({nextStep}) => {
       <Paper className="paper" zDepth={2}>
         <header>Welcome!</header>
         <summary>
-          Creating your merchant account will only take a few minutes,
-          and you can start selling gift cards online as soon as tomorrow.
+          Register your business, create your account, and go live in 15 minutes. 
+          Sign up today & sell your first gift card online tomorrow.
         </summary>
 
         <article>
@@ -23,19 +23,19 @@ const Welcome = ({nextStep}) => {
             <ul><li>
               A short one-liner, and a longer venue description
               <aside>
-                These will help entice potential customers to choose your venue.  You can update these at any time.
+                These descriptions drive awareness and increased gift card sales. You can update these at any time.
               </aside>
             </li></ul>
           </Paper>
           <Paper className="paper item" zDepth={2}>
             <ul><li>
-              Contact name and email for following up
-              <aside>This will be our primary contact on your team.</aside>
+              Primary contact name and email
+              <aside>This will be who our customer success and support teams will reach out to.</aside>
             </li></ul>
           </Paper>
           <Paper className="paper item" zDepth={2}>
             <ul><li>
-              A high-res logo and cover photo for your venue
+              A high-res logo and cover photo for your venue listing
               <aside>
                 Be sure to represent your brand with quality, high-res images.
               </aside>
@@ -44,7 +44,7 @@ const Welcome = ({nextStep}) => {
           <Paper className="paper item" zDepth={2}>
             <ul><li>
               Credit card info
-              <aside>We will confirm everything with you via email prior to charging your card.</aside>
+              <aside>Once you've submitted payment, your customer success rep will contact you.</aside>
             </li></ul>
           </Paper>
         </article>

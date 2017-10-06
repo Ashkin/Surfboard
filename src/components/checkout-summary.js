@@ -238,8 +238,7 @@ class CheckoutSummary extends Component {
             <span className="filled-circle">{this.props.step}</span> Checkout
           </header>
           <summary>
-            We will confirm everything with you by email<br/>
-            prior to charging your card.
+            Once you have submitted payment, your customer success rep will contact you.
           </summary>
 
           <dl>

@@ -55,7 +55,7 @@ class FormCreditcard extends Component {
     if (this.props.stripe.token) {
       return (
         <div id="stripe-success">
-          Successfully received and verified!
+          Submitted successfully!
         </div>
       )
     }
@@ -72,7 +72,7 @@ class FormCreditcard extends Component {
     const { nextStep, stripe: { token } } = this.props
 
     if (!token) {
-      return <button type="submit">Verify with Stripe</button>
+      return <button type="submit">Submit to Stripe</button>
     }
 
     return <button type="button" onClick={nextStep}>Next</button>
