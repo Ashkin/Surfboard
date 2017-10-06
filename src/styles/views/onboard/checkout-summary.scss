@@ -7,12 +7,6 @@ section.checkout-summary {
     text-align: left;
 
 
-    div.venue, div.order {
-      margin-bottom: 1em;
-    }
-
-
-
     dt {
       // fancy shmancy trailing underline
       width: 25%;
@@ -45,6 +39,19 @@ section.checkout-summary {
         clear: both;
       }
     }
+
+
+    .contact {
+      .email {
+        font-family: courier, monospace;
+        color: $iom-dark-blue;
+      }
+    }
+
+    .description dd {
+      text-align: justify;
+    }
+
 
   }
 
@@ -81,7 +88,20 @@ section.checkout-summary {
       text-align: center;
       color: $danger;
     }
-
   }
 
+
+  .signup-status {
+
+    &.error {
+      width: 25rem;
+      padding: 0.5rem;
+      margin: 2rem auto;
+      border: 0.2rem dashed $danger;
+      border-radius: 0.75em;
+      text-align: left;
+      color: $danger;
+      background-color: transparentize($danger, 0.8);
+    }
+  }
 }
