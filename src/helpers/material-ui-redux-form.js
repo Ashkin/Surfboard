@@ -1,6 +1,9 @@
 // Redux-Form wrappers to enable the use of Material UI components
 // Slightly modified of http://redux-form.com/7.0.3/examples/material-ui/
 
+//TODO: replace with erikras/redux-form-material-ui
+//      and figure out how to add "mui-textarea"/etc.
+
 
 import React                from 'react'
 import TextField            from 'material-ui/TextField'
