@@ -42,9 +42,30 @@ section.checkout-summary {
 
 
     .contact {
-      .email {
-        font-family: courier, monospace;
-        color: $iom-dark-blue;
+      // Nicely formatted contact summary 'table'
+      ul {
+        list-style: none;
+
+        li {
+          margin: 0;
+
+          label {
+            display: inline-block;
+            width: 5rem;
+            // Set default font size
+            font-size: 1rem;
+            // Right-align with spacing
+            padding-right: 0.5rem;
+            text-align: right;
+            font-weight: bold;
+          }
+
+          .position {
+            // distinguish it a little
+            font-size: 0.8rem;
+            color: $iom-grey;
+          }
+        }
       }
     }
 

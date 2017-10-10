@@ -17,15 +17,24 @@ class CheckoutSummary extends Component {
 
 
   renderContact() {
-    // Ex: Sally (Maître d'hôtel)  <sally@pfchangs.com>
+    // Ex: Sally (Maître d'hôtel)
     return (
       <div className="contact">
         <dt>Primary Contact</dt>
         <dd>
-          <span className="name">{this.props.contact.name}</span>
-          <span className="position">{this.props.contact.position ? ` (${this.props.contact.position})` : ''}</span>
-          &nbsp; &lt;<span className="email">{this.props.contact.email}</span>&gt;<br/>
-          <span className="tel">{this.props.contact.phone}</span>
+          <ul>
+            <li>
+              <label>Name:</label>
+              <span className="name">{this.props.contact.name}
+              </span><span className="position">{this.props.contact.position ? ` (${this.props.contact.position})` : ''}</span>
+            </li><li>
+              <label>Email:</label>
+              <span className="email">{this.props.contact.email}</span>
+            </li><li>
+              <label>Phone:</label>
+              <span className="phone">{this.props.contact.phone}</span>
+            </li>
+          </ul>
         </dd>
       </div>
     )
