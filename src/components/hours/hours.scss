@@ -1,0 +1,42 @@
+/* Component: Hours */
+
+.hours-week {}
+
+
+.hours-day {
+  // The Mui components used a fixed font-size, so
+  // using 32.5em here will break with different rem sizes
+  min-width: 520px;  // eww, px :<
+
+
+  & > label {
+    display:    inline-block;
+    width:      6.5em;
+    text-align: left;
+    color:      darkgrey;
+  }
+
+  .mui-toggle {
+    display:   inline-block !important;
+    width:     8em          !important;
+    height:    3em          !important;
+  }
+
+  .range {
+    display: inline-block;
+
+    & > div {
+      // Fix for Mui <TimePicker>'s extra <div> wrapper
+      display: inline-block;
+    }
+
+    .mui-timepicker {
+      display:   inline-block;
+      min-width:  6em !important;
+      width:     15%  !important;
+      max-width:  8em !important;
+    }
+
+  }
+
+}

@@ -287,10 +287,11 @@ class CheckoutSummary extends Component {
 
 
   handleSubmit(values) {
-    const { venue, contact, photos, plans, stripe, tos } = this.props
+    const { venue, hours, contact, photos, plans, stripe, tos } = this.props
 
     this.props.merchantSignup({
       venue,
+      hours,
       contact,
       photos,
       plans,
@@ -308,6 +309,7 @@ function mapStateToProps(state) {
 
   return {
     venue:      state.venue,
+    hours:      state.hours,
     contact:    state.contact,
     photos:     state.photos,
     plans:      state.plans,

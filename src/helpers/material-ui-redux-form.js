@@ -11,8 +11,67 @@ import { RadioButton,
          RadioButtonGroup } from 'material-ui/RadioButton'
 import Checkbox             from 'material-ui/Checkbox'
 import SelectField          from 'material-ui/SelectField'
+import Toggle               from 'material-ui/Toggle'
+import TimePicker           from 'material-ui/TimePicker'
 
 import classBuilder         from '../helpers/class-builder'
+
+
+/* <TimePicker> */
+export const renderTimePicker = ({
+  input: { onBlur, ...inputProps },
+  defaultTime,
+  onChange,
+  ...custom
+}) => {
+  const muiClassName = classBuilder("mui-timepicker", inputProps.className, custom.className)
+
+  // Remove unused meta props
+  delete custom.meta
+
+  // Convert default "" -> {}
+  if (!inputProps.value)
+    inputProps.value = {}
+
+
+  // Added `data-workaround` because Mui <TimePicker>
+  // simply will not accept `className` without it >.<
+  return (
+    <TimePicker
+      {...inputProps}
+      {...custom}
+      className={muiClassName}
+      data-workaround={""}
+      onChange={(event, value) => {
+        inputProps.onChange(value)
+        if (onChange) {
+          onChange(value)
+        }
+      }}
+    />
+  )
+}
+
+
+/* <Toggle> */
+export const renderToggle = ({
+  input: { onChange, value, ...inputProps },
+  defaultToggled,
+  meta,
+  ...custom
+}) => {
+  const muiClassName = classBuilder("mui-toggle", inputProps.className, custom.className)
+
+  return (
+    <Toggle
+      {...inputProps}
+      {...custom}
+      className={muiClassName}
+      onToggle={onChange}
+      toggled={!!value}
+    />
+  )
+}
 
 
 /* <TextField> */

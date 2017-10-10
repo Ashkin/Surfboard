@@ -5,6 +5,7 @@ import Paper                        from 'material-ui/Paper'
 
 import Welcome         from '../components/welcome'
 import FormVenue       from '../components/form-venue'
+import FormHours       from '../components/form-hours'
 import FormContact     from '../components/form-contact'
 import VenuePhotos     from '../components/venue-photos'
 import Plans           from '../components/plans'
@@ -29,7 +30,7 @@ class ViewOnboard extends Component {
       activeStep = -1
 
     // Don't go past the end, obv.
-    if (activeStep >= 6)
+    if (activeStep >= 7)
       return
 
     this.props.setStep({activeStep: activeStep + 1})
@@ -56,12 +57,13 @@ class ViewOnboard extends Component {
       case undefined:
       case -1: return <Welcome         step={activeStep+1}                              nextStep={this.handleNext} />
       case 0:  return <FormVenue       step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} />
-      case 1:  return <FormContact     step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} />
-      case 2:  return <VenuePhotos     step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} />
-      case 3:  return <Plans           step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} />
-      case 4:  return <FormCreditcard  step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} />
-      case 5:  return <CheckoutSummary step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} />
-      case 6:  return <Success />
+      case 1:  return <FormHours       step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} />
+      case 2:  return <FormContact     step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} />
+      case 3:  return <VenuePhotos     step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} />
+      case 4:  return <Plans           step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} />
+      case 5:  return <FormCreditcard  step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} />
+      case 6:  return <CheckoutSummary step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} />
+      case 7:  return <Success />
       default: return <ViewNotFound />
     }
   }
@@ -75,6 +77,7 @@ class ViewOnboard extends Component {
       <Paper className="stepper paper" zDepth={3} rounded={false}>
         <Stepper activeStep={activeStep}>
           <Step><StepLabel>Venue</StepLabel></Step>
+          <Step><StepLabel>Hours</StepLabel></Step>
           <Step><StepLabel>Contact</StepLabel></Step>
           <Step><StepLabel>Photos</StepLabel></Step>
           <Step><StepLabel>Plans</StepLabel></Step>
