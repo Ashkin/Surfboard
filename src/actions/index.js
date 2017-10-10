@@ -3,6 +3,7 @@ export const ACTIONS = {
   SET_STEP:            'SET_STEP',
   // Save Onboarding Data
   UPDATE_VENUE:        'UPDATE_VENUE',
+  UPDATE_HOURS:        'UPDATE_HOURS',
   UPDATE_CONTACT:      'UPDATE_CONTACT',
   UPDATE_PHOTO:        'UPDATE_PHOTO',
   SELECT_PLAN:         'SELECT_PLAN',
@@ -27,6 +28,7 @@ function actionFactory(action) {
 // Actions
 export function setStep(data={})          { return actionFactory(ACTIONS.SET_STEP)(data) }
 export function saveVenueData(data={})    { return actionFactory(ACTIONS.UPDATE_VENUE)(data) }
+export function saveHoursData(data={})    { return actionFactory(ACTIONS.UPDATE_HOURS)(data) }
 export function saveContactData(data={})  { return actionFactory(ACTIONS.UPDATE_CONTACT)(data) }
 export function savePhoto(data={})        { return actionFactory(ACTIONS.UPDATE_PHOTO)(data) }
 export function selectPlan(data={})       { return actionFactory(ACTIONS.SELECT_PLAN)(data) }

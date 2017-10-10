@@ -18,6 +18,7 @@ const reducerFactory = function(actionConst, defaultState={}) {
 // Basic reduers
 const onboard  = reducerFactory(ACTIONS.SET_STEP)
 const venue    = reducerFactory(ACTIONS.UPDATE_VENUE)
+const hours    = reducerFactory(ACTIONS.UPDATE_HOURS)
 const contact  = reducerFactory(ACTIONS.UPDATE_CONTACT)
 const photos   = reducerFactory(ACTIONS.UPDATE_PHOTO)
 const plans    = reducerFactory(ACTIONS.SELECT_PLAN)
@@ -29,6 +30,7 @@ const rootReducer = combineReducers({
   onboard,
   form:  reduxFormReducer,
   venue,
+  hours,
   contact,
   photos,
   plans,

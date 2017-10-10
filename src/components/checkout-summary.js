@@ -190,7 +190,7 @@ class CheckoutSummary extends Component {
 
   //TODO: cleanup
   render() {
-    const { venue, contact, plans, stripe, checkout, signup } = this.props
+    const { venue, contact, plans, stripe, tos, signup } = this.props
 
 
     //TODO: only display error when clicking [submit]
@@ -220,7 +220,7 @@ class CheckoutSummary extends Component {
 
     let buttonClasses = []
     if (!!errorMessage)              buttonClasses.push('hidden')
-    if (checkout.tos !== true)       buttonClasses.push('button-disabled')
+    if (tos !== true)                buttonClasses.push('button-disabled')
     if (signup.status == "pending" ) buttonClasses.push('button-disabled')
     buttonClasses = buttonClasses.join(' ')
 
@@ -254,7 +254,7 @@ class CheckoutSummary extends Component {
             <form onSubmit={handleSubmit(this.handleSubmit.bind(this))}>
               <div className="center">
                 <button type="button" onClick={this.props.prevStep}>Back</button>
-                <button type="submit" className={buttonClasses} disabled={!checkout.tos || !!errorMessage}>
+                <button type="submit" className={buttonClasses} disabled={!tos || !!errorMessage}>
                   { buttonText }
                 </button>
               </div>
@@ -287,15 +287,16 @@ class CheckoutSummary extends Component {
 
 
   handleSubmit(values) {
-    const { venue, contact, photos, plans, stripe, checkout } = this.props
+    const { venue, hours, contact, photos, plans, stripe, tos } = this.props
 
     this.props.merchantSignup({
       venue,
+      hours,
       contact,
       photos,
       plans,
       stripe,
-      checkout
+      tos
     })
   }
 }
@@ -308,11 +309,12 @@ function mapStateToProps(state) {
 
   return {
     venue:      state.venue,
+    hours:      state.hours,
     contact:    state.contact,
     photos:     state.photos,
     plans:      state.plans,
     stripe:     state.stripe,
-    checkout:   { tos: selector(state, 'tos') },
+    tos:        selector(state, 'tos'),
     signup:     state.signup
   }
 }
