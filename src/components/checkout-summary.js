@@ -287,7 +287,7 @@ class CheckoutSummary extends Component {
 
 
   handleSubmit(values) {
-    const { venue, contact, photos, plans, stripe, checkout } = this.props
+    const { venue, contact, photos, plans, stripe, tos } = this.props
 
     this.props.merchantSignup({
       venue,
