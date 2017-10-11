@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import { CloudinaryContext, Transformation, Image } from 'cloudinary-react';
-import { connect } from 'react-redux'
-import Paper from 'material-ui/Paper'
+import React, { Component } from "react"
+import { CloudinaryContext, Transformation, Image } from "cloudinary-react"
+import { connect } from "react-redux"
+import Paper from "material-ui/Paper"
 
-import { savePhoto } from '../actions'
+import { savePhoto } from "../actions"
 //TODO: move Cloudinary config to its own file
 
 
@@ -21,19 +21,20 @@ class VenuePhotos extends Component {
     // Image-specific options, e.g. min-image-height/width, client_allowed_formats, etc.
     // ref: http://cloudinary.com/documentation/upload_widget#upload_widget_options
     let options = {}
-    if (which == 'logo')  options = {}
-    if (which == 'cover') options = {}
+    if (which == "logo")  options = {}
+    if (which == "cover") options = {}
 
 
     // Tags to help filter venue photos
     const tags =  [venue.name, venue.zip, which]  //TODO: replace venue.zip with venue.state
 
 
-    // Open the widget!
+    // Open the widget!  (`cloudinary` defined by an include in /index.html)
+    //eslint-disable-next-line
     cloudinary.openUploadWidget(
-      { cloud_name: 'drinkboard',
-        upload_preset: 'merchant',
-        sources: ['local', 'url', 'dropbox', 'google_photos', 'instagram'],  //TODO: add 'image_search' (requires google API key)
+      { cloud_name: "drinkboard",
+        upload_preset: "merchant",
+        sources: ["local", "url", "dropbox", "google_photos", "instagram"],  //TODO: add 'image_search' (requires google API key)
         search_by_rights: true,
         max_files: 1,
         ...options,
@@ -96,7 +97,7 @@ class VenuePhotos extends Component {
     // Do we have the necessary Venue data?
     const venueMissing = !(venue.name && venue.zip)
     // If not, disable the upload buttons.
-    const buttonClass  = (venueMissing ? 'button-disabled' : '')
+    const buttonClass  = (venueMissing ? "button-disabled" : "")
 
     return (
       <section className="photos">
@@ -113,20 +114,20 @@ class VenuePhotos extends Component {
               <div className="aspect-wrapper aspect-ratio ratio-21-9">
                 <div className="cover-photo">
 
-                  {this.renderImage.bind(this, 'cover')()}
+                  {this.renderImage.bind(this, "cover")()}
 
                   <div className="spacing-top"></div>
 
                   <div className="logo">
-                    {this.renderImage.bind(this, 'logo')()}
-                    <button className={buttonClass} onClick={this.uploadWidget.bind(this, 'logo')}>
+                    {this.renderImage.bind(this, "logo")()}
+                    <button className={buttonClass} onClick={this.uploadWidget.bind(this, "logo")}>
                      Upload Logo
                     </button>
                   </div>
 
                   {this.renderVenue()}
 
-                  <button className={"upload-cover-photo " + buttonClass} onClick={this.uploadWidget.bind(this, 'cover')}>
+                  <button className={"upload-cover-photo " + buttonClass} onClick={this.uploadWidget.bind(this, "cover")}>
                     Upload Cover Photo
                   </button>
 

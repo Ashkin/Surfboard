@@ -1,8 +1,8 @@
-import axios from 'axios'
+import axios from "axios"
 
-import { ACTIONS }         from './index'
-import { ONBOARD_API_URL } from '../config/api'
-import PLANS               from '../config/plans'
+import { ACTIONS }         from "./index"
+import { ONBOARD_API_URL } from "../config/api"
+import PLANS               from "../config/plans"
 
 
 export function merchantSignup(data) {
@@ -13,7 +13,7 @@ export function merchantSignup(data) {
 
     // Extract the plan's data from config
     // (Clean Skies!  within an IIFE to avoid pollution)
-    data['plan'] = (() => {
+    data["plan"] = (() => {
       const selectedPlan = PLANS[data.plans.selectedPlan]
       const { name, pricePerMonth, cycleInMonths } = selectedPlan
       return { name, pricePerMonth, cycleInMonths }
@@ -25,29 +25,29 @@ export function merchantSignup(data) {
     // Construct the POST config & payload
     const axios_config = {
       url: ONBOARD_API_URL,
-      method: 'post',
+      method: "post",
       headers: {
-        'X_AUTH_TOKEN':      ONBOARDING_TOKEN,
-        'X_APPLICATION_KEY': APPLICATION_KEY
+        "X_AUTH_TOKEN":      ONBOARDING_TOKEN,
+        "X_APPLICATION_KEY": APPLICATION_KEY
       },
       data: {
         // Everything needs to live within `data`
         data: {
           // Specific named fields used by the server
           name: data.contact.name,
-          position: data.contact.position || 'Surfboard',  // Mimic the CLOVER behavior and include the signup source
+          position: data.contact.position || "Surfboard",  // Mimic the CLOVER behavior and include the signup source
           address: data.venue.address,
           venue_name: data.venue.name,
           venue_url: data.venue.url,
           email: data.contact.email,
           phone: data.contact.phone,
-          point_of_sale_system: data.venue.pos || 'Surfboard',  // Required by the backend
-          // message: '',
+          point_of_sale_system: data.venue.pos || "Surfboard",  // Required by the backend
+          // message: "",
 
           // but it will store everything else, too
           // so let's make sure we send everything!
           data: {
-            signup_source: 'Surfboard',  // and a semantic signup_source here, too.
+            signup_source: "Surfboard",  // and a semantic signup_source here, too.
             zinger: data.venue.zinger,
             description: data.venue.description,
             address: data.venue.address,

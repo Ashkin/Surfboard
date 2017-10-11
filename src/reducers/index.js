@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux'
-import { reducer as reduxFormReducer } from 'redux-form'
+import { combineReducers } from "redux"
+import { reducer as reduxFormReducer } from "redux-form"
 
-import { ACTIONS } from '../actions'
-import signup      from './merchant-signup'
+import { ACTIONS } from "../actions"
+import signup      from "./merchant-signup"
 
 
 // Basic reducer factory
@@ -10,7 +10,7 @@ import signup      from './merchant-signup'
 const reducerFactory = function(actionConst, defaultState={}) {
   return function(state=defaultState, action) {
     if (action.type != actionConst)
-      return state;
+      return state
     return {...state, ...action.payload}
   }
 }

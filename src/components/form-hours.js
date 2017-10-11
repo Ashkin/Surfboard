@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import { Field, reduxForm } from 'redux-form'
-import { connect }          from 'react-redux'
-import Paper                from 'material-ui/Paper'
+import React, { Component } from "react"
+import { Field, reduxForm } from "redux-form"
+import { connect }          from "react-redux"
+import Paper                from "material-ui/Paper"
 
-import Hours                from './hours'
-import classBuilder         from '../helpers/class-builder'
-import { saveHoursData }    from '../actions'
+import Hours                from "./hours"
+import classBuilder         from "../helpers/class-builder"
+import { saveHoursData }    from "../actions"
 
 
 class FormHours extends Component {
@@ -61,7 +61,7 @@ function mapStateToProps(state) {
 
 
 const formOptions = {
-  form: 'hours',
+  form: "hours",
 }
 
 export default connect(

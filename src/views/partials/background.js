@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { CloudinaryContext, Transformation, Image } from 'cloudinary-react';
+import React, { Component } from "react"
+import { CloudinaryContext, Transformation, Image } from "cloudinary-react"
 
 
 class Background extends Component {
@@ -9,7 +9,7 @@ class Background extends Component {
       <CloudinaryContext cloudName="drinkboard">
         <Image
           className="site background"
-          publicId={'merchant_photos/fjxtoe0arynsffpipjiq.png'}
+          publicId={"merchant_photos/fjxtoe0arynsffpipjiq.png"}
         >
           <Transformation crop="scale" width="1400" />
           <Transformation effect="blur:250" />

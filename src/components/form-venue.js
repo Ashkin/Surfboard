@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import { Field, reduxForm, formValueSelector } from 'redux-form'
-import { connect }          from 'react-redux'
-import Paper                from 'material-ui/Paper'
+import React, { Component } from "react"
+import { Field, reduxForm, formValueSelector } from "redux-form"
+import { connect }          from "react-redux"
+import Paper                from "material-ui/Paper"
 
-import { renderTextField } from '../helpers/material-ui-redux-form'
-import classBuilder        from '../helpers/class-builder'
-import { saveVenueData }   from '../actions'
+import { renderTextField } from "../helpers/material-ui-redux-form"
+import classBuilder        from "../helpers/class-builder"
+import { saveVenueData }   from "../actions"
 
 
 class FormVenue extends Component {
@@ -35,15 +35,15 @@ class FormVenue extends Component {
     let floatingLabelStyle = null
     let hintStyle          = null
     if (multiLine) {
-      floatingLabelStyle = {width: '100%', left: '0px', textAlign: 'left'}
-      hintStyle          = {fontSize: '0.8em', textAlign: 'justify'}
+      floatingLabelStyle = {width: "100%", left: "0px", textAlign: "left"}
+      hintStyle          = {fontSize: "0.8em", textAlign: "justify"}
     }
 
     // Handle field length
     let charCount = null
     if (maxChars) {
       // Extract the field's value from redux-form's state
-      const fieldValue = this.props.getFieldValue(name) || ''  // undefined -> ''
+      const fieldValue = this.props.getFieldValue(name) || ""  // undefined -> ''
 
       charCount = fieldValue.length
       label += ` (chars: ${charCount}/${maxChars})`
@@ -129,18 +129,18 @@ class FormVenue extends Component {
 
 function validate(values) {
   const errors = {}
-  const requiredFields = ['name', 'address', 'city', 'state', 'zip', 'zinger', 'description']
+  const requiredFields = ["name", "address", "city", "state", "zip", "zinger", "description"]
   const maxFieldLengths = {zinger: 90, description: 500}
 
   requiredFields.forEach((field) => {
     if (!values[field])
-      errors[field] = ' '  // Displays invalid styles without displaying a message
+      errors[field] = " "  // Displays invalid styles without displaying a message
   })
 
   Object.keys(maxFieldLengths).forEach((field) => {
     if (!values[field]) return
     if ( values[field].length > maxFieldLengths[field])
-      errors[field] = ' '  // Displays invalid styles without displaying a message
+      errors[field] = " "  // Displays invalid styles without displaying a message
   })
 
   return errors
@@ -153,7 +153,7 @@ function mapStateToProps(state) {
   const initialValues = venue
 
   // Allow extracting the values from the state for character counts
-  const selector = formValueSelector('venue')
+  const selector = formValueSelector("venue")
   const getFieldValue = (name) => selector(state, name)
 
   return { venue, initialValues, getFieldValue }
@@ -163,7 +163,7 @@ function mapStateToProps(state) {
 
 const formOptions = {
   validate,
-  form: 'venue'
+  form: "venue"
 }
 
 export default connect(

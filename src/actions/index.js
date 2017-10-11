@@ -1,18 +1,18 @@
 export const ACTIONS = {
   // Onboarding Stepper
-  SET_STEP:            'SET_STEP',
+  SET_STEP:            "SET_STEP",
   // Save Onboarding Data
-  UPDATE_VENUE:        'UPDATE_VENUE',
-  UPDATE_HOURS:        'UPDATE_HOURS',
-  UPDATE_CONTACT:      'UPDATE_CONTACT',
-  UPDATE_PHOTO:        'UPDATE_PHOTO',
-  SELECT_PLAN:         'SELECT_PLAN',
-  UPDATE_STRIPE_TOKEN: 'UPDATE_STRIPE_TOKEN',
+  UPDATE_VENUE:        "UPDATE_VENUE",
+  UPDATE_HOURS:        "UPDATE_HOURS",
+  UPDATE_CONTACT:      "UPDATE_CONTACT",
+  UPDATE_PHOTO:        "UPDATE_PHOTO",
+  SELECT_PLAN:         "SELECT_PLAN",
+  UPDATE_STRIPE_TOKEN: "UPDATE_STRIPE_TOKEN",
   // Merchant API Actions
-  MERCHANT_SIGNUP:         'MERCHANT_SIGNUP',
-  MERCHANT_SIGNUP_PENDING: 'MERCHANT_SIGNUP_PENDING',
-  MERCHANT_SIGNUP_SUCCESS: 'MERCHANT_SIGNUP_SUCCESS',
-  MERCHANT_SIGNUP_FAILURE: 'MERCHANT_SIGNUP_FAILURE',
+  MERCHANT_SIGNUP:         "MERCHANT_SIGNUP",
+  MERCHANT_SIGNUP_PENDING: "MERCHANT_SIGNUP_PENDING",
+  MERCHANT_SIGNUP_SUCCESS: "MERCHANT_SIGNUP_SUCCESS",
+  MERCHANT_SIGNUP_FAILURE: "MERCHANT_SIGNUP_FAILURE",
 }
 
 
@@ -33,4 +33,4 @@ export function saveContactData(data={})  { return actionFactory(ACTIONS.UPDATE_
 export function savePhoto(data={})        { return actionFactory(ACTIONS.UPDATE_PHOTO)(data) }
 export function selectPlan(data={})       { return actionFactory(ACTIONS.SELECT_PLAN)(data) }
 export function saveStripeToken(data={})  { return actionFactory(ACTIONS.UPDATE_STRIPE_TOKEN)(data) }
-export { merchantSignup } from './merchant-signup'
+export { merchantSignup } from "./merchant-signup"

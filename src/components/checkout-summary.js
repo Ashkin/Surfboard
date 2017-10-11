@@ -1,20 +1,17 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import { Field, reduxForm, formValueSelector } from 'redux-form'
-import { connect } from 'react-redux'
-import Paper from 'material-ui/Paper'
+import React, { Component } from "react"
+import { Link }             from "react-router-dom"
+import { Field, reduxForm, formValueSelector } from "redux-form"
+import { connect }          from "react-redux"
+import Paper                from "material-ui/Paper"
 
-import PLANS                from '../config/plans'
-import classBuilder         from '../helpers/class-builder'
-import { renderCheckbox }   from '../helpers/material-ui-redux-form'
-import { merchantSignup } from '../actions'
+import PLANS                from "../config/plans"
+import classBuilder         from "../helpers/class-builder"
+import { renderCheckbox }   from "../helpers/material-ui-redux-form"
+import { merchantSignup }   from "../actions"
 
 
 
 class CheckoutSummary extends Component {
-
-
-
 
   renderContact() {
     // Ex: Sally (Maître d'hôtel)
@@ -26,7 +23,7 @@ class CheckoutSummary extends Component {
             <li>
               <label>Name:</label>
               <span className="name">{this.props.contact.name}
-              </span><span className="position">{this.props.contact.position ? ` (${this.props.contact.position})` : ''}</span>
+              </span><span className="position">{this.props.contact.position ? ` (${this.props.contact.position})` : ""}</span>
             </li><li>
               <label>Email:</label>
               <span className="email">{this.props.contact.email}</span>
@@ -121,9 +118,9 @@ class CheckoutSummary extends Component {
 
     let planBillingCycle = ""
     switch(plan.cycleInMonths) {
-      case 1:  { planBillingCycle = "Monthly"; break; }
-      case 12: { planBillingCycle = "Anually"; break; }
-      default: { planBillingCycle = "ohnoes";  break; }
+    case 1:  { planBillingCycle = "Monthly"; break }
+    case 12: { planBillingCycle = "Anually"; break }
+    default: { planBillingCycle = "ohnoes";  break }
     }
     const planItemName = `ItsOnMe ${plan.name} Membership (Billed ${planBillingCycle})`
     const planItemCost = plan.pricePerMonth * plan.cycleInMonths
@@ -144,7 +141,7 @@ class CheckoutSummary extends Component {
 
 
 
-  renderItem(desc, cost, className='') {
+  renderItem(desc, cost, className="") {
     const classes=`item ${className}`.trim()
     return (
       <div className={classes}>
@@ -228,10 +225,10 @@ class CheckoutSummary extends Component {
     const errorMessage = (errors.venue || errors.contact || errors.plans || errors.stripe)
 
     let buttonClasses = []
-    if (!!errorMessage)              buttonClasses.push('hidden')
-    if (tos !== true)                buttonClasses.push('button-disabled')
-    if (signup.status == "pending" ) buttonClasses.push('button-disabled')
-    buttonClasses = buttonClasses.join(' ')
+    if (errorMessage)                buttonClasses.push("hidden")
+    if (tos !== true)                buttonClasses.push("button-disabled")
+    if (signup.status == "pending" ) buttonClasses.push("button-disabled")
+    buttonClasses = buttonClasses.join(" ")
 
     let buttonText = "Complete Signup!"
     if (signup.status == "pending")
@@ -278,12 +275,12 @@ class CheckoutSummary extends Component {
                     I agree to the <a href="//itson.me/tos" target="_blank">Terms of Service</a>.
                   </label>
                 }
-                labelStyle={{zIndex: 3, textAlign: 'left'}}
+                labelStyle={{zIndex: 3, textAlign: "left"}}
               />
             </form>
           </div>
 
-          <div className={!!errorMessage ? "validation" : "hidden"}>
+          <div className={errorMessage ? "validation" : "hidden"}>
             <div className="title">Missing info</div>
             {errorMessage}
           </div>
@@ -295,7 +292,7 @@ class CheckoutSummary extends Component {
   }
 
 
-  handleSubmit(values) {
+  handleSubmit() {
     const { venue, hours, contact, photos, plans, stripe, tos } = this.props
 
     this.props.merchantSignup({
@@ -314,7 +311,7 @@ class CheckoutSummary extends Component {
 
 
 function mapStateToProps(state) {
-  const selector = formValueSelector('CheckoutForm')
+  const selector = formValueSelector("CheckoutForm")
 
   return {
     venue:      state.venue,
@@ -323,7 +320,7 @@ function mapStateToProps(state) {
     photos:     state.photos,
     plans:      state.plans,
     stripe:     state.stripe,
-    tos:        selector(state, 'tos'),
+    tos:        selector(state, "tos"),
     signup:     state.signup
   }
 }
@@ -331,7 +328,7 @@ function mapStateToProps(state) {
 
 
 const formOptions = {
-  form: 'CheckoutForm'
+  form: "CheckoutForm"
 }
 
 export default connect(

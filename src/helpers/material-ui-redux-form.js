@@ -5,22 +5,22 @@
 //      and figure out how to add "mui-textarea"/etc.
 
 
-import React                from 'react'
-import TextField            from 'material-ui/TextField'
+import React                from "react"
+import TextField            from "material-ui/TextField"
 import { RadioButton,
-         RadioButtonGroup } from 'material-ui/RadioButton'
-import Checkbox             from 'material-ui/Checkbox'
-import SelectField          from 'material-ui/SelectField'
-import Toggle               from 'material-ui/Toggle'
-import TimePicker           from 'material-ui/TimePicker'
+         RadioButtonGroup } from "material-ui/RadioButton"
+import Checkbox             from "material-ui/Checkbox"
+import SelectField          from "material-ui/SelectField"
+import Toggle               from "material-ui/Toggle"
+import TimePicker           from "material-ui/TimePicker"
 
-import classBuilder         from '../helpers/class-builder'
+import classBuilder         from "../helpers/class-builder"
 
 
 /* <TimePicker> */
 export const renderTimePicker = ({
-  input: { onBlur, ...inputProps },
-  defaultTime,
+  input: { onBlur, ...inputProps },  //eslint-disable-line
+  defaultTime,                       //eslint-disable-line
   onChange,
   ...custom
 }) => {
@@ -56,8 +56,8 @@ export const renderTimePicker = ({
 /* <Toggle> */
 export const renderToggle = ({
   input: { onChange, value, ...inputProps },
-  defaultToggled,
-  meta,
+  defaultToggled,  //eslint-disable-line
+  meta,            //eslint-disable-line
   ...custom
 }) => {
   const muiClassName = classBuilder("mui-toggle", inputProps.className, custom.className)
