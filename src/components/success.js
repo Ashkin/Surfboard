@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import Paper                from 'material-ui/Paper'
+import React, { Component } from "react"
+import Paper                from "material-ui/Paper"
 
 
 class Success extends Component {

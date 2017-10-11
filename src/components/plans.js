@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import Paper from 'material-ui/Paper'
+import React, { Component } from "react"
+import { connect } from "react-redux"
+import Paper from "material-ui/Paper"
 
-import PLANS          from '../config/plans'
-import classBuilder   from '../helpers/class-builder'
-import { selectPlan } from '../actions'
+import PLANS          from "../config/plans"
+import classBuilder   from "../helpers/class-builder"
+import { selectPlan } from "../actions"
 
 
 class Plans extends Component {

@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import { Field, reduxForm } from 'redux-form'
-import { connect }          from 'react-redux'
-import Paper                from 'material-ui/Paper'
+import React, { Component } from "react"
+import { Field, reduxForm } from "redux-form"
+import { connect }          from "react-redux"
+import Paper                from "material-ui/Paper"
 
-import { renderTextField }  from '../helpers/material-ui-redux-form'
-import classBuilder         from '../helpers/class-builder'
-import { saveContactData }  from '../actions'
+import { renderTextField }  from "../helpers/material-ui-redux-form"
+import classBuilder         from "../helpers/class-builder"
+import { saveContactData }  from "../actions"
 
 
 class FormContact extends Component {
@@ -72,11 +72,11 @@ class FormContact extends Component {
 
 function validate(values) {
   const errors = {}
-  const requiredFields = ['name', 'email']
+  const requiredFields = ["name", "email"]
 
   requiredFields.forEach((field) => {
     if (!values[field])
-      errors[field] = ' '  // Displays invalid styles without displaying a message
+      errors[field] = " "  // Displays invalid styles without displaying a message
   })
 
   return errors
@@ -94,7 +94,7 @@ function mapStateToProps(state) {
 
 const formOptions = {
   validate,
-  form: 'contact',
+  form: "contact",
 }
 
 export default connect(

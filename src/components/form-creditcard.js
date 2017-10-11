@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import { Field, reduxForm } from 'redux-form'
-import { connect } from 'react-redux'
-import Paper from 'material-ui/Paper'
+import React, { Component } from "react"
+import { Field, reduxForm } from "redux-form"
+import { connect } from "react-redux"
+import Paper from "material-ui/Paper"
 
-import STRIPE_API_KEYS     from '../config/stripe'
-import classBuilder        from '../helpers/class-builder'
-import { saveStripeToken } from '../actions'
+import STRIPE_API_KEYS     from "../config/stripe"
+import classBuilder        from "../helpers/class-builder"
+import { saveStripeToken } from "../actions"
 
 
 
@@ -17,18 +17,18 @@ class FormCreditcard extends Component {
     this.stripe_elements = this.stripe.elements()
     this.stripe_style = {
       base: {
-        color: '#20252b',
-        lineHeight: '24px',
-        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-        fontSmoothing: 'antialiased',
-        fontSize: '16px',
-        '::placeholder': {
-          color: '#92989F'
+        color: "#20252b",
+        lineHeight: "24px",
+        fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
+        fontSmoothing: "antialiased",
+        fontSize: "16px",
+        "::placeholder": {
+          color: "#92989F"
         }
       },
       invalid: {
-        color: '#f32',
-        iconColor: '#f32'
+        color: "#f32",
+        iconColor: "#f32"
       }
     }
   }
@@ -40,13 +40,13 @@ class FormCreditcard extends Component {
       return
 
     // Create the Stripe Elements controls
-    this.stripe_card = this.stripe_elements.create('card', {style: this.stripe_style})
-    this.stripe_card.mount('#card-element')
+    this.stripe_card = this.stripe_elements.create("card", {style: this.stripe_style})
+    this.stripe_card.mount("#card-element")
 
     // Handle real-time validation errors from the card Element.
-    this.stripe_card.addEventListener('change', ({error}) => {
-      const displayError = document.getElementById('card-errors')
-      displayError.textContent = (error ? error.message : '')
+    this.stripe_card.addEventListener("change", ({error}) => {
+      const displayError = document.getElementById("card-errors")
+      displayError.textContent = (error ? error.message : "")
     })
   }
 
@@ -79,10 +79,7 @@ class FormCreditcard extends Component {
   }
 
   render() {
-    const { handleSubmit, submitFailed, stripe: { token }} = this.props  // Magic.  comes from redux-form
-
-    const buttonClasses = (token ? 'button-disabled' : '')
-
+    const { handleSubmit } = this.props  // Magic.  handleSubmit comes from redux-form
 
     return (
       <section className={classBuilder("form-creditcard", this.props.className)}>
@@ -123,10 +120,10 @@ class FormCreditcard extends Component {
   }
 
 
-  onSubmit(values) {
+  onSubmit() {
     this.stripe.createToken(this.stripe_card).then(result => {
       if (result.error) {
-        return document.getElementById('card-errors').textContent = result.error.message;
+        return document.getElementById("card-errors").textContent = result.error.message
       }
       this.props.saveStripeToken({token: result.token})
       this.props.nextStep()
@@ -142,7 +139,7 @@ function mapStateToProps(state) {
 
 
 export default reduxForm({
-  form: 'creditcard'
+  form: "creditcard"
 })(
   connect(mapStateToProps,{ saveStripeToken })(FormCreditcard)
 )

@@ -1,14 +1,14 @@
-import React     from 'react'
-import { Field } from 'redux-form'
+import React     from "react"
+import { Field } from "redux-form"
 
 import { renderTimePicker,
-         renderToggle }  from '../../helpers/material-ui-redux-form'
-import classBuilder      from '../../helpers/class-builder'
+         renderToggle }  from "../../helpers/material-ui-redux-form"
+import classBuilder      from "../../helpers/class-builder"
 
-import './hours.scss'
+import "./hours.scss"
 
 
-const Hours = ({day, className, renderer}) => {
+const Hours = ({day, className}) => {
   const DAYS = ["sunday", "monday", "tuesday",
                 "wednesday", "thursday", "friday",
                 "saturday"]
@@ -30,7 +30,7 @@ const Hours = ({day, className, renderer}) => {
 
 
     return (
-      <div className={classBuilder('hours-day', className)}>
+      <div className={classBuilder("hours-day", className)}>
         <label>
           {friendlyDay + ":"}
         </label>
@@ -38,7 +38,7 @@ const Hours = ({day, className, renderer}) => {
           component={renderToggle}
           name={name + "-24hrs"}
           label="Open 24hrs"
-          labelStyle={{textAlign: 'right'}}
+          labelStyle={{textAlign: "right"}}
         />
         <div className="range">
           <Field
@@ -48,7 +48,7 @@ const Hours = ({day, className, renderer}) => {
             name={name + "-open"}
             hintText="Open"
             minutesStep={15}
-            textFieldStyle={{textAlign: 'center'}}
+            textFieldStyle={{textAlign: "center"}}
           />
           <div className="hr" />
           <Field
@@ -58,7 +58,7 @@ const Hours = ({day, className, renderer}) => {
             name={name + "-close"}
             hintText="Close"
             minutesStep={15}
-            textFieldStyle={{textAlign: 'center'}}
+            textFieldStyle={{textAlign: "center"}}
           />
         </div>
       </div>
