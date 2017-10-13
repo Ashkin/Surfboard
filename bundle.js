@@ -59213,8 +59213,8 @@ function merchantSignup(data) {
       url: _api.ONBOARD_API_URL,
       method: "post",
       headers: {
-        "X_AUTH_TOKEN": "vm5HgXSW1OsrQjGlUbh9Qw",
-        "X_APPLICATION_KEY": "cl_w4uusFwVD9kaNtyM8Xo5P36A6zyVrytPP3IWDvlKN"
+        "X_AUTH_TOKEN": "xAj7qAaoex304VHr9LAQlw",
+        "X_APPLICATION_KEY": "cl_32I7ksXdEhpdI0wf6ff6a6MfqjNwGyMyRk2yC84Ex"
       },
       data: {
         // Everything needs to live within `data`
