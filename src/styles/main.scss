@@ -3,10 +3,14 @@
  * The ItsOnMe Merchant On-boarding site
  */
 
+@import 'node_modules/susy/sass/susy-prefix';
+@import 'node_modules/susy/sass/plugins/svg-grid/prefix';
 
 @import 'partials/reset';
 @import 'partials/colors';
 @import 'partials/fonts';
+@import 'partials/susy';
+
 @import 'partials/common';
 
 
@@ -16,12 +20,24 @@ body, html {
   height: 100%;
 
   font-family: $iom-font-normal;
+
+
+  .overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+
+    background: susy-svg-grid() no-repeat scroll;
+    pointer-events: none;
+    z-index: 9001;
+  }
 }
 
 
 /*** Controls ***/
 @import 'partials/controls';
-
 
 /*** Main page ***/
 @import 'header';
