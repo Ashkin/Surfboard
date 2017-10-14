@@ -8,19 +8,17 @@ module.exports = {
     const publicPath = express.static(path.join(__dirname, "..")) // ../public"))
 
     app.use(function(request, response, next) {
-      console.log("New request")
-      console.log(" | connection.encrypted: ", request.connection.encrypted)
-      console.log(" | protocol: ", request.protocol)
-      console.log(" | secure:   ", request.secure)
-
       // HTTPS? yay!
       if (request.secure)
         next()
       // Local? yay!
       if (request.headers.host.startsWith("localhost"))
         next()
+      // Heroku-forwarded HTTPS? k..
+      if (request.headers['x-forwarded-proto'].toLowerCase() == "https")
+        next()
 
-      // no no no.
+      // Insecure?  no no no.
       console.log("Insecure connection; redirecting to https")
       response.redirect("https://" + request.headers.host + request.url)
     })
