@@ -10,13 +10,13 @@ module.exports = {
     app.use(function(request, response, next) {
       // HTTPS? yay!
       if (request.secure)
-        next()
+        return next()
       // Local? yay!
       if (request.headers.host.startsWith("localhost"))
-        next()
+        return next()
       // Heroku-forwarded HTTPS? k..
       if (request.headers['x-forwarded-proto'].toLowerCase() == "https")
-        next()
+        return next()
 
       // Insecure?  no no no.
       console.log("Insecure connection; redirecting to https")
