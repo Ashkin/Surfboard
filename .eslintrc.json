@@ -1,0 +1,27 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "indent":                ["warn", 2],         // "warn" to allow aligning
+        "linebreak-style":       ["error", "unix"],
+        "quotes":                ["error", "double"],
+        "semi":                  ["error", "never"],
+        "no-console":            ["warn"],
+        "no-unused-vars":        ["warn"],            // because React and all JSX React Elements
+        "no-undef":              ["warn"],            // because `require()`
+        "no-extra-boolean-cast": [1]                  // Allow !!var
+    }
+}
