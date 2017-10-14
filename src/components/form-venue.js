@@ -83,7 +83,7 @@ class FormVenue extends Component {
       <form className="venue" onSubmit={handleSubmit(this.handleSubmit.bind(this))}>
         { this.buildTextField({name:"name",     required:true,   label:"Venue Name"}) }
         { this.buildTextField({name:"address",  required:true,   label:"Address"}) }
-        { this.buildTextField({name:"address_2",required:false,  label:"Suite Number"}) }
+        { this.buildTextField({name:"address_2",required:false,  label:"Second Address line (Suite Number, etc.)"}) }
         { this.buildTextField({name:"city",     required:true,   label:"City"}) }
         { this.buildTextField({name:"state",    required:true,   label:"State"}) }
         { this.buildTextField({name:"zip",      required:true,   label:"Zip"}) }
