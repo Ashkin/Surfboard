@@ -38,43 +38,6 @@ ReactDOM.render(
           </div>
         </BrowserRouter>
       </Provider>
-
-
-      <div className="s-row">
-        <span className="s-3-narrow">3 narrow</span>
-      </div>
-      <div className="s-row">
-        <span className="s-3-wide">3 wide</span>
-      </div>
-      <div className="s-row">
-        <span className="s-3-wider">3 wider</span>
-      </div>
-
-
-
-      <div className="s-row">
-        <span className="s-1">1</span><span className="s-1">1</span><span className="s-1">1</span><span className="s-1">1</span><span className="s-1">1</span><span className="s-1">1</span><span className="s-1">1</span><span className="s-1">1</span><span className="s-1">1</span><span className="s-1">1</span><span className="s-1">1</span><span className="s-1">1</span>
-      </div><div className="s-row">
-        <span className="s-2">2</span><span className="s-2">2</span><span className="s-2">2</span><span className="s-2">2</span><span className="s-2">2</span><span className="s-2">2</span>
-      </div><div className="s-row">
-        <span className="s-3">3</span><span className="s-3">3</span><span className="s-3">3</span><span className="s-3">3</span>
-      </div><div className="s-row">
-        <span className="s-4">4</span><span className="s-4">4</span><span className="s-4">4</span>
-      </div><div className="s-row">
-        <span className="s-1">1</span><span className="s-5">5</span><span className="s-5">5</span><span className="s-1">1</span>
-      </div><div className="s-row">
-        <span className="s-6">6</span><span className="s-6">6</span>
-      </div><div className="s-row">
-        <span className="s-8">8</span><span className="s-2">2</span><span className="s-2">2</span>
-      </div><div className="s-row">
-        <span className="s-1">1</span><span className="s-10">10</span><span className="s-1">1</span>
-      </div><div className="s-row">
-        <span className="s-11">11</span><span className="s-1">1</span>
-      </div><div className="s-row">
-        <span className="s-12">12</span>
-      </div><div className="s-row">
-        <span className="s-1">1</span><span className="s-2">2</span><span className="s-3">3</span><span className="s-4">4</span><span className="s-1">1</span><span className="s-1">1</span>
-      </div>
     </div>
 
   </MuiThemeProvider>
