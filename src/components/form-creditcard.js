@@ -83,7 +83,7 @@ class FormCreditcard extends Component {
 
     return (
       <section className={classBuilder("form-creditcard", this.props.className)}>
-        <Paper className="paper" zDepth={2}>
+        <Paper className="paper primary" zDepth={2}>
           <header>
             <span className="filled-circle">{this.props.step}</span> Billing
           </header>

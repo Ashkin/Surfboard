@@ -101,7 +101,7 @@ class VenuePhotos extends Component {
 
     return (
       <section className="photos">
-        <Paper className="paper" zDepth={2}>
+        <Paper className="paper primary" zDepth={2}>
           <header>
             <span className="filled-circle">{this.props.step}</span> Cover Photo and logo
           </header>

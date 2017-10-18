@@ -7,8 +7,13 @@
   .paper {
     padding: 1em;
     margin-bottom: 1em;
-  }
 
+    &.primary {
+      // Disabled until I can find a better solution
+      // (This makes the total height `100vh + header + stepper`, which is much too tall)
+      // min-height: 100vh;
+    }
+  }
 }
 
 
