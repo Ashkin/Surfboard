@@ -36,7 +36,7 @@ class FormVenue extends Component {
     let hintStyle          = null
     if (multiLine) {
       floatingLabelStyle = {width: "100%", left: "0px", textAlign: "left"}
-      hintStyle          = {fontSize: "0.8em", textAlign: "justify"}
+      hintStyle          = {fontSize: "0.65rem", textAlign: "justify"}
     }
 
     // Handle field length
@@ -100,13 +100,13 @@ class FormVenue extends Component {
           required:true, multiLine:true,
           label:"One-line description",
           hint:"(90 characters or less)  American-Vietnamese comfort plates paired with wine & cocktails in a casual, modern space",
-          maxChars:90
+          maxChars:90, rows:3, rowsMax:4,
         })}
         { this.buildTextField({name:"description",
           required:true, multiLine:true,
           label:"Long description",
           hint:"(500 characters or less)  The owners Cathy & Jon opened this restaurant to honor their mother’s cooking. Since their opening in 2014, they have made the commitment to offering traditional dishes with flavors reminiscent of those you would find in the homes and on the streets of Vietnam. Dedicated to using the freshest ingredients including pasture-raised chickens, cage-free eggs, and the finest cuts of beef, guests will experience distinctly developed fresh and unique Vietnamese flavors.",
-          maxChars:500, rows:6, rowsMax:6,
+          maxChars:500, rows:9, rowsMax:9,
         })}
 
         <div className="center">
