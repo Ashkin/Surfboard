@@ -114,3 +114,11 @@ section.form-creditcard {
     }
   }
 }
+
+
+@media (max-width: 600px) {
+  // Extra padding to allow displaying the error when the form is too narrow.
+  section.form-creditcard form#stripe-payment-form .stripe-wrapper {
+    padding-bottom: 2em;
+  }
+}
