@@ -3,7 +3,6 @@ import { Field, reduxForm } from "redux-form"
 import { connect } from "react-redux"
 import Paper from "material-ui/Paper"
 
-import STRIPE_API_KEYS     from "../config/stripe"
 import classBuilder        from "../helpers/class-builder"
 import { saveStripeToken } from "../actions"
 
@@ -13,7 +12,7 @@ class FormCreditcard extends Component {
   constructor(props) {
     super(props)
 
-    this.stripe = Stripe(STRIPE_API_KEYS.STAGING)
+    this.stripe = Stripe(STRIPE_API_KEY)
     this.stripe_elements = this.stripe.elements()
     this.stripe_style = {
       base: {
