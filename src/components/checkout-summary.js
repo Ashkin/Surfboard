@@ -239,7 +239,7 @@ class CheckoutSummary extends Component {
 
     return (
       <section className={classBuilder("checkout-summary", this.props.className)}>
-        <Paper className="paper" zDepth={2}>
+        <Paper className="paper primary" zDepth={2}>
           <header>
             <span className="filled-circle">{this.props.step}</span> Checkout
           </header>

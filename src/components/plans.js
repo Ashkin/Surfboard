@@ -90,7 +90,7 @@ class Plans extends Component {
     // The world's first on-demand gift card program with zero financial risk
     return (
       <section className={classBuilder("plans", this.props.className)}>
-        <Paper className="paper" zDepth={2}>
+        <Paper className="paper primary" zDepth={2}>
           <header>
             <span className="filled-circle">{this.props.step}</span> Choose a Plan
           </header>

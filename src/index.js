@@ -25,18 +25,21 @@ const createStoreWithMiddleware = applyMiddleware(ReduxPromise, ReduxThunk)(crea
 
 ReactDOM.render(
   <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-    <Provider store={createStoreWithMiddleware(reducers)}>
-      <BrowserRouter>
-        <div>
-          <Header />
-          <Background />
-          <Switch>
-            <Route exact path="/"         component={ViewOnboard} />
-            <Route path="*"               component={ViewNotFound} />
-          </Switch>
-        </div>
-      </BrowserRouter>
-    </Provider>
+    <div>
+      <Provider store={createStoreWithMiddleware(reducers)}>
+        <BrowserRouter>
+          <div>
+            <Header />
+            <Background />
+            <Switch>
+              <Route exact path="/"         component={ViewOnboard} />
+              <Route path="*"               component={ViewNotFound} />
+            </Switch>
+          </div>
+        </BrowserRouter>
+      </Provider>
+    </div>
+
   </MuiThemeProvider>
   , document.querySelector("#iom-surfboard")
 )

@@ -6,7 +6,7 @@ class Success extends Component {
   render() {
     return (
       <section className="success">
-        <Paper className="paper" zDepth={2}>
+        <Paper className="paper primary" zDepth={2}>
           <header>Success!</header>
           <summary>
             Congratulations! You've created an ItsOnMe merchant account.

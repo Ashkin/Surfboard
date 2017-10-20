@@ -1,10 +1,10 @@
 import React from "react"
 import Paper from "material-ui/Paper"
 
-const Welcome = ({nextStep}) => {
+const Welcome = ({nextStep, className}) => {
   return (
-    <section className="welcome">
-      <Paper className="paper" zDepth={2}>
+    <section className={`welcome ${className}`}>
+      <Paper className="paper primary" zDepth={2}>
         <header>Welcome!</header>
         <summary>
           Register your business, create your account, and go live in 15 minutes. 

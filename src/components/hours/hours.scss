@@ -4,26 +4,27 @@
 
 
 .hours-day {
-  // The Mui components used a fixed font-size, so
-  // using 32.5em here will break with different rem sizes
-  min-width: 520px;  // eww, px :<
-
 
   & > label {
-    display:    inline-block;
-    width:      6.5em;
-    text-align: left;
-    color:      darkgrey;
+    display:       block;
+    width:         75%;
+    padding-top:   2em;
+    margin:        0 auto;
+    line-height:   2em;
+    border-bottom: 1px solid #28a7df;  // $iom-blue
+    text-align:    center;
+    color:         #20252b;  // $iom-dark-grey
   }
 
   .mui-toggle {
     display:   inline-block !important;
     width:     8em          !important;
-    height:    3em          !important;
   }
 
   .range {
     display: inline-block;
+    position: relative;
+    top: -0.5em;
 
     & > div {
       // Fix for Mui <TimePicker>'s extra <div> wrapper
@@ -36,7 +37,28 @@
       width:     15%  !important;
       max-width:  8em !important;
     }
-
   }
+}
 
+
+@media (min-width: 600px) {
+  // Small tablet and up
+
+  .hours-day {
+
+    & > label {
+      display:     inline-block;
+      border:      none;
+      width:       6.5em;
+      text-align:  left;
+      margin:      0;
+      padding:     0;
+      line-height: 1em;
+      color:       darkgrey;
+    }
+
+    .range {
+      top: 0;
+    }
+  }
 }

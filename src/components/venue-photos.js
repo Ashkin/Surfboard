@@ -101,7 +101,7 @@ class VenuePhotos extends Component {
 
     return (
       <section className="photos">
-        <Paper className="paper" zDepth={2}>
+        <Paper className="paper primary" zDepth={2}>
           <header>
             <span className="filled-circle">{this.props.step}</span> Cover Photo and logo
           </header>
@@ -110,8 +110,30 @@ class VenuePhotos extends Component {
             Be sure to represent your brand with quality, high resolution images.
           </summary>
           <CloudinaryContext cloudName="drinkboard">
-            <div className="wrapper">
-              <div className="aspect-wrapper aspect-ratio ratio-21-9">
+
+            {/* This is a horrible hack.  However, the fancy version uses nested elements, making responsiveness a bloody nightmare. */}
+            <div className="wrapper simple">
+              <div className="aspect-wrapper-logo">
+                <div className="logo">
+                  {this.renderImage.bind(this, "logo")()}
+                  <button className={buttonClass} onClick={this.uploadWidget.bind(this, "logo")}>
+                   Upload Logo
+                  </button>
+                </div>
+              </div>
+
+              <div className="aspect-wrapper-cover-photo">
+                <div className="cover-photo">
+                  {this.renderImage.bind(this, "cover")()}
+                  <button className={"upload-cover-photo " + buttonClass} onClick={this.uploadWidget.bind(this, "cover")}>
+                    Upload Cover Photo
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="wrapper fancy">
+              <div className="aspect-wrapper">
                 <div className="cover-photo">
 
                   {this.renderImage.bind(this, "cover")()}
@@ -134,6 +156,7 @@ class VenuePhotos extends Component {
                 </div>
               </div>
             </div>
+
           </CloudinaryContext>
           <div className="center">
             <button type="button" onClick={this.props.prevStep}>Back</button>

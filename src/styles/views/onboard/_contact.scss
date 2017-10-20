@@ -8,11 +8,21 @@ section.contact {
     .mui-textfield {
       // Using !important because MaterialUI uses only inline styles
       display: block !important;
-      // Make sure controls are neither too large nor too small
-      min-width: 20rem;
-      width: 50% !important;
-      // Center them in their container.
+
+      width: susy-span(11 narrow) !important;
       margin: 0 auto;
+    }
+  }
+}
+
+
+@media (min-width: 750px) {
+  // Tablet and up
+  section.contact {
+    form {
+      .mui-textfield {
+        width: susy-span(10 narrow) !important;
+      }
     }
   }
 }
