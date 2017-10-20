@@ -1,8 +1,8 @@
 .step {
-  min-width: 30rem;
-  width: 75%;
+  width: 100%;
 
-  margin: 0 auto;
+  // Taken from Mui's <Paper>
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
 
   .paper {
     padding: 1em;
@@ -18,15 +18,12 @@
 
 
 section {
+  position: relative;
   text-align: center;
 
-  &.col-2 { width: 50%; }
-  &.col-3 { width: 33%; }
-
-  &.active {
-    // background: linear-gradient(to right, white, $iom-light-silver, white);
+  .paper {
+    padding: 1em 2em;
   }
-
 
   header {
     display: block;
@@ -35,21 +32,44 @@ section {
   }
 
   summary {
-    width: 85%;
     margin: 0 auto;
     margin-bottom: 0.5rem;
     font-weight: bold;
     min-height: 2rem;
   }
-
 }
 
 
 
 .paper.help-text {
+  margin-top: 1.5rem;
+
   text-align: justify;
   font-size: 0.9em;
 
   // Override MUI's inline styles
-  color: $iom-dark-blue  !important;
+  color:            $iom-blue                   !important;
+  background-color: $iom-dark-grey              !important;
+  text-shadow:      1px 1px 1px $iom-dark-blue;
+
+  a         { color: $iom-light-blue; }
+  a:visited { color: $iom-light-blue; }
+  a:hover   { color: $iom-light-silver; }
+}
+
+
+
+@media (min-width: 750px) {
+  // Tablet and up
+
+  .step {
+    width: susy-span(10 narrow);
+    margin: 0 auto;
+
+    .paper {
+      margin-bottom: 1em;
+
+      // &.primary { min-height: 0; }
+    }
+  }
 }
