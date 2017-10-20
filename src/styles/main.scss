@@ -9,8 +9,10 @@
 @import 'partials/reset';
 @import 'partials/colors';
 @import 'partials/fonts';
+
 @import 'partials/susy';
 
+@import 'partials/animations';
 @import 'partials/common';
 
 
@@ -21,18 +23,8 @@ body, html {
 
   font-family: $iom-font-normal;
 
-
-  .overlay {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-
-    background: susy-svg-grid() no-repeat scroll;
-    pointer-events: none;
-    z-index: 9001;
-  }
+  // The actual <Background> element sits atop this and fades in.
+  background: $iom-dark-grey;
 }
 
 
