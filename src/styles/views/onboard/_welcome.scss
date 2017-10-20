@@ -3,7 +3,7 @@
 section.welcome {
 
   article {
-    width: 50%;
+    width: susy-span(10 narrow);
     margin: 2em auto;
     text-align: left;
   }
