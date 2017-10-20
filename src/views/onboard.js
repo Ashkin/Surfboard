@@ -73,16 +73,24 @@ class ViewOnboard extends Component {
   renderStepper() {
     const { activeStep } = this.props
 
+    // Hide stepper on the Welcome step (-1)
+    let className = ""
+    if (activeStep === undefined || activeStep === -1)
+      className = "hidden"
+
+    console.log("Step id: ", activeStep)
+    console.log("class:   ", className)
+
     return (
-      <Paper className="stepper paper" zDepth={3} rounded={false}>
+      <Paper className={`stepper paper ${className}`} zDepth={3} rounded={false}>
         <Stepper activeStep={activeStep}>
-          <Step><StepLabel>Venue</StepLabel></Step>
-          <Step><StepLabel>Hours</StepLabel></Step>
-          <Step><StepLabel>Contact</StepLabel></Step>
-          <Step><StepLabel>Photos</StepLabel></Step>
-          <Step><StepLabel>Plans</StepLabel></Step>
-          <Step><StepLabel>Billing</StepLabel></Step>
-          <Step><StepLabel>Checkout</StepLabel></Step>
+          <Step className="step-item"><StepLabel><span className="step-label">Venue</span></StepLabel></Step>
+          <Step className="step-item"><StepLabel><span className="step-label">Hours</span></StepLabel></Step>
+          <Step className="step-item"><StepLabel><span className="step-label">Contact</span></StepLabel></Step>
+          <Step className="step-item"><StepLabel><span className="step-label">Photos</span></StepLabel></Step>
+          <Step className="step-item"><StepLabel><span className="step-label">Plans</span></StepLabel></Step>
+          <Step className="step-item"><StepLabel><span className="step-label">Billing</span></StepLabel></Step>
+          <Step className="step-item"><StepLabel><span className="step-label">Checkout</span></StepLabel></Step>
         </Stepper>
       </Paper>
     )
