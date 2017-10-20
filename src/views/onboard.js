@@ -55,14 +55,14 @@ class ViewOnboard extends Component {
 
     switch(activeStep) {
       case undefined:
-      case -1: return <Welcome         step={activeStep+1}                              nextStep={this.handleNext} />
-      case 0:  return <FormVenue       step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} />
-      case 1:  return <FormHours       step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} />
-      case 2:  return <FormContact     step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} />
-      case 3:  return <VenuePhotos     step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} />
-      case 4:  return <Plans           step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} />
-      case 5:  return <FormCreditcard  step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} />
-      case 6:  return <CheckoutSummary step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} />
+      case -1: return <Welcome         step={activeStep+1}                              nextStep={this.handleNext} className="fadein-fast" />
+      case 0:  return <FormVenue       step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} className="fadein-fast" />
+      case 1:  return <FormHours       step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} className="fadein-fast" />
+      case 2:  return <FormContact     step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} className="fadein-fast" />
+      case 3:  return <VenuePhotos     step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} className="fadein-fast" />
+      case 4:  return <Plans           step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} className="fadein-fast" />
+      case 5:  return <FormCreditcard  step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} className="fadein-fast" />
+      case 6:  return <CheckoutSummary step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} className="fadein-fast" />
       case 7:  return <Success />
       default: return <ViewNotFound />
     }
