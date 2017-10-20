@@ -8,15 +8,13 @@ section.venue {
     .mui-textfield, .mui-textarea {
       // Using !important because MaterialUI uses only inline styles
       display: block !important;
-      // Make sure controls are neither too large nor too small
-      min-width: 20rem;
-      width: 50% !important;
-      // Center them in their container.
+
+      width: susy-span(11 narrow) !important;
       margin: 0 auto;
     }
 
     .group-title {
-      width: 50%;
+      width: susy-span(11 narrow) !important;
       margin: 3em auto 0.25em;
       text-align: left;
       font-size: 1.2rem;
@@ -24,6 +22,18 @@ section.venue {
       aside {
         font-size: 0.85rem;
         color: $iom-silver;
+      }
+    }
+  }
+}
+
+
+@media (min-width: 750px) {
+  // Tablet and up
+  section.venue {
+    form {
+      .mui-textfield, .mui-textarea, .group-title {
+        width: susy-span(10 narrow) !important;
       }
     }
   }

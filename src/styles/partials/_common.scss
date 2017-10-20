@@ -24,6 +24,11 @@
 }
 
 
+* {
+  // Fancy underline-skip
+  text-decoration-skip: ink;
+}
+
 .aspect-ratio {
   width: 100%;
 

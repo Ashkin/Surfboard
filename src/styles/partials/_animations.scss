@@ -1,0 +1,12 @@
+
+
+.fadein-fast { animation: fadein 0.125s ease-in; }
+.fadein      { animation: fadein  0.25s ease-in; }
+.fadein-slow { animation: fadein   0.5s ease-in; }
+.fadein-1s   { animation: fadein     1s ease-in; }
+
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+};
