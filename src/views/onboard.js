@@ -78,8 +78,6 @@ class ViewOnboard extends Component {
     if (activeStep === undefined || activeStep === -1)
       className = "hidden"
 
-    console.log("Step id: ", activeStep)
-    console.log("class:   ", className)
 
     return (
       <Paper className={`stepper paper ${className}`} zDepth={3} rounded={false}>
