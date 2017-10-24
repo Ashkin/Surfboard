@@ -162,6 +162,7 @@ class VenuePhotos extends Component {
             <button type="button" onClick={this.props.prevStep}>Back</button>
             <button type="button" onClick={this.props.nextStep}>Next</button>
           </div>
+          <img src="https://clickserv.basis.net/conv/7dfe4faabb65d9b1" data-purpose="user-tracking" />
         </Paper>
 
         <Paper className="paper help-text">

@@ -12,6 +12,7 @@ class Success extends Component {
             Congratulations! You've created an ItsOnMe merchant account.
           </summary>
 
+          <img src="https://clickserv.basis.net/conv/15674eff606c518c" data-purpose="user-tracking" />
           <p>
             We will contact you within 24 hours to 
             introduce you to your rep and finalize your account setup.

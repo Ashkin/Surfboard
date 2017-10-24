@@ -19,6 +19,7 @@ class FormVenue extends Component {
           <summary></summary>
 
           { this.renderForm() }
+          <img src="https://clickserv.basis.net/conv/b237380213f83c06" data-purpose="user-tracking" />
         </Paper>
       </section>
     )

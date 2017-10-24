@@ -112,6 +112,7 @@ class FormCreditcard extends Component {
               <button type="button" onClick={this.props.prevStep}>Back</button>
               { this.renderVerifyButton() }
             </div>
+            <img src="https://clickserv.basis.net/conv/af204725affd5e7a" data-purpose="user-tracking" />
           </form>
         </Paper>
       </section>
