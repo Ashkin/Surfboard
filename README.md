@@ -5,18 +5,17 @@ Slowly but surely, this project will span the entire Merchant Tools suite.  For 
 
 
 ### Stack:
- - Node
+ - ES6
  - Webpack
- - React
- - Redux
+ - React + Redux
  - SASS
+ - MaterialUI
 
 ------
 
 ### Development Branches
 Workflow:  `(feature branch)` -> `dev` -> `qa` -> `master` -> `production`
 
-**Note:** _As the server currently does not build `bundle.js` itself, do not forget to include it when pushing to `qa` and `production`!_
 
 #### `dev`
 The "Testing" branch.  Development branch with (ostensibly) stable feature branches merged in.  Used for integration testing.
