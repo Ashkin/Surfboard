@@ -3,7 +3,7 @@ import { reducer as reduxFormReducer } from "redux-form"
 
 import { ACTIONS } from "../actions"
 import signup      from "./merchant-signup"
-
+import sidebar     from "./sidebar"
 
 // Basic reducer factory
 // Usage: reducerFactory(ACTIONS.WHATEVER, {default: state})
@@ -27,6 +27,7 @@ const stripe   = reducerFactory(ACTIONS.UPDATE_STRIPE_TOKEN)
 
 
 const rootReducer = combineReducers({
+  sidebar,
   onboard,
   form:  reduxFormReducer,
   venue,

@@ -16,6 +16,7 @@ require("./styles/main.scss")
 
 import Header from "./views/partials/header"
 import Background from "./views/partials/background"
+import Sidebar from './components/sidebar'
 import ViewOnboard from "./views/onboard"
 import ViewNotFound from "./views/not_found"
 
@@ -25,21 +26,19 @@ const createStoreWithMiddleware = applyMiddleware(ReduxPromise, ReduxThunk)(crea
 
 ReactDOM.render(
   <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-    <div>
-      <Provider store={createStoreWithMiddleware(reducers)}>
-        <BrowserRouter>
-          <div>
-            <Header />
-            <Background />
-            <Switch>
-              <Route exact path="/"         component={ViewOnboard} />
-              <Route path="*"               component={ViewNotFound} />
-            </Switch>
-          </div>
-        </BrowserRouter>
-      </Provider>
-    </div>
-
+    <Provider store={createStoreWithMiddleware(reducers)}>
+      <BrowserRouter>
+        <div>
+          <Header />
+          <Background />
+          <Sidebar />
+          <Switch>
+            <Route exact path="/"         component={ViewOnboard} />
+            <Route path="*"               component={ViewNotFound} />
+          </Switch>
+        </div>
+      </BrowserRouter>
+    </Provider>
   </MuiThemeProvider>
   , document.querySelector("#iom-surfboard")
 )
