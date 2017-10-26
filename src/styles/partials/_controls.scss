@@ -4,7 +4,7 @@
 // Reset ------------
 
 button, .button, label, input, fieldset {
-  font-size: 1em;
+    font-size: 1em;
 }
 
 
@@ -15,8 +15,8 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-    transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;
-    transition-delay: background-color 5000s, color 5000s;
+        transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;
+        transition-delay: background-color 5000s, color 5000s;
 }
 
 
@@ -24,26 +24,26 @@ input:-webkit-autofill:active {
 // Buttons ------------
 
 button, .button {
-  display: inline-block;
-  padding: 0.5em 1em;
-  margin: 0.5em;
-  border: 1px solid $iom-dark-blue;
-  border-radius: 0.25em;
-  color: white;
-  text-decoration: none;
-  cursor: pointer;
-  background: $iom-blue;
+    display: inline-block;
+    padding: 0.5em 1em;
+    margin: 0.5em;
+    border: 1px solid $iom-dark-blue;
+    border-radius: 0.25em;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    background: $iom-blue;
 
-  &:active, &:visited { color: white; }
+    &:active, &:visited { color: white; }
 }
 
 
 @mixin button-color($background, $color, $border-color) {
-  background: $background;
-  color: $color;
-  border-color: $border-color;
+    background: $background;
+    color: $color;
+    border-color: $border-color;
 
-  &:active, &:visited { color: $color; }
+    &:active, &:visited { color: $color; }
 }
 
 
@@ -55,16 +55,16 @@ button, .button {
 .button-disabled { cursor: not-allowed; }  //TODO: use disabled selector
 
 .button-large {
-  font-size: 1.35em;
+    font-size: 1.35em;
 }
 
 
 // Labels ------------
 
 label {
-  padding-left: 0.25em;
-  font-size: 80%;
-  color: $iom-dark-grey;
+    padding-left: 0.25em;
+    font-size: 80%;
+    color: $iom-dark-grey;
 }
 
 
@@ -72,8 +72,8 @@ label {
 // Inputs ------------
 
 input[type="text"], textarea {
-  //TODO: remove this and the @extend from div#card-element-wrapper in creditcard-form.scss
-  cursor: text;
+    //TODO: remove this and the @extend from div#card-element-wrapper in creditcard-form.scss
+    cursor: text;
 }
 
 
@@ -81,7 +81,7 @@ input[type="text"], textarea {
 // Fieldsets ------------
 
 fieldset {
-  padding: 0.25em 0.5em;
+    padding: 0.25em 0.5em;
 }
 
 
@@ -92,20 +92,20 @@ fieldset {
 // Inline checkmark
 // (uses em for relative sizing)
 .checkmark::before {
-  display: inline-block;
-  font-size: 1.25em;
-  line-height: 1.25em;
-  content: "\002713";
-  color: $iom-blue;
+    display: inline-block;
+    font-size: 1.25em;
+    line-height: 1.25em;
+    content: "\002713";
+    color: $iom-blue;
 }
 
 .checkmark-box::before {
-  display: inline-block;
-  width: 1.25rem;
-  height: 1.25rem;
-  font-size: 1.5em;
-  line-height: 0.25em;
-  content: "\002713";
-  color: $iom-blue;
-  border: 1px solid black;
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.25rem;
+    font-size: 1.5em;
+    line-height: 0.25em;
+    content: "\002713";
+    color: $iom-blue;
+    border: 1px solid black;
 }

@@ -1,37 +1,37 @@
 /* View: Errors */
 
 main.http-error {
-  .wrapper {
-    margin: 2em 5em 0;
+    .wrapper {
+        margin: 2em 5em 0;
 
-    // only 404 right now
+        // only 404 right now
 
-    .side {
-      display: inline-block;
-      float: left;
-      width: 30%;
+        .side {
+            display: inline-block;
+            float: left;
+            width: 30%;
+        }
+
+        .missing-giftcard {
+            width: 17.5rem;
+            height: 10rem;
+            margin-left: 3rem;
+            border: 5px dashed $iom-light-silver;
+            border-radius: 1rem;
+            text-align: center;
+            transform: rotate(-6deg);
+            line-height: 10rem;
+            font-size: 3em;
+            color: $iom-light-silver;
+        }
+
+
+        h1 { color: $danger; }
+        h3 { color: $iom-dark-grey; }
+        aside {
+            font-size: 75%;
+            color: grey;
+        }
+        .button { margin-top: 2em; }
     }
-
-    .missing-giftcard {
-      width: 17.5rem;
-      height: 10rem;
-      margin-left: 3rem;
-      border: 5px dashed $iom-light-silver;
-      border-radius: 1rem;
-      text-align: center;
-      transform: rotate(-6deg);
-      line-height: 10rem;
-      font-size: 3em;
-      color: $iom-light-silver;
-    }
-
-
-    h1 { color: $danger; }
-    h3 { color: $iom-dark-grey; }
-    aside {
-      font-size: 75%;
-      color: grey;
-    }
-    .button { margin-top: 2em; }
-  }
 }
