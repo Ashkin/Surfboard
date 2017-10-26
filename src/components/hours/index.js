@@ -5,8 +5,6 @@ import {renderTimePicker,
         renderToggle}    from "../../helpers/material-ui-redux-form"
 import classBuilder      from "../../helpers/class-builder"
 
-import "./hours.scss"
-
 
 const Hours = ({day, className}) => {
     const DAYS = ["sunday",    "monday",   "tuesday",
