@@ -3,6 +3,7 @@ import React, { Component } from "react"
 import { connect }          from "react-redux"
 // MUI components
 import AppBar from 'material-ui/AppBar'
+import Paper  from 'material-ui/Paper'
 // Actions
 import { sidebarShow } from '../../actions'
 
@@ -10,14 +11,21 @@ import { sidebarShow } from '../../actions'
 class Header extends Component {
   render() {
     return (
-      <AppBar
-        title="Merchant Signup"
-        iconClassNameRight="muidocs-icon-navigation-expand-more"
-        onLeftIconButtonTouchTap={this.props.sidebarShow}
-        className="site-header"
+      <Paper
+        zDepth={2}
+        rounded={false}
+        style={{position:'relative', zIndex:10}}
       >
-        <div className="logo"></div>
-      </AppBar>
+        <AppBar
+          title="Merchant Signup"
+          iconClassNameRight="muidocs-icon-navigation-expand-more"
+          onLeftIconButtonTouchTap={this.props.sidebarShow}
+          style={{backgroundColor: '#20252b'}}
+          className="site-header"
+        >
+          <div className="logo"></div>
+        </AppBar>
+      </Paper>
     )
   }
 }
