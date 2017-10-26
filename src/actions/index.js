@@ -1,29 +1,29 @@
 export const ACTIONS = {
-  // Sidebar
-  SIDEBAR_VISIBILITY:  "SIDEBAR_VISIBILITY",
-  // Onboarding Stepper
-  SET_STEP:            "SET_STEP",
-  // Save Onboarding Data
-  UPDATE_VENUE:        "UPDATE_VENUE",
-  UPDATE_HOURS:        "UPDATE_HOURS",
-  UPDATE_CONTACT:      "UPDATE_CONTACT",
-  UPDATE_PHOTO:        "UPDATE_PHOTO",
-  SELECT_PLAN:         "SELECT_PLAN",
-  UPDATE_STRIPE_TOKEN: "UPDATE_STRIPE_TOKEN",
-  // Merchant API Actions
-  MERCHANT_SIGNUP:         "MERCHANT_SIGNUP",
-  MERCHANT_SIGNUP_PENDING: "MERCHANT_SIGNUP_PENDING",
-  MERCHANT_SIGNUP_SUCCESS: "MERCHANT_SIGNUP_SUCCESS",
-  MERCHANT_SIGNUP_FAILURE: "MERCHANT_SIGNUP_FAILURE",
+    // Sidebar
+    SIDEBAR_VISIBILITY:  "SIDEBAR_VISIBILITY",
+    // Onboarding Stepper
+    SET_STEP:            "SET_STEP",
+    // Save Onboarding Data
+    UPDATE_VENUE:        "UPDATE_VENUE",
+    UPDATE_HOURS:        "UPDATE_HOURS",
+    UPDATE_CONTACT:      "UPDATE_CONTACT",
+    UPDATE_PHOTO:        "UPDATE_PHOTO",
+    SELECT_PLAN:         "SELECT_PLAN",
+    UPDATE_STRIPE_TOKEN: "UPDATE_STRIPE_TOKEN",
+    // Merchant API Actions
+    MERCHANT_SIGNUP:         "MERCHANT_SIGNUP",
+    MERCHANT_SIGNUP_PENDING: "MERCHANT_SIGNUP_PENDING",
+    MERCHANT_SIGNUP_SUCCESS: "MERCHANT_SIGNUP_SUCCESS",
+    MERCHANT_SIGNUP_FAILURE: "MERCHANT_SIGNUP_FAILURE",
 }
 
 
 // Basic action factory
 // Usage: actionFactory(action)(data)
 function actionFactory(action) {
-  return function(data) {
-    return { type: action, payload: data }
-  }
+    return function(data) {
+        return { type: action, payload: data }
+    }
 }
 
 

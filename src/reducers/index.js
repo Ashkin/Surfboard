@@ -8,11 +8,11 @@ import sidebar     from "./sidebar"
 // Basic reducer factory
 // Usage: reducerFactory(ACTIONS.WHATEVER, {default: state})
 const reducerFactory = function(actionConst, defaultState={}) {
-  return function(state=defaultState, action) {
-    if (action.type != actionConst)
-      return state
-    return {...state, ...action.payload}
-  }
+    return function(state=defaultState, action) {
+        if (action.type != actionConst)
+            return state
+        return {...state, ...action.payload}
+    }
 }
 
 // Basic reduers
@@ -27,16 +27,16 @@ const stripe   = reducerFactory(ACTIONS.UPDATE_STRIPE_TOKEN)
 
 
 const rootReducer = combineReducers({
-  sidebar,
-  onboard,
-  form:  reduxFormReducer,
-  venue,
-  hours,
-  contact,
-  photos,
-  plans,
-  stripe,
-  signup,
+    sidebar,
+    onboard,
+    form:  reduxFormReducer,
+    venue,
+    hours,
+    contact,
+    photos,
+    plans,
+    stripe,
+    signup,
 })
 
 

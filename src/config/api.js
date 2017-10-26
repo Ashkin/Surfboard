@@ -13,14 +13,14 @@ let api_url = null
 switch(NODE_ENV.toLowerCase()) {
 case "development":
 case "staging":
-  api_url = "https://qaapi.itson.me/web/v3/merchants/signup"
-  break
+    api_url = "https://qaapi.itson.me/web/v3/merchants/signup"
+    break
 case "production":
-  api_url = "https://api.itson.me/web/v3/merchants/signup"
-  break
+    api_url = "https://api.itson.me/web/v3/merchants/signup"
+    break
 default:
-  // eslint-disable-next-line no-undef
-  throw new Error(`[API init] Unknown NODE_ENV: ${NODE_ENV}`)
+    // eslint-disable-next-line no-undef
+    throw new Error(`[API init] Unknown NODE_ENV: ${NODE_ENV}`)
 }
 
 // Apparently I can't export existing vars today

@@ -11,25 +11,25 @@ import { sidebarShow, sidebarToggle, sidebarHide, sidebarVisibility } from '../.
 
 
 class Sidebar extends React.Component {
-  render() {
-    const {sidebarHide} = this.props
+    render() {
+        const {sidebarHide} = this.props
 
-    return (
-      <Drawer
-        docked={false}
-        width={200}
-        open={this.props.visible}
-        onRequestChange={(state) => this.props.sidebarVisibility(state)}
-      >
-        <SidebarContent sidebarHide={sidebarHide} />
-      </Drawer>
-    )
-  }
+        return (
+            <Drawer
+                docked={false}
+                width={200}
+                open={this.props.visible}
+                onRequestChange={(state) => this.props.sidebarVisibility(state)}
+            >
+                <SidebarContent sidebarHide={sidebarHide} />
+            </Drawer>
+        )
+    }
 }
 
 
 function mapStateToProps(state) {
-  return {...state.sidebar}
+    return {...state.sidebar}
 }
 
 export default connect(mapStateToProps, {sidebarShow, sidebarToggle, sidebarHide, sidebarVisibility})(Sidebar)
