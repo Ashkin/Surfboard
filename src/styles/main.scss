@@ -31,6 +31,7 @@ body, html {
 /*** Controls ***/
 @import 'partials/controls';
 
+
 /*** Main page ***/
 @import 'header';
 @import 'background';
@@ -39,6 +40,11 @@ body, html {
 
 /*** Views ***/
 @import 'views/onboard';
+
+
+/*** Components ***/
+@import 'components/sidebar';
+@import 'components/sidebar/sidebar_content';
 
 
 /*** Onboard Steps ***/

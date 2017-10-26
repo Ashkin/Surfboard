@@ -1,0 +1,25 @@
+/* Component: SidebarContent */
+
+
+.sidebar-content {
+    // Override Mui List padding
+    padding-top: 0 !important;
+
+    .paper {
+        // Allow shadow
+        position: relative;
+        z-index: 2;
+
+        // Branding
+        background-color: $iom-dark-grey !important;
+
+        .logo {
+            // Shrink and center
+            display: block;
+            margin: 0 auto;
+            width: 90% !important;
+            // Match the height of <Header> exactly.
+            padding: 0.425rem 0;
+        }
+    }
+}

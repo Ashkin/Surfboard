@@ -20,6 +20,7 @@ class Sidebar extends React.Component {
                 width={200}
                 open={this.props.visible}
                 onRequestChange={(state) => this.props.sidebarVisibility(state)}
+                className="sidebar"
             >
                 <SidebarContent sidebarHide={sidebarHide} />
             </Drawer>
