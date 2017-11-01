@@ -1,7 +1,9 @@
 # Surfboard
 ### ItsOnMe Merchant-Onboarding App
 
-Slowly but surely, this project will span the entire Merchant Tools suite.  For now, though, its only purpose is on-boarding for merchants.
+This project only serves the onboarding wizard.  No (or very few) changes will be made to this project.
+
+ItsOnMe/Ferrari is a fork (well, clone) of this repo, and is being actively developed to (eventually) replace the entire Merchant Tools suite.
 
 
 ### Stack:
