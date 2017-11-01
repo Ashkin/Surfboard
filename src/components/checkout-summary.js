@@ -283,6 +283,7 @@ class CheckoutSummary extends Component {
           <div className={errorMessage ? "validation" : "hidden"}>
             <div className="title">Missing info</div>
             {errorMessage}
+            <img src="https://clickserv.basis.net/conv/dcd065f088995e09" data-purpose="user-tracking for-submission-errors" />
           </div>
 
           {this.renderSignupStatus()}

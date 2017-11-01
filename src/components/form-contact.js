@@ -21,6 +21,7 @@ class FormContact extends Component {
           </summary>
 
           { this.renderForm() }
+          <img src="https://clickserv.basis.net/conv/a61362412e5197f5" data-purpose="user-tracking" />
         </Paper>
       </section>
     )

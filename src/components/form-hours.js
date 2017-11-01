@@ -21,6 +21,7 @@ class FormHours extends Component {
           </summary>
 
           { this.renderForm() }
+          <img src="https://clickserv.basis.net/conv/b66a72cc453b58e9" data-purpose="user-tracking" />
         </Paper>
       </section>
     )

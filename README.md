@@ -1,22 +1,23 @@
 # Surfboard
 ### ItsOnMe Merchant-Onboarding App
 
-Slowly but surely, this project will span the entire Merchant Tools suite.  For now, though, its only purpose is on-boarding for merchants.
+This project only serves the onboarding wizard.  No (or very few) changes will be made to this project.
+
+ItsOnMe/Ferrari is a fork (well, clone) of this repo, and is being actively developed to (eventually) replace the entire Merchant Tools suite.
 
 
 ### Stack:
- - Node
+ - ES6
  - Webpack
- - React
- - Redux
+ - React + Redux
  - SASS
+ - MaterialUI
 
 ------
 
 ### Development Branches
 Workflow:  `(feature branch)` -> `dev` -> `qa` -> `master` -> `production`
 
-**Note:** _As the server currently does not build `bundle.js` itself, do not forget to include it when pushing to `qa` and `production`!_
 
 #### `dev`
 The "Testing" branch.  Development branch with (ostensibly) stable feature branches merged in.  Used for integration testing.

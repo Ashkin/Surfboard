@@ -52,6 +52,7 @@ const Welcome = ({nextStep, className}) => {
         Click the button below and let's get started!<br/>
 
         <button onClick={nextStep}>Begin Signup</button>
+        <img src="https://clickserv.basis.net/conv/f57faa46b3600678" data-purpose="user-tracking" />
       </Paper>
     </section>
   )

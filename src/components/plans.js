@@ -105,6 +105,7 @@ class Plans extends Component {
             <button type="button" onClick={this.props.prevStep}>Back</button>
             { this.renderNextButton() }
           </div>
+          <img src="https://clickserv.basis.net/conv/5e98c33bdbc7e048" data-purpose="user-tracking" />
         </Paper>
         <Paper className="paper help-text">
           Need help? Text 310.235.3835 for immediate assistance, or email <a href="mailto:sales@itson.me" target="_blank">sales@itson.me</a>
