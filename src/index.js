@@ -5,6 +5,7 @@ import { Provider } from "react-redux"
 import ReduxThunk from "redux-thunk"
 import ReduxPromise from "redux-promise"
 import { createStore, applyMiddleware } from "redux"
+import Cookies from "js-cookie"
 import lightBaseTheme from "material-ui/styles/baseThemes/lightBaseTheme"
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider"
 import getMuiTheme from "material-ui/styles/getMuiTheme"
@@ -22,7 +23,6 @@ import ViewNotFound from "./views/not_found"
 
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise, ReduxThunk)(createStore)
-
 
 ReactDOM.render(
     <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
