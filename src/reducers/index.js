@@ -17,6 +17,10 @@ const reducerFactory = function(actionConst, defaultState={}) {
 
 // Basic reduers
 const onboard  = reducerFactory(ACTIONS.SET_STEP)
+
+// Header
+const header = reducerFactory(ACTIONS.SET_HEADER)
+
 const venue    = reducerFactory(ACTIONS.UPDATE_VENUE)
 const hours    = reducerFactory(ACTIONS.UPDATE_HOURS)
 const contact  = reducerFactory(ACTIONS.UPDATE_CONTACT)
@@ -27,7 +31,9 @@ const stripe   = reducerFactory(ACTIONS.UPDATE_STRIPE_TOKEN)
 
 
 const rootReducer = combineReducers({
+    header,
     sidebar,
+
     onboard,
     form:  reduxFormReducer,
     venue,

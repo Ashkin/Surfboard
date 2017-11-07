@@ -15,7 +15,7 @@ import Success         from '../components/success'
 
 import ViewNotFound    from './not_found'
 
-import { setStep }     from '../actions'
+import { setStep, setHeaderTitle }     from '../actions'
 
 
 class ViewOnboard extends Component {
@@ -112,6 +112,11 @@ class ViewOnboard extends Component {
             </main>
         )
     }
+
+
+    componentWillMount() {
+      this.props.setHeaderTitle("Merchant Signup")
+    }
 }
 
 
@@ -121,4 +126,4 @@ function mapStateToProps(state) {
 }
 
 
-export default connect(mapStateToProps, { setStep })(ViewOnboard)
+export default connect(mapStateToProps, { setStep, setHeaderTitle })(ViewOnboard)

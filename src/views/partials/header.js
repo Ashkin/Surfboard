@@ -17,7 +17,7 @@ class Header extends Component {
                 style={{position:'relative', zIndex:10}}
             >
                 <AppBar
-                    title="Merchant Signup"
+                    title={this.props.header.title || "ItsOnMe"}
                     iconClassNameRight="muidocs-icon-navigation-expand-more"
                     onLeftIconButtonTouchTap={this.props.sidebarShow}
                     style={{backgroundColor: '#20252b'}}
@@ -31,4 +31,8 @@ class Header extends Component {
 }
 
 
-export default connect(null, {sidebarShow})(Header)
+function mapStateToProps(state) {
+    return { header: state.header }
+}
+
+export default connect(mapStateToProps, {sidebarShow})(Header)
