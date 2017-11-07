@@ -19,6 +19,7 @@ import Header from "./views/partials/header"
 import Background from "./views/partials/background"
 import Sidebar from './components/sidebar'
 import ViewOnboard from "./views/onboard"
+import ViewOrdering from "./views/ordering"
 import ViewNotFound from "./views/not_found"
 
 
@@ -34,6 +35,8 @@ ReactDOM.render(
                     <Sidebar />
                     <Switch>
                         <Route exact path="/"         component={ViewOnboard} />
+                        <Route exact path="/onboard"  component={ViewOnboard} />
+                        <Route exact path="/order"    component={ViewOrdering} />
                         <Route path="*"               component={ViewNotFound} />
                     </Switch>
                 </div>
