@@ -1,9 +1,9 @@
 {
-  "name": "Surfboard",
+  "name": "Ferrari",
   "version": "0.0.1",
-  "description": "ItsOnMe Merchant-Onboarding App",
+  "description": "ItsOnMe Merchant App",
   "main": "index.js",
-  "repository": "https://github.com/ItsOnMe/Surfboard",
+  "repository": "https://github.com/ItsOnMe/Ferrari",
   "scripts": {
     "build": "webpack --config ./webpack.prod.js --progress --colors",
     "start": "node ./src/app.js",
