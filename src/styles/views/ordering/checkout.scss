@@ -1,0 +1,123 @@
+/* Component: Ordering/Checkout */
+
+//TODO: Add selector for Ordering view
+
+section.checkout {
+
+    dl {
+        text-align: left;
+
+
+        dt {
+            // fancy shmancy trailing underline
+            width: 12.5em;
+            text-indent: 0.25em;
+            border-bottom: 2px solid $iom-dark-blue;
+
+            margin-bottom: 0.25em;
+            font-weight: bold;
+            color: black;
+        }
+
+        dt + dd {
+            margin-left:   1em;
+            margin-bottom: 2em;
+
+            .item {
+                clear: both;
+                margin-bottom: 0.5em;
+
+                &.total {
+                    font-weight: bold;
+                }
+
+                .desc { float: left; }
+                .cost { float: right; }
+            }
+
+            hr {
+                margin: 1em 0;
+                clear: both;
+            }
+        }
+
+
+        .contact {
+            // Nicely formatted contact summary 'table'
+            ul {
+                list-style: none;
+
+                li {
+                    margin: 0;
+
+                    label {
+                        display: inline-block;
+                        width: 5rem;
+                        // Set default font size
+                        font-size: 1rem;
+                        // Right-align with spacing
+                        padding-right: 0.5rem;
+                        text-align: right;
+                        font-weight: bold;
+                    }
+
+                    .position {
+                        // distinguish it a little
+                        font-size: 0.8rem;
+                        color: $iom-grey;
+                    }
+                }
+            }
+        }
+
+        .description dd {
+            text-align: justify;
+        }
+
+
+    }
+
+
+    form {
+        text-align: left;
+    }
+
+    button[type="submit"] {
+        margin-top: 2em;
+    }
+
+
+    div.validation {
+        position: relative;
+        width: 75%;
+        min-height: 5em;
+        margin: 3em auto 2em;
+        padding: 1em;
+        border: 2px dashed $danger;
+        border-radius: 0.75em;
+        background: transparentize($danger, 0.7);
+
+        div.title {
+            position: relative;
+            margin: 0 auto 0.5em;
+            font-weight: bold;
+            text-align: center;
+            color: $danger;
+        }
+    }
+
+
+    .signup-status {
+
+        &.error {
+            width: 25rem;
+            padding: 0.5rem;
+            margin: 2rem auto;
+            border: 0.2rem dashed $danger;
+            border-radius: 0.75em;
+            text-align: left;
+            color: $danger;
+            background-color: transparentize($danger, 0.8);
+        }
+    }
+}

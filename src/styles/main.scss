@@ -52,6 +52,13 @@ body, html {
 @import 'views/onboard/form-creditcard';
 @import 'views/onboard/checkout-summary';
 
+/*** Ordering ***/
+@import 'views/ordering/products';
+@import 'views/ordering/cart';
+@import 'views/ordering/venue';
+@import 'views/ordering/billing';
+@import 'views/ordering/checkout';
+
 
 /*** Components ***/
 @import 'components/hours';

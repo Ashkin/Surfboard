@@ -15,7 +15,7 @@ import Success         from '../components/success'
 
 import ViewNotFound    from './not_found'
 
-import { setStep, setHeaderTitle }     from '../actions'
+import { setOnboardStep, setHeaderTitle }     from '../actions'
 
 
 class ViewOnboard extends Component {
@@ -33,7 +33,7 @@ class ViewOnboard extends Component {
         if (activeStep >= 7)
             return
 
-        this.props.setStep({activeStep: activeStep + 1})
+        this.props.setOnboardStep({activeStep: activeStep + 1})
     }
 
 
@@ -44,7 +44,7 @@ class ViewOnboard extends Component {
         if (activeStep < 0)
             return
 
-        this.props.setStep({activeStep: activeStep - 1})
+        this.props.setOnboardStep({activeStep: activeStep - 1})
     }
 
 
@@ -126,4 +126,4 @@ function mapStateToProps(state) {
 }
 
 
-export default connect(mapStateToProps, { setStep, setHeaderTitle })(ViewOnboard)
+export default connect(mapStateToProps, { setOnboardStep, setHeaderTitle })(ViewOnboard)

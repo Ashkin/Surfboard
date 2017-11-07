@@ -1,0 +1,14 @@
+/* Component: Ordering/Products */
+
+
+section.products {
+    // Add page estate for the footer cart
+    margin-bottom: 12rem;
+
+    .product {
+        
+        &:hover {
+            background-color: aliceblue !important;
+        }
+    }
+}

@@ -1,0 +1,45 @@
+/* Component: Ordering/Venue */
+
+
+//TODO: wrap this in a selector for the Ordering view!
+
+section.venue {
+    // Add page estate for the footer cart
+    margin-bottom: 12rem;
+
+    form {
+        padding: 1em;
+
+        .mui-textfield, .mui-textarea, .subheading {
+            // Using !important because MaterialUI uses only inline styles
+            display: block !important;
+
+            width: susy-span(11 narrow) !important;
+            margin: 0 auto;
+        }
+
+        .group-title {
+            width: susy-span(11 narrow) !important;
+            margin: 3em auto 0.25em;
+            text-align: left;
+            font-size: 1.2rem;
+
+            aside {
+                font-size: 0.85rem;
+                color: $iom-silver;
+            }
+        }
+    }
+}
+
+
+@media (min-width: 750px) {
+    // Tablet and up
+    section.venue {
+        form {
+            .mui-textfield, .mui-textarea, .group-title, .subheading {
+                width: susy-span(10 narrow) !important;
+            }
+        }
+    }
+}
