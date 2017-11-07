@@ -13,9 +13,6 @@ import Cart from "./cart"
 // Helpers
 import classBuilder from "../../helpers/class-builder"
 
-// Config
-import PRODUCTS from "../../config/products"
-
 // Actions
 import { order } from "../../actions"
 const  { fetchProducts, addProduct, removeProduct, setProductQuantity } = order
