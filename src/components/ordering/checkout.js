@@ -94,10 +94,6 @@ class Checkout extends Component {
     renderStatus() {
         const { status } = this.props.submit_status
 
-        console.log("[Checkout :: renderStatus]")
-        console.log(" | this.props.submit_status:        ", this.props.submit_status)
-        console.log(" | this.props.submit_status.status: ", this.props.submit_status.status)
-
         // User hasn't submitted yet.
         if (status == null) {
             return null
@@ -239,9 +235,6 @@ class Checkout extends Component {
 
 function mapStateToProps(state) {
     const selector = formValueSelector("OrderCheckout")
-
-    console.log("[Checkout :: mapStateToProps]")
-    console.log(" | submit_status: ", state.order_submit_status)
 
     return {
         venue:         state.order_venue,
