@@ -30,7 +30,7 @@ ReactDOM.render(
         <Provider store={createStoreWithMiddleware(reducers)}>
             <BrowserRouter>
                 <div>
-                    <Header />
+                    <Header disableSidebar={true} />
                     <Background />
                     <Sidebar />
                     <Switch>

@@ -1,97 +1,31 @@
 /* View: Header */
 
-header.site {
-    display: flex;
+.site-header {
 
-    height:      2rem;
-    line-height: 2rem;
-    font-size:   1rem;
-
-    background: $iom-dark-silver;
-
-    // Shadow
-    position: relative;
-    box-shadow: 0px 2px 4px $iom-dark-grey;
-    z-index: 2;
-
-    transition: all 0.1s;
-
-    & > * {
-        height:      inherit;
-        line-height: inherit;
-        font-size:   inherit;
-        transition:  inherit;
-    }
-
-
-    .logo {
-        // Left-most, and fixed size
-        flex: 0 0 calc(120px + 1em);
-
-        margin: 0 0.5em;
-        text-align: center;
-        background-image: url('https://res.cloudinary.com/drinkboard/image/upload/v1485211146/email_elements/IOM.logo_white_transbckgrd-300W.png');  // off-center
-        // background-image: url('http://res.cloudinary.com/drinkboard/image/upload/c_scale,h_84/www/branding/logo_white_nobg.png');  // centered, but incorrect matte
-        background-repeat: no-repeat;
-        background-position: left center;
-        background-size: contain;
-    }
-
-
-    .title {
-        // Fill the remainder of the header
-        flex: 20 0 10rem;
-
-        text-align: center;
+    .site-header-content {
+        // Mui AppBar Title styling:
+        height: 64px;
+        line-height: 64px;
+        margin: 0;
+        font-size: 24px;
+        letter-spacing: 0px;
+        font-weight: 400;
         color: white;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        .logo {
+            // Shrink a little bit and vertically-center
+            height: 36px;
+            width:  auto !important;
+            margin: 16px 0.5em 0 0;
+        }
+
+        .site-header-title {
+            // Match the text's baseline with the logo's text
+            position: relative;
+            bottom: 6px;
+        }
     }
-}
 
-
-// Responsive width
-
-@media (max-width: 300px) {
-    header.site .title { font-size: 25%; }
-}
-
-@media (max-width: 400px) {
-    header.site .title { font-size: 35%; }
-}
-
-@media (max-width: 600px) {
-    header.site .title { font-size: 75%; }
-}
-
-
-
-// Responsive height
-
-@media (min-height: 500px) {
-    header.site {
-        height:        3rem;
-        line-height:   3rem;
-        font-size:   1.5rem;
-
-        .logo { flex: 0 0 calc(120px + 1em); }
-    }
-}
-
-@media (min-height: 700px) {
-    header.site {
-        height:        3.5rem;
-        line-height:   3.5rem;
-        font-size:    1.75rem;
-
-        .logo { flex: 0 0 calc(175px + 1em); }
-    }
-}
-
-@media (min-height: 1200px) {
-    header.site {
-        height:        4rem;
-        line-height:   4rem;
-        font-size:     2rem;
-
-        .logo { flex: 0 0 calc(200px + 1em); }
-    }
 }
