@@ -61,7 +61,7 @@ function submitOrder(order) {
                         contact_email:    order.venue.contact_email,
                         contact_phone:    order.venue.contact_phone,
 
-                        supply_items:  data.products,
+                        supply_items:  data.supply_items,
 
                         stripe:    order.stripe
                     }
