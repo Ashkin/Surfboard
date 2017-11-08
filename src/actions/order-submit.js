@@ -15,7 +15,7 @@ function submitOrder(order) {
         // Construct the cart data how the server expects it
         const data = {}
         data.total_price = 0
-        data.products = Object.keys(order.cart.products).map((id) => {
+        data.supply_items = Object.keys(order.cart.products).map((id) => {
             const product = order.cart.products[id]
             // Sum prices
             data.total_price += product.quantity * product.price
@@ -61,7 +61,7 @@ function submitOrder(order) {
                         contact_email:    order.venue.contact_email,
                         contact_phone:    order.venue.contact_phone,
 
-                        products:  data.products,
+                        supply_items:  data.products,
 
                         stripe:    order.stripe
                     }
