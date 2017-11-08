@@ -34,8 +34,7 @@ ReactDOM.render(
                     <Background />
                     <Sidebar />
                     <Switch>
-                        <Route exact path="/"         component={ViewOnboard} />
-                        <Route exact path="/onboard"  component={ViewOnboard} />
+                        <Route exact path="/"         component={ViewOrdering} />
                         <Route exact path="/order"    component={ViewOrdering} />
                         <Route path="*"               component={ViewNotFound} />
                     </Switch>
