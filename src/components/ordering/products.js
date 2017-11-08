@@ -8,6 +8,7 @@ import RaisedButton from "material-ui/RaisedButton"
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 
 // Components
+import { CloudinaryContext, Transformation, Image } from "cloudinary-react"
 import Cart from "./cart"
 
 // Helpers
@@ -84,10 +85,20 @@ class Products extends Component {
 
         return products.map((product, id) => {
 
+            // Determine image class and public_id
             let imageClassName = ["product-image"]
-            if (!!products.photo_url)
+            let imagePublicId  = null
+            if (product.photo_url) {
+                const _tokens = product.photo_url.split("/")
+                imagePublicId = _tokens[_tokens.length - 1]
+            } else {
                 imageClassName.push("hidden")
+            }
             imageClassName = imageClassName.join(" ")
+
+
+            console.log("Cloudinary image publicId: ", imagePublicId)
+
 
             return (
                 <Card
@@ -111,7 +122,11 @@ class Products extends Component {
                     <CardText expandable={true} className="product-content">
                         <p className="product-description">{product.detail || "No description yet!"}</p>
                         <div className="product-image-wrapper">
-                            <img src={product.photo_url} className={imageClassName} />
+                            <CloudinaryContext cloudName="drinkboard" className={imageClassName}>
+                                <Image publicId={imagePublicId}>
+                                    <Transformation width="250" crop="scale" />
+                                </Image>
+                            </CloudinaryContext>
                         </div>
                     </CardText>
                 </Card>

@@ -20,12 +20,7 @@ section.products {
 
             .product-image-wrapper {
                 display: block;
-                width: 100%;
                 max-width: 750px;  // Limits stretching on wide displays
-
-                img {
-                    width: 100%;
-                }
             }
         }
     }
