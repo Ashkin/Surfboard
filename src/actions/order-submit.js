@@ -32,7 +32,7 @@ function submitOrder(order) {
             url: ORDER_SUBMIT_API_URL,
             method: "post",
             headers: {
-                "X_AUTH_TOKEN":      ONBOARDING_TOKEN,
+                "X_AUTH_TOKEN":      WWW_ACCESS_TOKEN,
                 "X_APPLICATION_KEY": APPLICATION_KEY
             },
             data: {
