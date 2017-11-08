@@ -18,7 +18,7 @@ const { setStep } = order
 
 class ViewOrdering extends Component {
     componentWillMount() {
-        this.props.setHeaderTitle("Ordering")
+        this.props.setHeaderTitle("ItsOnMe Ordering")
     }
 
 

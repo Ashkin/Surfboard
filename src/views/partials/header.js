@@ -18,8 +18,8 @@ class Header extends Component {
             >
                 <AppBar
                     title={this.props.header.title || "ItsOnMe"}
-                    iconClassNameRight="muidocs-icon-navigation-expand-more"
                     onLeftIconButtonTouchTap={this.props.sidebarShow}
+                    iconStyleLeft={{display: "none"}}
                     style={{backgroundColor: '#20252b'}}
                     className="site-header"
                 >
