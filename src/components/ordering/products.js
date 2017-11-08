@@ -83,6 +83,12 @@ class Products extends Component {
         }
 
         return products.map((product, id) => {
+
+            let imageClassName = ["product-image"]
+            if (!!products.photo_url)
+                imageClassName.push("hidden")
+            imageClassName = imageClassName.join(" ")
+
             return (
                 <Card
                     key={id}
@@ -102,8 +108,11 @@ class Products extends Component {
                             onClick={this.addProduct.bind(this, id)}
                         />
                     </CardActions>
-                    <CardText expandable={true}>
+                    <CardText expandable={true} className="product-content">
                         <p className="product-description">{product.detail || "No description yet!"}</p>
+                        <div className="product-image-wrapper">
+                            <img src={product.photo_url} className={imageClassName} />
+                        </div>
                     </CardText>
                 </Card>
             )

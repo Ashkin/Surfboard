@@ -10,5 +10,23 @@ section.products {
         &:hover {
             background-color: aliceblue !important;
         }
+
+        .product-content {
+
+            .product-description {
+                display: block;
+                text-align: justify;
+            }
+
+            .product-image-wrapper {
+                display: block;
+                width: 100%;
+                max-width: 750px;  // Limits stretching on wide displays
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
     }
 }
