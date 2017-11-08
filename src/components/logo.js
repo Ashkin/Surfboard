@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 //TODO: include animated logo (prop or second component)
 
 const Logo = ({style}) => {
+    //TODO: replace `width:100%` with `height:64px, width:auto`
     style = {
         width: '100%',
         ...style
