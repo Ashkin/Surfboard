@@ -97,9 +97,6 @@ class Products extends Component {
             imageClassName = imageClassName.join(" ")
 
 
-            console.log("Cloudinary image publicId: ", imagePublicId)
-
-
             return (
                 <Card
                     key={id}
