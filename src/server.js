@@ -6,7 +6,8 @@ module.exports = {
         const app = express()
         const indexPath  = path.join(__dirname, "../index.html")
         const bundlePath = path.join(__dirname, "../bundle.js")
-        const publicPath = express.static(path.join(__dirname, "..")) // ../public"))
+        const publicPath = path.join(__dirname, "../public")
+
 
         app.use(function(request, response, next) {
             // HTTPS? yay!
@@ -30,7 +31,9 @@ module.exports = {
 
         //TODO: This should handle all public assets.
         // Serve bundle.js by itself
-        app.get("/bundle.js", function(_, res) { res.sendFile(bundlePath) })
+        app.get("/bundle.js",          function(_, res) { res.sendFile(bundlePath) })
+        app.get("/public/favicon.png", function(_, res) { res.sendFile(path.join(publicPath, "/favicon.png")) })  //TODO: cleanup
+
 
         // All other routes:
         app.get("*", function(request, response) {
