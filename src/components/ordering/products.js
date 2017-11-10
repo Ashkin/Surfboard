@@ -74,7 +74,7 @@ class Products extends Component {
             )
         }
 
-        if (status == "error"  ||  products.length == 0) {
+        if (status == "failure"  ||  products.length == 0) {
             return (
                 <div>
                     <h1 className="error">Oh no!</h1>

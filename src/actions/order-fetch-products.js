@@ -41,7 +41,7 @@ function fetchProductsFailure(error) {
     console.log(" | error:    ", error)
     console.log(" | response: ", error.response || "n/a")
     console.log(" | body:     ", (error.response || {}).body || "n/a")
-    return { type: ACTIONS.ORDER_FETCH_PRODUCTS_FAILURE, payload: error }
+    return { type: ACTIONS.ORDER_FETCH_PRODUCTS_FAILURE, payload: null }
 }
 
 
