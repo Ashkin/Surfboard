@@ -41,10 +41,13 @@ class Header extends Component {
     }
 
     renderTitle() {
+        // eslint-disable-next-line no-undef
+        const qa = (NODE_ENV.toLowerCase() == "staging" ? "(QA) " : "")
+
         return (
             <div className="site-header-content">
                 <Logo />
-                <span className="site-header-title">{this.props.header.title || ""}</span>
+                <span className="site-header-title">{qa}{this.props.header.title || ""}</span>
             </div>
         )
     }
