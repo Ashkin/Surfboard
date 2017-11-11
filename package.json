@@ -1,9 +1,9 @@
 {
-  "name": "Ferrari",
-  "version": "0.0.1",
-  "description": "ItsOnMe Merchant App",
+  "name": "Surfboard",
+  "version": "1.0.0",
+  "description": "ItsOnMe Supply and Onboarding app",
   "main": "index.js",
-  "repository": "https://github.com/ItsOnMe/Ferrari",
+  "repository": "https://github.com/ItsOnMe/Surfboard",
   "scripts": {
     "build": "webpack --config ./webpack.prod.js --progress --colors",
     "start": "node ./src/app.js",
@@ -11,7 +11,7 @@
     "test:watch": "npm run test -- --watch",
     "dev-broken": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --open --config webpack.dev.js"
   },
-  "author": "Terra Rain and Jon Gutwillig",
+  "author": "Terra Rain",
   "license": "TBD",
   "devDependencies": {
     "chai": "^4.1.1",
