@@ -10,7 +10,6 @@ import lightBaseTheme from "material-ui/styles/baseThemes/lightBaseTheme"
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider"
 import getMuiTheme from "material-ui/styles/getMuiTheme"
 
-
 import reducers from "./reducers"
 
 require("./styles/main.scss")
@@ -23,6 +22,7 @@ import ViewOrdering from "./views/ordering"
 import ViewNotFound from "./views/not_found"
 
 
+
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise, ReduxThunk)(createStore)
 
 ReactDOM.render(
@@ -33,6 +33,7 @@ ReactDOM.render(
                     <Header disableSidebar={true} />
                     <Background />
                     <Sidebar />
+
                     <Switch>
                         <Route exact path="/"         component={ViewOrdering} />
                         <Route exact path="/order"    component={ViewOrdering} />
