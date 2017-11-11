@@ -35,9 +35,7 @@ ReactDOM.render(
                     <Sidebar />
 
                     <Switch>
-                        <Route exact path="/"         component={ViewOrdering} />
-                        <Route exact path="/order"    component={ViewOrdering} />
-                        <Route path="*"               component={ViewNotFound} />
+                        {renderRoutes()}
                     </Switch>
                 </div>
             </BrowserRouter>
@@ -45,3 +43,43 @@ ReactDOM.render(
     </MuiThemeProvider>
     , document.querySelector("#iom-surfboard")
 )
+
+
+function renderRoutes() {
+    const paths = {}
+
+    // Add allowed routes per domain
+    switch(Cookies.get('host')) {
+    case "order.itson.me":
+        paths['/']      = ViewOrdering
+        paths['/order'] = ViewOrdering
+        break
+
+    case "onboard.itson.me":
+        paths['/']        = ViewOnboard
+        paths['/onboard'] = ViewOnboard
+        break
+
+    case "localhost":
+        // For development
+        paths['/onboard'] = ViewOnboard
+        paths['/order']   = ViewOrdering
+        break
+
+    default:
+        console.error("Unknown domain: ", Cookies.get('host'))
+    }
+
+    // Construct the routes
+    const routes = Object.keys(paths).map((path) => {
+        return <Route exact path={path} component={paths[path]} key={path} />
+    })
+
+    // Add the 404 route
+    routes.push(
+        <Route path="*" component={ViewNotFound} key="*" />
+    )
+
+
+    return routes
+}
