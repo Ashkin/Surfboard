@@ -51,11 +51,13 @@ function renderRoutes() {
     // Add allowed routes per domain
     switch(Cookies.get('host')) {
     case "order.itson.me":
+    case "qaorder.itson.me":
         paths['/']      = ViewOrdering
         paths['/order'] = ViewOrdering
         break
 
     case "onboard.itson.me":
+    case "qaonboard.itson.me":
         paths['/']        = ViewOnboard
         paths['/onboard'] = ViewOnboard
         break
