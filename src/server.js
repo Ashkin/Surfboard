@@ -37,8 +37,11 @@ module.exports = {
 
         // All other routes:
         app.get("*", function(request, response) {
+            // Strip ":port" from host, if present
+            host = request.headers.host.split(":")[0]
+
             // Send host and url cookie
-            response.cookie("host",  request.headers.host)
+            response.cookie("host",  host)
             response.cookie("requested_url",  request.url)
 
             // Render the root path
