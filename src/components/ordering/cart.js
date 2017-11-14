@@ -40,6 +40,7 @@ class Cart extends Component {
     renderInline() {
         return (
             <div className="cart">
+                {this.renderHeader.bind(this)()}
                 <div className="products">
                     {this.renderProducts.bind(this)()}
                 </div>
