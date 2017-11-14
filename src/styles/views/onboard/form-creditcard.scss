@@ -67,7 +67,10 @@ section.form-creditcard {
 
         aside {
             font-size: 70%;
-            text-align: right;
+
+            &.stripe-aside {
+                text-align: right;
+            }
         }
     }
 
@@ -113,6 +116,25 @@ section.form-creditcard {
             width: 35%;
         }
     }
+
+
+    .paper.pay-by-check {
+
+        .check-address {
+            text-align: left;
+
+            pre {
+                font-size: 1.1rem;
+            }
+        }
+
+        button {
+            position: absolute;
+            right: 0.5em;
+            bottom: 0.5em;
+        }
+    }
+
 }
 
 

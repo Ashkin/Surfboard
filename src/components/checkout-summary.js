@@ -152,6 +152,41 @@ class CheckoutSummary extends Component {
     }
 
 
+    renderPayment() {
+        const { stripe, check } = this.props
+
+        let method = null
+        if (stripe.token) {
+            method = "by creditcard via Stripe"
+        } else if (check.paying_by_check) {
+            method = "by check"
+        }
+
+
+        if (method) {
+            return (
+                <div className="payment">
+                    <dt>Payment Method</dt>
+                    <dd>
+                        You are paying {method}.
+                    </dd>
+                </div>
+            )
+        }
+
+
+        return (
+            <div className="payment">
+                <dt>Payment Method</dt>
+                <dd className="error">
+                    You must select a method of payment.
+                </dd>
+            </div>
+
+        )
+    }
+
+
     renderSignupStatus() {
         const { signup } = this.props
 
@@ -196,7 +231,7 @@ class CheckoutSummary extends Component {
 
     //TODO: cleanup
     render() {
-        const { venue, contact, plans, stripe, tos, signup } = this.props
+        const { venue, contact, plans, stripe, check, tos, signup } = this.props
 
 
         //TODO: only display error when clicking [submit]
@@ -214,7 +249,7 @@ class CheckoutSummary extends Component {
         if (plans.selectedPlan == null)  errors.plans = "You must select a plan"
 
         // Stripe (Creditcard)
-        if (!stripe.token)        errors.stripe = "Before submitting, you must submit your creditcard info to Stripe."
+        if (!(stripe.token || check.paying_by_check))  errors.payment = "You must either submit your creditcard info to Stripe, or select \"Pay by Check.\""
 
 
         //TODO: Factor out per-section error message, e.g. "Before submitting, you must fill out the ___ section."
@@ -222,7 +257,7 @@ class CheckoutSummary extends Component {
 
 
         // Pluck out first error message
-        const errorMessage = (errors.venue || errors.contact || errors.plans || errors.stripe)
+        const errorMessage = (errors.venue || errors.contact || errors.plans || errors.payment)
 
         let buttonClasses = []
         if (errorMessage)                buttonClasses.push("hidden")
@@ -253,6 +288,7 @@ class CheckoutSummary extends Component {
                         {this.renderZinger()}
                         {this.renderDescription()}
                         {this.renderOrder()}
+                        {this.renderPayment()}
                     </dl>
 
 
@@ -294,7 +330,7 @@ class CheckoutSummary extends Component {
 
 
     handleSubmit() {
-        const { venue, hours, contact, photos, plans, stripe, tos } = this.props
+        const { venue, hours, contact, photos, plans, stripe, check, tos } = this.props
 
         this.props.merchantSignup({
             venue,
@@ -321,6 +357,7 @@ function mapStateToProps(state) {
         photos:     state.photos,
         plans:      state.plans,
         stripe:     state.stripe,
+        check:      state.check,
         tos:        selector(state, "tos"),
         signup:     state.signup
     }

@@ -31,6 +31,7 @@ export const ACTIONS = {
     UPDATE_PHOTO:        "UPDATE_PHOTO",
     SELECT_PLAN:         "SELECT_PLAN",
     UPDATE_STRIPE_TOKEN: "UPDATE_STRIPE_TOKEN",
+    PAY_BY_CHECK:        "PAY_BY_CHECK",
 
     // Merchant API Actions
     MERCHANT_SIGNUP:         "MERCHANT_SIGNUP",
@@ -69,6 +70,7 @@ export function saveContactData(data={})  { return actionFactory(ACTIONS.UPDATE_
 export function savePhoto(data={})        { return actionFactory(ACTIONS.UPDATE_PHOTO)(data) }
 export function selectPlan(data={})       { return actionFactory(ACTIONS.SELECT_PLAN)(data) }
 export function saveStripeToken(data={})  { return actionFactory(ACTIONS.UPDATE_STRIPE_TOKEN)(data) }
+export function payByCheck(bool)          { return actionFactory(ACTIONS.PAY_BY_CHECK)({paying_by_check: bool}) }
 export { merchantSignup } from "./merchant-signup"
 
 // Ordering

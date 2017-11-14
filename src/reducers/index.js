@@ -41,6 +41,7 @@ const contact  = reducerFactory(ACTIONS.UPDATE_CONTACT)
 const photos   = reducerFactory(ACTIONS.UPDATE_PHOTO)
 const plans    = reducerFactory(ACTIONS.SELECT_PLAN)
 const stripe   = reducerFactory(ACTIONS.UPDATE_STRIPE_TOKEN)
+const check    = reducerFactory(ACTIONS.PAY_BY_CHECK)
 
 
 const rootReducer = combineReducers({
@@ -64,6 +65,7 @@ const rootReducer = combineReducers({
     photos,
     plans,
     stripe,
+    check,
     signup,
 })
 
