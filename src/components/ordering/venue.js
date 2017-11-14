@@ -29,7 +29,6 @@ class Venue extends Component {
                     </header>
                     { this.renderForm() }
                 </Paper>
-                <Cart footer={true} hideIfEmpty={true} />
             </section>
         )
     }

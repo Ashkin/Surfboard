@@ -123,8 +123,6 @@ class Billing extends Component {
                             <button type="button" onClick={this.props.prevStep}>Back</button>
                             { this.renderVerifyButton() }
                         </div>
-
-                        <Cart footer={true} />
                     </form>
                 </Paper>
             </section>
