@@ -51,6 +51,9 @@ class ViewOrdering extends Component {
     }
 
     renderStep() {
+        // Scroll to top
+        window.scrollTo(0,0)
+
         return (
             <div className="step">
                 { this.getStepContent() }

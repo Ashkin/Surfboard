@@ -53,6 +53,9 @@ class ViewOnboard extends Component {
     getStepContent() {
         const { activeStep } = this.props
 
+        // Scroll to top
+        window.scrollTo(0,0)
+
         switch(activeStep) {
             case undefined:
             case -1: return <Welcome         step={activeStep+1}                              nextStep={this.handleNext} className="fadein-fast" />
