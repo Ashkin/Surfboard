@@ -88,10 +88,22 @@ class Products extends Component {
             // Determine image class and public_id
             let imageClassName = ["product-image"]
             let imagePublicId  = null
+
+            // If the image has a photo
             if (product.photo_url) {
-                const _tokens = product.photo_url.split("/")
-                imagePublicId = _tokens[_tokens.length - 1]
+                // and it's within /ordering folder
+                if (product.photo_url.includes("/ordering/")) {
+                    // Extract "/ordering/image_name.png"
+                    // from e.g. "http://res.cloudinary.com/drinkboard/image/upload/v1510616048/ordering/Promo_gift_campaign_pxljwl.png"
+                    imagePublicId = product.photo_url.match(/v[0-9]+(\/.+)/)[1]
+                } else {
+                    // Otherwise, the public image ID is simply the very last token.
+                    // e.g. in "http://res.cloudinary.com/drinkboard/image/upload/v1510424904/ae7tchc4gv5lpaqje6gy.jpg"
+                    const _tokens = product.photo_url.split("/")
+                    imagePublicId = _tokens[_tokens.length - 1]
+                }
             } else {
+                // No image!
                 imageClassName.push("hidden")
             }
             imageClassName = imageClassName.join(" ")
