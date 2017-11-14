@@ -133,7 +133,7 @@ class Products extends Component {
                         <div className="product-image-wrapper">
                             <CloudinaryContext cloudName="drinkboard" className={imageClassName}>
                                 <Image publicId={imagePublicId}>
-                                    <Transformation width="250" crop="scale" />
+                                    <Transformation width="750" crop="scale" />
                                 </Image>
                             </CloudinaryContext>
                         </div>
