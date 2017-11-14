@@ -33,6 +33,7 @@ class Products extends Component {
 
         return (
             <section className={classBuilder("products", this.props.className)}>
+                {this.renderCart.bind(this, cartIsEmpty)()}
                 <Paper className="paper primary" zDepth={2}>
                     <header>
                         Products & Services
@@ -42,7 +43,6 @@ class Products extends Component {
                     <div className="products-list">
                         { this.renderProducts() }
                     </div>
-                    <Cart footer={true} hideIfEmpty={true} />
                     <div className="center">
                         <button
                             onClick={this.props.nextStep}
@@ -141,6 +141,16 @@ class Products extends Component {
                 </Card>
             )
         })
+    }
+
+
+    renderCart(cartIsEmpty) {
+        if (cartIsEmpty)  return null
+        return (
+            <Paper className="paper primary" zDepth={2}>
+                <Cart hideIfEmpty={true} showHeader={true} />
+            </Paper>
+        )
     }
 }
 
