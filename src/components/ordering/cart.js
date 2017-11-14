@@ -29,8 +29,8 @@ class Cart extends Component {
         }
 
 
-        if (this.props.footer) {
-            return this.renderFooter.bind(this)()
+        if (this.props.floating) {
+            return this.renderFloating.bind(this)()
         } else {
             return this.renderInline.bind(this)()
         }
@@ -50,10 +50,10 @@ class Cart extends Component {
         )
     }
 
-    renderFooter() {
+    renderFloating() {
         return (
-            <Paper zDepth={4} rounded={false} className="cart footer paper">
-                <h1>Your Cart</h1>
+            <Paper zDepth={4} rounded={false} className="cart floating paper">
+                {this.renderHeader.bind(this)()}
                 <div className="products">
                     {this.renderProducts.bind(this)()}
                 </div>
@@ -62,6 +62,26 @@ class Cart extends Component {
                 </div>
             </Paper>
         )
+    }
+
+
+    renderHeader() {
+        const { floating, showHeader } = this.props
+        const header = <h1>Your Cart</h1>
+
+        // No header
+        if (showHeader === false)
+            return null
+
+        // Floating shows header by default
+        if (floating && (showHeader || showHeader == undefined))
+            return header
+
+        // Inline shows header only when specified
+        if (!floating && showHeader)
+            return header
+
+        return null
     }
 
 
