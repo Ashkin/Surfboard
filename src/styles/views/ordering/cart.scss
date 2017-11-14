@@ -18,6 +18,15 @@ $cart_remove_button_margin:  2em;
         z-index: 5;
     }
 
+    & > h3 {
+        // Align with [-] quantity [+]
+        text-align: left;
+        padding-left: 0.25em;
+
+        // Match Total's `border-top`
+        border-bottom: 1px solid $iom-dark-grey;
+    }
+
 
     .product {
         display: flex;

@@ -68,7 +68,7 @@ class Cart extends Component {
 
     renderHeader() {
         const { floating, showHeader } = this.props
-        const header = <h1>Your Cart</h1>
+        const header = <h3>Your Cart</h3>
 
         // No header
         if (showHeader === false)
