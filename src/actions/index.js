@@ -38,6 +38,9 @@ export const ACTIONS = {
     MERCHANT_SIGNUP_PENDING: "MERCHANT_SIGNUP_PENDING",
     MERCHANT_SIGNUP_SUCCESS: "MERCHANT_SIGNUP_SUCCESS",
     MERCHANT_SIGNUP_FAILURE: "MERCHANT_SIGNUP_FAILURE",
+
+    // Snackbar Actions
+    SNACKBAR_UPDATE: "SNACKBAR_UPDATE",
 }
 
 
@@ -85,4 +88,10 @@ export const order = {
   saveStripeToken:      (data={}) => { return actionFactory(ACTIONS.ORDER_SAVE_STRIPE_TOKEN)(data) },
   fetchProducts,
   submitOrder
+}
+
+// Snackbar
+export const snackbar = {
+    show: (message) => { return actionFactory(ACTIONS.SNACKBAR_UPDATE)({open: true, message, duration: 4000}) },
+    hide: ()        => { return actionFactory(ACTIONS.SNACKBAR_UPDATE)({open: false}) },
 }
