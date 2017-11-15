@@ -1,0 +1,86 @@
+/* Component: order/billing */
+
+$creditcard-cvv-width: 20%;
+$creditcard-spacing: 3px;
+
+
+section.billing {
+    
+    form#stripe-payment-form {
+
+        .stripe-wrapper {
+            position: relative;
+            padding: 1em 2vw 1.5em;
+            border: 2px solid $stripe-indigo;
+            background: transparentize($stripe-indigo, 0.7);
+            border-radius: 0.25em;
+
+            text-align: left;
+
+            label {
+                color: $iom-dark-silver;
+            }
+
+
+            div#card-element-wrapper {
+                @extend input[type="text"];
+                border: 1px inset $stripe-purple;
+                background: white;
+
+                #card-element {
+                    padding: 0.5em 0.75em;
+                }
+            }
+
+            div#stripe-success {
+                padding: 1.5em 0 0.5em;
+                color: $stripe-green;
+                text-align: center;
+            }
+
+            div#card-errors {
+                font-size: 0.9em;
+                text-align: left;
+                color: $danger;
+            }
+
+            .stripe-info {
+                position: absolute;
+                display: relative;
+                bottom: 0;
+                right:  0;
+                padding: 0.25em;
+                padding-left: 1em;
+                border: 1px solid $stripe-indigo;
+                border-width: 1px 0 0 1px;
+                border-bottom-right-radius: inherit;
+                border-top-left-radius: 2em;
+                font-size: 0.75em;
+                color: $stripe-green;
+                background: white;
+            }
+        }
+
+        aside {
+            font-size: 0.7em;
+            text-align: right;
+        }
+    }
+}
+
+
+@media (max-width: 600px) {
+    // Shrink the padding when the screen is small
+    section.billing form#stripe-payment-form .stripe-wrapper {
+        padding-top: 0;
+    }
+}
+
+
+@media (max-width: 350px) {
+    // Shrink the text when the screen is tiny
+    section.billing form#stripe-payment-form {
+        .stripe-wrapper div#card-errors { font-size: 0.85em; }
+        aside { font-size: 0.65em; }
+    }
+}

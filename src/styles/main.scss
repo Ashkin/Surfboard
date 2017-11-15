@@ -18,18 +18,19 @@
 
 /*** Top-level Styling ***/
 body, html {
-  // Full height!
-  height: 100%;
+    // Full height!
+    height: 100%;
 
-  font-family: $iom-font-normal;
+    font-family: $iom-font-normal;
 
-  // The actual <Background> element sits atop this and fades in.
-  background: $iom-dark-grey;
+    // The actual <Background> element sits atop this and fades in.
+    background: $iom-dark-grey;
 }
 
 
 /*** Controls ***/
 @import 'partials/controls';
+
 
 /*** Main page ***/
 @import 'header';
@@ -50,3 +51,16 @@ body, html {
 @import 'views/onboard/plans';
 @import 'views/onboard/form-creditcard';
 @import 'views/onboard/checkout-summary';
+
+/*** Ordering ***/
+@import 'views/ordering/products';
+@import 'views/ordering/cart';
+@import 'views/ordering/venue';
+@import 'views/ordering/billing';
+@import 'views/ordering/checkout';
+
+
+/*** Components ***/
+@import 'components/hours';
+@import 'components/sidebar';
+@import 'components/sidebar/sidebar_content';

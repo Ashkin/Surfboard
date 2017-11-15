@@ -2,27 +2,27 @@
 
 section.contact {
 
-  form {
-    padding: 1em;
+    form {
+        padding: 1em;
 
-    .mui-textfield {
-      // Using !important because MaterialUI uses only inline styles
-      display: block !important;
+        .mui-textfield {
+            // Using !important because MaterialUI uses only inline styles
+            display: block !important;
 
-      width: susy-span(11 narrow) !important;
-      margin: 0 auto;
+            width: susy-span(11 narrow) !important;
+            margin: 0 auto;
+        }
     }
-  }
 }
 
 
 @media (min-width: 750px) {
-  // Tablet and up
-  section.contact {
-    form {
-      .mui-textfield {
-        width: susy-span(10 narrow) !important;
-      }
+    // Tablet and up
+    section.contact {
+        form {
+            .mui-textfield {
+                width: susy-span(10 narrow) !important;
+            }
+        }
     }
-  }
 }

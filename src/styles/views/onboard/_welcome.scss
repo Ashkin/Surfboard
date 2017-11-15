@@ -2,35 +2,35 @@
 
 section.welcome {
 
-  article {
-    width: susy-span(10 narrow);
-    margin: 2em auto;
-    text-align: left;
-  }
-
-  .paper.item {
-    padding: 0.75em 0.5em;
-    padding-right: 1.5em;
-    margin-bottom: 0.5em;
-
-    aside {
-      padding-top: 0.5em;
-      border-top: 1px solid $iom-light-silver;
-      font-size: 0.85em;
-      color: $iom-grey;
-
-      transition: border-top-color 0.75s, color 0.75s;
+    article {
+        width: susy-span(10 narrow);
+        margin: 2em auto;
+        text-align: left;
     }
 
+    .paper.item {
+        padding: 0.75em 0.5em;
+        padding-right: 1.5em;
+        margin-bottom: 0.5em;
 
-    &:hover {
+        aside {
+            padding-top: 0.5em;
+            border-top: 1px solid $iom-light-silver;
+            font-size: 0.85em;
+            color: $iom-grey;
 
-      aside {
-        border-top-color: $iom-blue;
-        color: black;
+            transition: border-top-color 0.75s, color 0.75s;
+        }
 
-        transition: border-top-color 0.75s, color 0.75s;
-      }
+
+        &:hover {
+
+            aside {
+                border-top-color: $iom-blue;
+                color: black;
+
+                transition: border-top-color 0.75s, color 0.75s;
+            }
+        }
     }
-  }
 }

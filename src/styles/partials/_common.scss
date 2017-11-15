@@ -14,54 +14,67 @@
 
 // Since actual <hr>'s behave oddly
 .hr {
-  display:  inline-block;
-  position: relative;
-  top:     -0.5em;
-  height:     2px;
-  width:    1.5em;
-  margin:   0 0.5em;
-  border:   1px inset;
+    display:  inline-block;
+    position: relative;
+    top:     -0.5em;
+    height:     2px;
+    width:    1.5em;
+    margin:   0 0.5em;
+    border:   1px inset;
 }
 
 
 * {
-  // Fancy underline-skip
-  text-decoration-skip: ink;
+    // Fancy underline-skip
+    text-decoration-skip: ink;
 }
 
 .aspect-ratio {
-  width: 100%;
+    width: 100%;
 
-  &:before {
-    float: left;
-    padding-bottom: 56.25%;  // default to 16:9
-    content: "";
-  }
+    &:before {
+        float: left;
+        padding-bottom: 56.25%;  // default to 16:9
+        content: "";
+    }
 
-  &:after {
-    display: table;
-    content: "";
-    clear: both;
-  }
+    &:after {
+        display: table;
+        content: "";
+        clear: both;
+    }
 
 
-  &.ratio-square:before { padding-bottom: 100%; }
-  &.ratio-16-9:before   { padding-bottom: 56.25%; }
-  &.ratio-21-9:before   { padding-bottom: 42.857%; }
-  &.ratio-3-1:before    { padding-bottom: 30%; }
-  &.ratio-22-5:before   { padding-bottom: 22.72%; }
+    &.ratio-square:before { padding-bottom: 100%; }
+    &.ratio-16-9:before   { padding-bottom: 56.25%; }
+    &.ratio-21-9:before   { padding-bottom: 42.857%; }
+    &.ratio-3-1:before    { padding-bottom: 30%; }
+    &.ratio-22-5:before   { padding-bottom: 22.72%; }
 }
 
 
 .filled-circle {
-  display: inline-block;
-  width: 1.5em;
-  height: 1.5em;
-  margin-right: 0.25em;
-  color: white;
-  text-align: center;
-  line-height: 1.5em;
-  border-radius: 10em;
-  background-color: $iom-blue;
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: 0.25em;
+    color: white;
+    text-align: center;
+    line-height: 1.5em;
+    border-radius: 10em;
+    background-color: $iom-blue;
+}
+
+.missing-giftcard {
+    width:          17.5rem;
+    height:         10rem;
+    margin-left:     3rem;
+    border:         5px dashed $iom-light-silver;
+    border-radius:  1rem;
+    text-align:     center;
+    transform:      rotate(-6deg);
+    line-height:    10rem;
+    font-size:       3em;
+    color:          $iom-light-silver;
 }
 

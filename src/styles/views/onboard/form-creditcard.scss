@@ -7,118 +7,140 @@ $creditcard-spacing: 3px;
 section.form-creditcard {
 
 
-  form#stripe-payment-form {
+    form#stripe-payment-form {
 
-    .stripe-wrapper {
+        .stripe-wrapper {
 
-      position: relative;
-      padding: 1em 2em;
-      border: 2px solid $stripe-indigo;
-      background: transparentize($stripe-indigo, 0.7);
-      border-radius: 0.25em;
+            position: relative;
+            padding: 1em 2em;
+            border: 2px solid $stripe-indigo;
+            background: transparentize($stripe-indigo, 0.7);
+            border-radius: 0.25em;
 
-      text-align: left;
+            text-align: left;
 
-      label {
-        color: $iom-dark-silver;
-      }
+            label {
+                color: $iom-dark-silver;
+            }
 
 
-      div#card-element-wrapper {
-        @extend input[type="text"];
-        border: 1px inset $stripe-purple;
-        background: white;
+            div#card-element-wrapper {
+                @extend input[type="text"];
+                border: 1px inset $stripe-purple;
+                background: white;
 
-        #card-element {
-          padding: 0.5em 0.75em;
+                #card-element {
+                    padding: 0.5em 0.75em;
+                }
+            }
+
+            div#stripe-success {
+                padding: 1.5em 0 0.5em;
+                color: $stripe-green;
+                text-align: center;
+            }
+
+            div#card-errors {
+                height: 1em;
+                padding: 0.125em 0.5em;
+                font-size: 0.9em;
+                text-align: left;
+                color: $danger;
+            }
+
+            .stripe-info {
+                position: absolute;
+                display: relative;
+                bottom: 0;
+                right:  0;
+                padding: 0.25em;
+                padding-left: 1em;
+                border: 1px solid $stripe-indigo;
+                border-width: 1px 0 0 1px;
+                border-bottom-right-radius: inherit;
+                border-top-left-radius: 2em;
+                font-size: 0.75em;
+                color: $stripe-green;
+                background: white;
+            }
         }
-      }
 
-      div#stripe-success {
-        padding: 1.5em 0 0.5em;
-        color: $stripe-green;
-        text-align: center;
-      }
+        aside {
+            font-size: 70%;
 
-      div#card-errors {
-        height: 1em;
-        padding: 0.125em 0.5em;
-        font-size: 0.9em;
-        text-align: left;
-        color: $danger;
-      }
-
-      .stripe-info {
-        position: absolute;
-        display: relative;
-        bottom: 0;
-        right:  0;
-        padding: 0.25em;
-        padding-left: 1em;
-        border: 1px solid $stripe-indigo;
-        border-width: 1px 0 0 1px;
-        border-bottom-right-radius: inherit;
-        border-top-left-radius: 2em;
-        font-size: 0.75em;
-        color: $stripe-green;
-        background: white;
-      }
+            &.stripe-aside {
+                text-align: right;
+            }
+        }
     }
 
-    aside {
-      font-size: 70%;
-      text-align: right;
+
+    //TODO: remove the outdated styles below
+    form {
+        margin: 1em;
+
+        input {
+            display: inline-block;
+            border-color: black;
+            margin: 0.2rem 0;
+
+            &:focus {
+                // Fix for Chrome glow layering
+                position: relative;
+                z-index: 1;
+            }
+        }
+
+        input.creditcard-name {
+            width: 100%;
+        }
+        input.creditcard-number {
+            width: calc(100% - #{$creditcard-cvv-width});
+        }
+        input.cvv {
+            width: 20%;
+            border-left: 0;
+            text-align: center;
+        }
+        input.expiration {
+            float: left;
+            width: 30%;
+
+            &+ input.expiration {
+                // margin-left: 0.5em;
+                border-left: none;
+            }
+        }
+        input.zip {
+            float: right;
+            width: 35%;
+        }
     }
-  }
 
 
-  //TODO: remove the outdated styles below
-  form {
-    margin: 1em;
+    .paper.pay-by-check {
 
-    input {
-      display: inline-block;
-      border-color: black;
-      margin: 0.2rem 0;
+        .check-address {
+            text-align: left;
 
-      &:focus {
-        // Fix for Chrome glow layering
-        position: relative;
-        z-index: 1;
-      }
+            pre {
+                font-size: 1.1rem;
+            }
+        }
+
+        button {
+            position: absolute;
+            right: 0.5em;
+            bottom: 0.5em;
+        }
     }
 
-    input.creditcard-name {
-      width: 100%;
-    }
-    input.creditcard-number {
-      width: calc(100% - #{$creditcard-cvv-width});
-    }
-    input.cvv {
-      width: 20%;
-      border-left: 0;
-      text-align: center;
-    }
-    input.expiration {
-      float: left;
-      width: 30%;
-
-      &+ input.expiration {
-        // margin-left: 0.5em;
-        border-left: none;
-      }
-    }
-    input.zip {
-      float: right;
-      width: 35%;
-    }
-  }
 }
 
 
 @media (max-width: 600px) {
-  // Extra padding to allow displaying the error when the form is too narrow.
-  section.form-creditcard form#stripe-payment-form .stripe-wrapper {
-    padding-bottom: 2em;
-  }
+    // Extra padding to allow displaying the error when the form is too narrow.
+    section.form-creditcard form#stripe-payment-form .stripe-wrapper {
+        padding-bottom: 2em;
+    }
 }

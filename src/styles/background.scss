@@ -1,56 +1,56 @@
 /* View: Background */
 
 .site.background {
-  position: fixed;
-  top:    0;
-  right:  0;
-  bottom: 0;
-  left:   0;
+    position: fixed;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
 
-  background-size:     cover;
-  background-position: center center;
-  background-repeat:   no-repeat;
+    background-size:     cover;
+    background-position: center center;
+    background-repeat:   no-repeat;
 
-  @extend .fadein-slow;
+    @extend .fadein-slow;
 
-  pointer-events: none;
-  z-index: 0;
+    pointer-events: none;
+    z-index: 0;
 }
 
 
 @media (min-height: 0px) {
-  .site.background {
-    background-image: url("https://res.cloudinary.com/drinkboard/image/upload/h_400,c_scale/v1/merchant_photos/fjxtoe0arynsffpipjiq.jpg");
-  }
+    .site.background {
+        background-image: url("https://res.cloudinary.com/drinkboard/image/upload/h_400,c_scale/v1/merchant_photos/fjxtoe0arynsffpipjiq.jpg");
+    }
 }
 
 @media (min-height: 400px) {
-  .site.background {
-    background-image: url("https://res.cloudinary.com/drinkboard/image/upload/h_800,c_scale/v1/merchant_photos/fjxtoe0arynsffpipjiq.jpg");
-  }
+    .site.background {
+        background-image: url("https://res.cloudinary.com/drinkboard/image/upload/h_800,c_scale/v1/merchant_photos/fjxtoe0arynsffpipjiq.jpg");
+    }
 }
 
 @media (min-height: 800px) {
-  .site.background {
-    background-image: url("https://res.cloudinary.com/drinkboard/image/upload/h_1000,c_scale/v1/merchant_photos/fjxtoe0arynsffpipjiq.jpg");
-  }
+    .site.background {
+        background-image: url("https://res.cloudinary.com/drinkboard/image/upload/h_1000,c_scale/v1/merchant_photos/fjxtoe0arynsffpipjiq.jpg");
+    }
 }
 
 @media (min-height: 1000px) {
-  .site.background {
-    background-image: url("https://res.cloudinary.com/drinkboard/image/upload/h_1200,c_scale/v1/merchant_photos/fjxtoe0arynsffpipjiq.jpg");
-  }
+    .site.background {
+        background-image: url("https://res.cloudinary.com/drinkboard/image/upload/h_1200,c_scale/v1/merchant_photos/fjxtoe0arynsffpipjiq.jpg");
+    }
 }
 
 @media (min-height: 1200px) {
-  .site.background {
-    background-image: url("https://res.cloudinary.com/drinkboard/image/upload/h_1400,c_scale/v1/merchant_photos/fjxtoe0arynsffpipjiq.jpg");
-  }
+    .site.background {
+        background-image: url("https://res.cloudinary.com/drinkboard/image/upload/h_1400,c_scale/v1/merchant_photos/fjxtoe0arynsffpipjiq.jpg");
+    }
 }
 
 
 @media (min-width: 1400px) {
-  .site.background {
-    background: url("https://res.cloudinary.com/drinkboard/image/upload/v1/merchant_photos/fjxtoe0arynsffpipjiq.jpg");
-  }
+    .site.background {
+        background: url("https://res.cloudinary.com/drinkboard/image/upload/v1/merchant_photos/fjxtoe0arynsffpipjiq.jpg");
+    }
 }
