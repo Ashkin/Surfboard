@@ -6,6 +6,7 @@ import { connect } from "react-redux"
 import Paper from "material-ui/Paper"
 import RaisedButton from "material-ui/RaisedButton"
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import Snackbar from "material-ui/Snackbar"
 
 // Components
 import { CloudinaryContext, Transformation, Image } from "cloudinary-react"
@@ -15,8 +16,9 @@ import Cart from "./cart"
 import classBuilder from "../../helpers/class-builder"
 
 // Actions
-import { order } from "../../actions"
+import { order, snackbar } from "../../actions"
 const  { fetchProducts, addProduct, removeProduct, setProductQuantity } = order
+const  { show: showSnackbar, hide: hideSnackbar } = snackbar
 
 
 class Products extends Component {
@@ -54,13 +56,20 @@ class Products extends Component {
                 <Paper className="paper help-text">
                     Need help? Text 310.235.3835 for immediate assistance, or email <a href="mailto:sales@itson.me" target="_blank">sales@itson.me</a>
                 </Paper>
+                <Snackbar
+                    open={this.props.snackbar.open}
+                    message={this.props.snackbar.message}
+                    autoHideDuration={this.props.snackbar.duration}
+                    onRequestClose={this.props.closeSnackbar}
+                />
             </section>
         )
     }
 
 
     addProduct(id) {
-        const {hex_id, price} = this.props.products[id]
+        const {hex_id, name, price} = this.props.products[id]
+        this.props.showSnackbar(`Added: ${name}`)
         this.props.addProduct({id, hex_id, price})
     }
 
@@ -157,10 +166,14 @@ class Products extends Component {
 
 function mapStateToProps(state) {
     return {
+        snackbar:   state.snackbar || {open: false, message: ""},
         status:     state.order_fetch_products.status,
         products:   state.order_fetch_products.data,
-        cart_items: state.order_cart.products || {}
+        cart_items: state.order_cart.products || {},
     }
 }
 
-export default connect(mapStateToProps, { fetchProducts, addProduct, removeProduct, setProductQuantity })(Products)
+export default connect(mapStateToProps, {
+    fetchProducts, addProduct, removeProduct, setProductQuantity,
+    showSnackbar, hideSnackbar
+})(Products)
