@@ -60,7 +60,7 @@ class Products extends Component {
                     open={this.props.snackbar.open}
                     message={this.props.snackbar.message}
                     autoHideDuration={this.props.snackbar.duration}
-                    onRequestClose={this.props.closeSnackbar}
+                    onRequestClose={this.props.hideSnackbar}
                 />
             </section>
         )
