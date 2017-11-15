@@ -3,6 +3,7 @@
 /* Heroku config vars exposed as global constants within /webpack.common.js:
  *   NODE_ENV
  *   APPLICATION_KEY
+ *   ONBOARDING_TOKEN
  *   ORDERING_TOKEN
  */
 
