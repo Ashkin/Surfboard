@@ -11,7 +11,7 @@ module.exports = {
     new webpack.DefinePlugin({
       NODE_ENV:         JSON.stringify(process.env.NODE_ENV),
       APPLICATION_KEY:  JSON.stringify(process.env.APPLICATION_KEY),
-      WWW_ACCESS_TOKEN: JSON.stringify(process.env.WWW_ACCESS_TOKEN),
+      ORDERING_TOKEN:   JSON.stringify(process.env.ORDERING_TOKEN),
       STRIPE_API_KEY:   JSON.stringify(process.env.STRIPE_API_KEY)
     })
   ],

@@ -14,7 +14,7 @@ function fetchProducts() {
             url: ORDER_PRODUCTS_API_URL,
             method: "get",
             headers: {
-                "X_AUTH_TOKEN":      WWW_ACCESS_TOKEN,
+                "X_AUTH_TOKEN":      ORDERING_TOKEN,
                 "X_APPLICATION_KEY": APPLICATION_KEY
             }
         }
