@@ -11,9 +11,8 @@ section.billing {
     form#stripe-payment-form {
 
         .stripe-wrapper {
-
             position: relative;
-            padding: 1em 2em;
+            padding: 1em 2vw 1.5em;
             border: 2px solid $stripe-indigo;
             background: transparentize($stripe-indigo, 0.7);
             border-radius: 0.25em;
@@ -42,8 +41,6 @@ section.billing {
             }
 
             div#card-errors {
-                height: 1em;
-                padding: 0.125em 0.5em;
                 font-size: 0.9em;
                 text-align: left;
                 color: $danger;
@@ -75,8 +72,17 @@ section.billing {
 
 
 @media (max-width: 600px) {
-    // Extra padding to allow displaying the error when the form is too narrow.
-    section.form-creditcard form#stripe-payment-form .stripe-wrapper {
-        padding-bottom: 2em;
+    // Shrink the padding when the screen is small
+    section.billing form#stripe-payment-form .stripe-wrapper {
+        padding-top: 0;
+    }
+}
+
+
+@media (max-width: 350px) {
+    // Shrink the text when the screen is tiny
+    section.billing form#stripe-payment-form {
+        .stripe-wrapper div#card-errors { font-size: 0.85em; }
+        aside { font-size: 0.65em; }
     }
 }
