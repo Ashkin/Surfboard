@@ -111,7 +111,7 @@ class Billing extends Component {
                             <div id="card-errors" role="alert"></div>
 
                             <div className="stripe-info">
-                                Hosted and protected by <a href="https://stripe.com" target="_blank">Stripe, Inc.</a>
+                                Hosted and protected by <a href="https://stripe.com" target="_blank" tabIndex="-1">Stripe, Inc.</a>
                             </div>
                         </div>
                         <aside>
