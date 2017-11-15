@@ -4,7 +4,7 @@ import { connect } from "react-redux"
 import Paper from "material-ui/Paper"
 
 import classBuilder        from "../helpers/class-builder"
-import { saveStripeToken, payByCheck } from "../actions"
+import { saveStripeToken, setPaymentMethod } from "../actions"
 
 
 
@@ -142,7 +142,7 @@ class FormCreditcard extends Component {
 
     payByCheck() {
         this.props.saveStripeToken({token: null})
-        this.props.payByCheck(true)
+        this.props.setPaymentMethod("check")
         this.props.nextStep()
     }
 
@@ -153,7 +153,7 @@ class FormCreditcard extends Component {
                 return document.getElementById("card-errors").textContent = result.error.message
             }
             this.props.saveStripeToken({token: result.token})
-            this.props.payByCheck(false)
+            this.props.setPaymentMethod("stripe")
             this.props.nextStep()
         })
     }
@@ -169,5 +169,5 @@ function mapStateToProps(state) {
 export default reduxForm({
     form: "creditcard"
 })(
-    connect(mapStateToProps,{ saveStripeToken, payByCheck })(FormCreditcard)
+    connect(mapStateToProps,{ saveStripeToken, setPaymentMethod })(FormCreditcard)
 )

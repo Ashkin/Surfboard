@@ -153,12 +153,12 @@ class CheckoutSummary extends Component {
 
 
     renderPayment() {
-        const { stripe, check } = this.props
+        const { stripe, payment_method } = this.props
 
         let method = null
-        if (stripe.token) {
+        if (payment_method.method == "stripe") {
             method = "by creditcard via Stripe"
-        } else if (check.paying_by_check) {
+        } else if (payment_method.method == "check") {
             method = "by check"
         }
 
@@ -231,7 +231,7 @@ class CheckoutSummary extends Component {
 
     //TODO: cleanup
     render() {
-        const { venue, contact, plans, stripe, check, tos, signup } = this.props
+        const { venue, contact, plans, stripe, payment_method, tos, signup } = this.props
 
 
         //TODO: only display error when clicking [submit]
@@ -248,8 +248,9 @@ class CheckoutSummary extends Component {
         // Plans
         if (plans.selectedPlan == null)  errors.plans = "You must select a plan"
 
-        // Stripe (Creditcard)
-        if (!(stripe.token || check.paying_by_check))  errors.payment = "You must either submit your creditcard info to Stripe, or select \"Pay by Check.\""
+        // Payment method
+        if (!payment_method.method || (payment_method.method == "stripe" && !stripe.token))
+            errors.payment = "You must either submit your creditcard info to Stripe, or select \"Pay by Check.\""
 
 
         //TODO: Factor out per-section error message, e.g. "Before submitting, you must fill out the ___ section."
@@ -330,7 +331,7 @@ class CheckoutSummary extends Component {
 
 
     handleSubmit() {
-        const { venue, hours, contact, photos, plans, stripe, check, tos } = this.props
+        const { venue, hours, contact, photos, plans, stripe, payment_method, tos } = this.props
 
         this.props.merchantSignup({
             venue,
@@ -339,6 +340,7 @@ class CheckoutSummary extends Component {
             photos,
             plans,
             stripe,
+            payment_method,
             tos
         })
     }
@@ -357,7 +359,7 @@ function mapStateToProps(state) {
         photos:     state.photos,
         plans:      state.plans,
         stripe:     state.stripe,
-        check:      state.check,
+        payment_method: state.payment_method,
         tos:        selector(state, "tos"),
         signup:     state.signup
     }
