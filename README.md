@@ -1,13 +1,11 @@
 # Surfboard
-### ItsOnMe Merchant-Onboarding App
+### ItsOnMe Wizard App
 
-This project only serves the onboarding wizard.  No (or very few) changes will be made to this project.
-
-ItsOnMe/Ferrari is a fork (well, clone) of this repo, and is being actively developed to (eventually) replace the entire Merchant Tools suite.
+This project serves both the Onboard and Order wizards.
 
 
 ### Stack:
- - ES6
+ - Babel + ES6
  - Webpack
  - React + Redux
  - SASS
