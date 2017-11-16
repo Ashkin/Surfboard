@@ -46,7 +46,7 @@ function submitOrder(order) {
                     // Everything else goes in form_data
                     form_data: {
                         // Semantic order_source
-                        order_source:  "Ferrari/order",  //TODO: should use the current full URL
+                        order_source:  "Surfboard",
 
                         venue_name:       order.venue.venue_name,
                         venue_address:    order.venue.venue_address,
