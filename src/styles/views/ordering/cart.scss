@@ -1,0 +1,82 @@
+/* Component: Ordering/Cart */
+
+$cart_button_size:          24px;
+$cart_remove_button_margin:  2em;
+
+.cart {
+
+    &.floating {
+        position: fixed;
+        bottom:     0px;
+        left:       0px;
+        width:    100%;
+
+        // Shrink a bit
+        font-size: 80%;
+
+        // And make sure it's on top
+        z-index: 5;
+    }
+
+    & > h3 {
+        // Align with [-] quantity [+]
+        text-align: left;
+        padding-left: 0.25em;
+
+        // Match Total's `border-top`
+        border-bottom: 1px solid $iom-dark-grey;
+    }
+
+
+    .product {
+        display: flex;
+        padding: 2px 0;
+        border-bottom: 1px solid $iom-light-grey;
+
+
+        &:nth-child(odd) {
+            border-bottom-color: $iom-light-silver;
+        }
+
+        // 24px fixed sizing to match Mui's sizing
+        .increment,
+        .decrement { flex: 0 0 $cart_button_size; }
+
+        .remove {
+            flex: 0 0 $cart_button_size;
+            margin-left: $cart_remove_button_margin;
+        }
+
+        // Fixed height since they default to 100% of parent.  !important to override Mui inline-styles
+        .increment, .decrement, .remove { height: $cart_button_size !important; }
+
+
+        input.quantity {
+            flex: 0 0 2.5em;
+
+            // Just wide enough to fit 3 chars comfortably
+            width: 2.5em;
+            height: 1.5em;
+            text-align: center;
+
+            // Spacing
+            margin: 0 0.5em;
+        }
+
+        .name  { flex: 8 4 auto; text-align: left;  padding-left: 0.5em; }
+        .price { flex: 2 2 auto; text-align: right; }
+        .price {
+            .-quantity { color: $iom-silver; }
+            .-price    { font-weight: bold;  }
+        }
+    }
+
+    .total {
+        font-weight: bold;
+        text-align:  right;
+        border-top: 1px solid $iom-dark-grey;
+
+        // Move over to align with the prices
+        padding-right: calc(#{$cart_button_size} + #{$cart_remove_button_margin});
+    }
+}

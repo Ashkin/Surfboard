@@ -1,0 +1,29 @@
+/* Component: Ordering/Products */
+
+
+section.products {
+
+    .product {
+        
+        &:hover {
+            background-color: aliceblue !important;
+        }
+
+        .product-content {
+
+            .product-description {
+                display: block;
+                text-align: justify;
+            }
+
+            .product-image-wrapper {
+                display: block;
+                text-align: center;
+
+                img {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+}

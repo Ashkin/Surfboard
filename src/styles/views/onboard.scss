@@ -2,29 +2,29 @@
 
 .onboard {
 
-  .stepper.paper {
-    // to enable <Paper> shadows
-    position: relative;
-    z-index: 1;
-  }
-
-
-  .step-item {
-
-    .step-label {
-      // Hide step labels to save space on mobile
-      display: none !important;
+    .stepper.paper {
+        // to enable <Paper> shadows
+        position: relative;
+        z-index: 1;
     }
-  }
+
+
+    .step-item {
+
+        .step-label {
+            // Hide step labels to save space on mobile
+            display: none !important;
+        }
+    }
 }
 
 
 
 @media (min-width: 750px) {
-  // Tablet and higher
+    // Tablet and higher
 
-  .onboard .step-item .step-label {
-    // Show labels
-    display: block !important;
-  }
+    .onboard .step-item .step-label {
+        // Show labels
+        display: block !important;
+    }
 }

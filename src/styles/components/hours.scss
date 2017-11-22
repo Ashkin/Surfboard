@@ -1,0 +1,64 @@
+/* Component: Hours */
+
+.hours-week {}
+
+
+.hours-day {
+
+    & > label {
+        display:       block;
+        width:         75%;
+        padding-top:   2em;
+        margin:        0 auto;
+        line-height:   2em;
+        border-bottom: 1px solid $iom-blue;
+        text-align:    center;
+        color:         $iom-dark-grey;
+    }
+
+    .mui-toggle {
+        display:   inline-block !important;
+        width:     8em          !important;
+    }
+
+    .range {
+        display: inline-block;
+        position: relative;
+        top: -0.5em;
+
+        & > div {
+            // Fix for Mui <TimePicker>'s extra <div> wrapper
+            display: inline-block;
+        }
+
+        .mui-timepicker {
+            display:   inline-block;
+            min-width:  6em !important;
+            width:     15%  !important;
+            max-width:  8em !important;
+        }
+    }
+}
+
+
+@media (min-width: 600px) {
+    // Small tablet and up
+
+    .hours-day {
+
+        & > label {
+            display:     inline-block;
+            border:      none;
+            width:       6.5em;
+            text-align:  left;
+            margin:      0;
+            padding:     0;
+            line-height: 1em;
+            color:       darkgrey;
+        }
+
+        .range {
+            top: 0;
+        }
+    }
+}

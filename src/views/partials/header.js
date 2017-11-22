@@ -1,21 +1,62 @@
+// React
 import React, { Component } from "react"
+import { connect }          from "react-redux"
+
+// MUI components
+import AppBar from 'material-ui/AppBar'
+import Paper  from 'material-ui/Paper'
+
+// Components
+import Logo from '../../components/logo'
+
+// Actions
+import { sidebarShow } from '../../actions'
 
 
 class Header extends Component {
+    render() {
 
-  render() {
-    return (
-      <header className="site">
-        <div className="logo"></div>
+        const iconStyleLeft = {}
+        if (this.props.disableSidebar == true)
+            iconStyleLeft.display = "none"
 
-        <div className="title">
-          Merchant Signup
-        </div>
-      </header>
-    )
-  }
+
+        return (
+            <Paper
+                zDepth={2}
+                rounded={false}
+                style={{position:'relative', zIndex:10}}
+            >
+                <AppBar
+                    onLeftIconButtonTouchTap={this.props.sidebarShow}
+                    iconStyleLeft={iconStyleLeft}
+                    style={{backgroundColor: '#20252b'}}
+                    titleStyle={{display: "none"}}
+                    className="site-header"
+                >
+                    {this.renderTitle()}
+                </AppBar>
+            </Paper>
+        )
+    }
+
+    renderTitle() {
+        // eslint-disable-next-line no-undef
+        const qa = (NODE_ENV.toLowerCase() == "staging" ? "(QA) " : "")
+
+        return (
+            <div className="site-header-content">
+                <Logo />
+                <span className="site-header-title">{qa}{this.props.header.title || ""}</span>
+            </div>
+        )
+    }
 
 }
 
 
-export default Header
+function mapStateToProps(state) {
+    return { header: state.header }
+}
+
+export default connect(mapStateToProps, {sidebarShow})(Header)
