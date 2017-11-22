@@ -28,6 +28,13 @@ section.checkout-summary {
 
                 &.total {
                     font-weight: bold;
+
+                    &:after {
+                        // Ensure `clear` to prevent repositioning the next dom element
+                        clear:   both;
+                        display: block;
+                        content: '';
+                    }
                 }
 
                 .desc { float: left; }
