@@ -10,8 +10,9 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       NODE_ENV:         JSON.stringify(process.env.NODE_ENV),
-      APPLICATION_KEY:  JSON.stringify(process.env.APPLICATION_KEY),
+      ONBOARDING_KEY:   JSON.stringify(process.env.ONBOARDING_KEY),
       ONBOARDING_TOKEN: JSON.stringify(process.env.ONBOARDING_TOKEN),
+      ORDERING_KEY:     JSON.stringify(process.env.ORDERING_KEY),
       ORDERING_TOKEN:   JSON.stringify(process.env.ORDERING_TOKEN),
       STRIPE_API_KEY:   JSON.stringify(process.env.STRIPE_API_KEY)
     })

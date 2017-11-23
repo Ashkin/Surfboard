@@ -33,7 +33,7 @@ function submitOrder(order) {
             method: "post",
             headers: {
                 "X_AUTH_TOKEN":      ORDERING_TOKEN,
-                "X_APPLICATION_KEY": APPLICATION_KEY
+                "X_APPLICATION_KEY": ORDERING_KEY
             },
             data: {
                 // Everything needs to live within `data`
