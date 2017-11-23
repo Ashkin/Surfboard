@@ -28,7 +28,7 @@ export function merchantSignup(data) {
             method: "post",
             headers: {
                 "X_AUTH_TOKEN":      ONBOARDING_TOKEN,
-                "X_APPLICATION_KEY": APPLICATION_KEY
+                "X_APPLICATION_KEY": ONBOARDING_KEY
             },
             data: {
                 // Everything needs to live within `data`
