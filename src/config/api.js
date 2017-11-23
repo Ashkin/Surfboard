@@ -1,11 +1,6 @@
 /* Ferrari APIs */
 
-/* Heroku config vars exposed as global constants within /webpack.common.js:
- *   NODE_ENV
- *   APPLICATION_KEY
- *   ONBOARDING_TOKEN
- *   ORDERING_TOKEN
- */
+// NODE_ENV is a Heroku config var exposed as a global constant within /webpack.common.js
 
 
 // eslint-disable-next-line no-undef
