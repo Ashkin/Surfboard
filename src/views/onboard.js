@@ -85,7 +85,7 @@ class ViewOnboard extends Component {
         return (
             <Paper className={`stepper paper ${className}`} zDepth={3} rounded={false}>
                 <Stepper activeStep={activeStep}>
-                    <Step className="step-item"><StepLabel><span className="step-label">Venue</span></StepLabel></Step>
+                    <Step className="step-item"><StepLabel><span className="step-label">Business</span></StepLabel></Step>
                     <Step className="step-item"><StepLabel><span className="step-label">Hours</span></StepLabel></Step>
                     <Step className="step-item"><StepLabel><span className="step-label">Contact</span></StepLabel></Step>
                     <Step className="step-item"><StepLabel><span className="step-label">Photos</span></StepLabel></Step>

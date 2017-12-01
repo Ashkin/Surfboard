@@ -14,7 +14,7 @@ class FormVenue extends Component {
             <section className={classBuilder("venue", this.props.className)}>
                 <Paper className="paper primary" zDepth={2}>
                     <header>
-                        <span className="filled-circle">{this.props.step}</span> Venue information
+                        <span className="filled-circle">{this.props.step}</span> Business information
                     </header>
                     <summary></summary>
 
@@ -82,7 +82,7 @@ class FormVenue extends Component {
 
         return (
             <form className="venue" onSubmit={handleSubmit(this.handleSubmit.bind(this))}>
-                { this.buildTextField({name:"name",     required:true,   label:"Venue Name"}) }
+                { this.buildTextField({name:"name",     required:true,   label:"Business Name"}) }
                 { this.buildTextField({name:"address",  required:true,   label:"Address"}) }
                 { this.buildTextField({name:"address_2",required:false,  label:"Second Address line (Suite Number, etc.)"}) }
                 { this.buildTextField({name:"city",     required:true,   label:"City"}) }

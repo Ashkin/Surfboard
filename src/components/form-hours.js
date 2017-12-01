@@ -14,7 +14,7 @@ class FormHours extends Component {
             <section className={classBuilder("hours", this.props.className)}>
                 <Paper className="paper" zDepth={2}>
                     <header>
-                        <span className="filled-circle">{this.props.step}</span> Venue Hours
+                        <span className="filled-circle">{this.props.step}</span> Business Hours
                     </header>
                     <summary>
                         When are you open?  (Optional)

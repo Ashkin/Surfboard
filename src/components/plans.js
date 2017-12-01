@@ -95,8 +95,7 @@ class Plans extends Component {
                         <span className="filled-circle">{this.props.step}</span> Choose a Plan
                     </header>
                     <summary>
-                        Pay monthly or yearly?<br/>
-                        Yearly's cheaper ~
+                        Pay monthly or yearly?
                     </summary>
                     <ul>
                         { this.renderPlans() }
