@@ -46,10 +46,10 @@ class CheckoutSummary extends Component {
         if (!(venue.name && venue.address && venue.zip)) {
             return (
                 <div className="venue">
-                    <dt>Venue Address</dt>
+                    <dt>Business Address</dt>
                     <dd>
                         <span className="error">
-                            Please fill out the venue information
+                            Please fill out your business information
                         </span>
                     </dd>
                 </div>
@@ -58,7 +58,7 @@ class CheckoutSummary extends Component {
 
         return (
             <div className="venue">
-                <dt>Venue Address</dt>
+                <dt>Business Address</dt>
                 <dd>
                     <span>{venue.name}</span><br/>
                     <span>{venue.address}</span><br/>
@@ -238,9 +238,9 @@ class CheckoutSummary extends Component {
         let errors = {venue: null, contact: null, plans: null, creditcard: null}
 
         // Venue
-        if (!venue.zip)           errors.venue = "Before submitting, you must fill out the Venue information. (Missing zip code)"
-        if (!venue.address)       errors.venue = "Before submitting, you must fill out the Venue information. (Missing address)"
-        if (!venue.name)          errors.venue = "Before submitting, you must fill out the Venue information. (Missing venue name)"
+        if (!venue.zip)           errors.venue = "Before submitting, you must fill out your Business information. (Missing zip code)"
+        if (!venue.address)       errors.venue = "Before submitting, you must fill out your Business information. (Missing address)"
+        if (!venue.name)          errors.venue = "Before submitting, you must fill out your Business information. (Missing business name)"
 
         // Contact
         if (!contact.email)       errors.contact = "Before submitting, you must provide an email address.  (Otherwise we are unable to contact you!)"

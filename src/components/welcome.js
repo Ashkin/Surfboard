@@ -16,12 +16,12 @@ const Welcome = ({nextStep, className}) => {
                     <br/><br/>
                     <Paper className="paper item" zDepth={2}>
                         <ul><li>
-                            Your venue's name, address, and hours
+                            Your business's name, address, and hours
                         </li></ul>
                     </Paper>
                     <Paper className="paper item" zDepth={2}>
                         <ul><li>
-                            A short one-liner, and a longer venue description
+                            A short one-liner, and a longer description
                             <aside>
                                 These descriptions drive awareness and increased gift card sales. You can update these at any time.
                             </aside>
