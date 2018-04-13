@@ -19,20 +19,25 @@ case "staging":
     webpackConfig = require("../webpack.prod.js")
     webpack(webpackConfig, postCompile)
     break;
-
 case "development":
     // Compile
     webpackConfig = require("../webpack.dev.js")
-    const compiler = webpack(webpackConfig, postCompile)
-    // Inject middleware
-    const webpackDevMiddleware = require("webpack-dev-middleware")
-    const webpackHotMiddleware = require("webpack-hot-middleware")
-    app.use(webpackHotMiddleware(compiler))
-    app.use(webpackDevMiddleware(compiler, {
-        noInfo: true,
-        publicPath: webpackConfig.output.publicPath
-    }))
+    webpack(webpackConfig, postCompile)
     break;
+
+// case "development":
+//     // Compile
+//     webpackConfig = require("../webpack.dev.js")
+//     const compiler = webpack(webpackConfig, postCompile)
+//     // Inject middleware
+//     const webpackDevMiddleware = require("webpack-dev-middleware")
+//     const webpackHotMiddleware = require("webpack-hot-middleware")
+//     app.use(webpackHotMiddleware(compiler))
+//     app.use(webpackDevMiddleware(compiler, {
+//         noInfo: true,
+//         publicPath: webpackConfig.output.publicPath
+//     }))
+//     break;
 
 default:
     console.error(`Error: Unknown NODE_ENV (${process.env.NODE_ENV})`)
