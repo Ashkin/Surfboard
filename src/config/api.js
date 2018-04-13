@@ -9,12 +9,22 @@ if (!(["development", "staging", "production"].includes(NODE_ENV.toLowerCase()))
 }
 
 
-let qa = "qa"
-// eslint-disable-next-line no-undef
-if (NODE_ENV.toLowerCase() == "production")
-    qa = ""
+let proto = "https"
+let qa    = ""
+let host  = "api.itson.me"
 
-const base_api_url    = `https://${qa}api.itson.me`
+// eslint-disable-next-line no-undef
+if (NODE_ENV.toLowerCase() == "staging")
+    qa = "qa"
+
+// eslint-disable-next-line no-undef
+if (NODE_ENV.toLowerCase() == "development") {
+    proto = "http"
+    host  = "localhost:3000"
+}
+
+
+let base_api_url = `${proto}://${qa}${host}`
 
 const onboard_api_url = `${base_api_url}/web/v3/merchants/signup`
 const order_api_url   = `${base_api_url}/web/v3/merchants/supply_request`
