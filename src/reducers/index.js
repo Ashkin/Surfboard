@@ -65,7 +65,6 @@ const rootReducer = combineReducers({
 
     onboard,
     venue,
-    hours,
     contact,
     photos,
     plans,

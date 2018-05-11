@@ -5,7 +5,6 @@ import Paper                        from 'material-ui/Paper'
 
 import Welcome         from '../components/welcome'
 import FormVenue       from '../components/form-venue'
-import FormHours       from '../components/form-hours'
 import FormContact     from '../components/form-contact'
 import VenuePhotos     from '../components/venue-photos'
 import Plans           from '../components/plans'
@@ -60,13 +59,12 @@ class ViewOnboard extends Component {
             case undefined:
             case -1: return <Welcome         step={activeStep+1}                              nextStep={this.handleNext} className="fadein-fast" />
             case 0:  return <FormVenue       step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} className="fadein-fast" />
-            case 1:  return <FormHours       step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} className="fadein-fast" />
-            case 2:  return <FormContact     step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} className="fadein-fast" />
-            case 3:  return <VenuePhotos     step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} className="fadein-fast" />
-            case 4:  return <Plans           step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} className="fadein-fast" />
-            case 5:  return <FormCreditcard  step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} className="fadein-fast" />
-            case 6:  return <CheckoutSummary step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} className="fadein-fast" />
-            case 7:  return <Success />
+            case 1:  return <FormContact     step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} className="fadein-fast" />
+            case 2:  return <VenuePhotos     step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} className="fadein-fast" />
+            case 3:  return <Plans           step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} className="fadein-fast" />
+            case 4:  return <FormCreditcard  step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} className="fadein-fast" />
+            case 5:  return <CheckoutSummary step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} className="fadein-fast" />
+            case 6:  return <Success />
             default: return <ViewNotFound />
         }
     }
@@ -86,7 +84,6 @@ class ViewOnboard extends Component {
             <Paper className={`stepper paper ${className}`} zDepth={3} rounded={false}>
                 <Stepper activeStep={activeStep}>
                     <Step className="step-item"><StepLabel><span className="step-label">Business</span></StepLabel></Step>
-                    <Step className="step-item"><StepLabel><span className="step-label">Hours</span></StepLabel></Step>
                     <Step className="step-item"><StepLabel><span className="step-label">Contact</span></StepLabel></Step>
                     <Step className="step-item"><StepLabel><span className="step-label">Photos</span></StepLabel></Step>
                     <Step className="step-item"><StepLabel><span className="step-label">Plans</span></StepLabel></Step>
