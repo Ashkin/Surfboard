@@ -5,12 +5,24 @@ section.contact {
     form {
         padding: 1em;
 
-        .mui-textfield {
+        .mui-textfield, .mui-textarea {
             // Using !important because MaterialUI uses only inline styles
             display: block !important;
 
             width: susy-span(11 narrow) !important;
             margin: 0 auto;
+        }
+
+        .group-title {
+            width: susy-span(11 narrow) !important;
+            margin: 3em auto 0.25em;
+            text-align: left;
+            font-size: 1.2rem;
+
+            aside {
+                font-size: 0.85rem;
+                color: $iom-silver;
+            }
         }
     }
 }
@@ -20,7 +32,7 @@ section.contact {
     // Tablet and up
     section.contact {
         form {
-            .mui-textfield {
+            .mui-textfield, .mui-textarea, .group-title {
                 width: susy-span(10 narrow) !important;
             }
         }
