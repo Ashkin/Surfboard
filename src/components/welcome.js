@@ -16,7 +16,7 @@ const Welcome = ({nextStep, className}) => {
                     <br/><br/>
                     <Paper className="paper item" zDepth={2}>
                         <ul><li>
-                            Your business's name, address, and hours
+                            Your business's name and address
                         </li></ul>
                     </Paper>
                     <Paper className="paper item" zDepth={2}>
