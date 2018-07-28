@@ -130,8 +130,8 @@ class FormCreditcard extends Component {
                     </summary>
                     <div className="check-address"><pre>
                         Giftboard Inc. dba ItsOnMe®<br/>
-                        241 West Charleston #111<br/>
-                        Las Vegas NV 89102<br/>
+                        208 S Maryland Pkwy Suite B<br/>
+                        Las Vegas, NV. 89101<br/>
                     </pre></div>
                     <button type="button" onClick={this.payByCheck.bind(this)}>Pay by Check</button>
                 </Paper>
