@@ -20,7 +20,7 @@ if (NODE_ENV.toLowerCase() == "staging")
 // eslint-disable-next-line no-undef
 if (NODE_ENV.toLowerCase() == "development") {
     proto = "http"
-    host  = "localhost:3000"
+    host  = "localhost:3001"
 }
 
 

@@ -139,8 +139,42 @@ section.form-creditcard {
 
 
 @media (max-width: 600px) {
-    // Extra padding to allow displaying the error when the form is too narrow.
     section.form-creditcard form#stripe-payment-form .stripe-wrapper {
+        // Expand CC entry slightly
+        padding: 1em;
+        // Extra padding to allow displaying the error when the form is too narrow.
         padding-bottom: 2em;
+    }
+}
+
+
+@media (max-width: 350px) {
+    section.form-creditcard form#stripe-payment-form {
+        // Shrink bottom compliance comment
+        aside { font-size: 0.65em; }
+
+        .stripe-wrapper {
+            // Expand CC entry as much as possible to prevent overlaps.
+            padding: 0.25em;
+            padding-bottom: 2em;
+
+            // Shrink the text when the screen is tiny
+            div#card-errors { font-size: 0.85em; }
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    section.form-creditcard form#stripe-payment-form {
+        // Shrink form because we need all the available space
+        margin: 1em 0;
+
+        // Shrink bottom compliance comment
+        aside { font-size: 0.58em; }
+
+        .stripe-wrapper {
+            // Shrink the text further when the screen is tinier yet (iPhone 6 SE)
+            div#card-errors { font-size: 0.65em; }
+        }
     }
 }
