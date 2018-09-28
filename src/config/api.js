@@ -1,4 +1,4 @@
-/* Ferrari APIs */
+/* Surfboard APIs */
 
 // NODE_ENV is a Heroku config var exposed as a global constant within /webpack.common.js
 
