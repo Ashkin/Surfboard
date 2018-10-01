@@ -9,6 +9,7 @@ import Cookies from "js-cookie"
 import lightBaseTheme from "material-ui/styles/baseThemes/lightBaseTheme"
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider"
 import getMuiTheme from "material-ui/styles/getMuiTheme"
+import queryString from "query-string"
 
 import reducers from "./reducers"
 
@@ -46,6 +47,15 @@ ReactDOM.render(
 
 
 function renderRoutes() {
+    const params = queryString.parse(location.search)
+    let   affiliate, golfNow
+
+    Object.keys(params).forEach((key) => {
+        if (key.toLowerCase() != 'affiliate') return
+        affiliate = params[key].toLowerCase()
+        golfNow   = (affiliate == 'golfnow')
+    })
+
     const paths = {}
 
     // Add allowed routes per domain
@@ -74,7 +84,13 @@ function renderRoutes() {
 
     // Construct the routes
     const routes = Object.keys(paths).map((path) => {
-        return <Route exact path={path} component={paths[path]} key={path} />
+        const _component = paths[path]
+        return <Route
+                    exact
+                    path={path}
+                    key={path}
+                    render={ () => <_component affiliate={affiliate} golfNow={golfNow} /> }
+                />
     })
 
     // Add the 404 route
