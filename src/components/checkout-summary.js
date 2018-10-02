@@ -7,11 +7,44 @@ import Paper                from "material-ui/Paper"
 import PLANS                from "../config/plans"
 import classBuilder         from "../helpers/class-builder"
 import { renderCheckbox }   from "../helpers/material-ui-redux-form"
-import { merchantSignup }   from "../actions"
-
+import { merchantSignup, selectPlan, setPaymentMethod }   from "../actions"
 
 
 class CheckoutSummary extends Component {
+
+    componentWillMount() {
+        const { payment_method, affiliate } = this.props
+        let   { selectedPlan }              = this.props.plans
+
+        // Users signing up via (supported) affiliate links are not given the
+        // opportunity to select a plan, so select the affiliate's plan for them.
+        // NOTE: There *must* be a plan matching the affiliate name if that affiliate does not present the Plans step.
+        if (affiliate && selectedPlan == null) {
+            PLANS.forEach((_plan, _planId) => {
+                if (!_plan.affiliate) return
+                if ( _plan.affiliate.toLowerCase() !== affiliate.toLowerCase()) return
+                selectedPlan = _planId
+            })
+            this.props.selectPlan({selectedPlan: selectedPlan})
+        }
+
+        // If there is no matching affiliate plan, output an error to the console to aid in debugging.
+        // ( Hey you! Go make an affiliate plan! They're in ../config/plans.js )
+        if (selectedPlan == null) {
+            console.error("[component CheckoutSummary :: componentWillMount]",
+                          "Error: No plan found for the affiliate:", affiliate,
+                          "\nThe user is unable to continue.")
+        }
+
+        // Affiliate signups that are not given a credit card step do not need to pay.
+        if (affiliate && payment_method.method == null) {
+            // Set their "payment method" to their affiliate's name
+            this.props.setPaymentMethod(affiliate)
+            // We don't render the payment method section for these merchants
+            // so there's no need to set `payment_method` here
+        }
+
+    }
 
     renderContact() {
         // Ex: Sally (Maître d'hôtel)
@@ -153,7 +186,7 @@ class CheckoutSummary extends Component {
 
 
     renderPayment() {
-        const { stripe, payment_method } = this.props
+        const { stripe, payment_method, affiliate } = this.props
 
         let method = null
         if (payment_method.method == "stripe") {
@@ -162,6 +195,8 @@ class CheckoutSummary extends Component {
             method = "by check"
         }
 
+        // Affiliate signups that are not given a creditcard step do not need to pay.  Do not render this section.
+        if (affiliate && (payment_method.method == null || payment_method.method == affiliate))  return
 
         if (method) {
             return (
@@ -370,7 +405,7 @@ const formOptions = {
 }
 
 export default connect(
-    mapStateToProps, { merchantSignup }
+    mapStateToProps, { merchantSignup, selectPlan, setPaymentMethod }
 )(
     reduxForm(formOptions)(CheckoutSummary)
 )
