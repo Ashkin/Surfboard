@@ -45,6 +45,9 @@ class Plans extends Component {
 
     renderPlans() {
         return PLANS.map((plan, planId) => {
+            // Don't display affiliate plans
+            if (plan.affiliate) return
+
             // class list builder
             let planClasses = ["plan"]
             if (plan.recommended) planClasses.push("recommended")
