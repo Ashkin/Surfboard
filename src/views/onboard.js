@@ -43,8 +43,8 @@ class ViewOnboard extends Component {
 
         steps = [
             { title: null,        component: Welcome },
-            { title: "Checkout",  component: CheckoutSummary },
             ...steps,
+            { title: "Checkout",  component: CheckoutSummary },
             { title: null,        component: Success },
         ]
 
