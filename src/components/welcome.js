@@ -10,6 +10,8 @@ const Welcome = ({nextStep, className, affiliate, golfNow}) => {
         return affiliate.charAt(0).toUpperCase() + affiliate.slice(1);
     }
 
+    //FIXME: Some affiliate signups in the future may require payment.  How should I support this?
+
     return (
         <section className={`welcome ${className}`}>
             <Paper className="paper primary" zDepth={2}>
