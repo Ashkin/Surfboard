@@ -15,5 +15,14 @@ const PrimePlan = {
     recommended:     true,
 }
 
+const GolfNowPlan = {
+    name:            "GolfNow",
+    pricePerMonth:   0,
+    cycleInMonths:   0,
+    flavorText:      "for GolfNow affiliates",
+    recommended:     false,
+    affiliate:       "GolfNow",
+}
 
-export default [PrimePlan, StandardPlan]
+
+export default [PrimePlan, StandardPlan, GolfNowPlan]
