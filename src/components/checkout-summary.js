@@ -154,7 +154,7 @@ class CheckoutSummary extends Component {
         case 12: { planBillingCycle = "Anually"; break }
         default: { planBillingCycle = "ohnoes";  break }
         }
-        const planItemName = `ItsOnMe ${plan.name} Membership (Billed ${planBillingCycle})`
+        const planItemName = `${plan.name} Membership` + (plan.cycleInMonths ? ` (Billed ${planBillingCycle})` : '')
         const planItemCost = plan.pricePerMonth * plan.cycleInMonths
 
 
