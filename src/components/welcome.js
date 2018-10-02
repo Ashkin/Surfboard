@@ -1,11 +1,23 @@
 import React from "react"
 import Paper from "material-ui/Paper"
 
-const Welcome = ({nextStep, className}) => {
+
+const Welcome = ({nextStep, className, affiliate, golfNow}) => {
+    function affiliateName(affiliate) {
+        // Custom affiliates
+        if (affiliate == 'golfnow')  return 'GolfNow'
+        // Default: just capitalize
+        return affiliate.charAt(0).toUpperCase() + affiliate.slice(1);
+    }
+
     return (
         <section className={`welcome ${className}`}>
             <Paper className="paper primary" zDepth={2}>
-                <header>Welcome!</header>
+                <header>Welcome{affiliate
+                                ? <span>, <span className='affiliate-name'>{affiliateName(affiliate)}</span> affiliate</span>
+                                : ''
+                            }!</header>
+                <br/>
                 <summary>
                     Register your business, create your account, and go live in 15 minutes. 
                     Sign up today & sell your first gift card online tomorrow.
