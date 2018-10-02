@@ -265,7 +265,7 @@ class CheckoutSummary extends Component {
 
     //TODO: cleanup
     render() {
-        const { venue, contact, plans, stripe, payment_method, tos, signup } = this.props
+        const { affiliate, venue, contact, plans, stripe, payment_method, tos, signup } = this.props
 
 
         //TODO: only display error when clicking [submit]
@@ -307,6 +307,11 @@ class CheckoutSummary extends Component {
 
         const { handleSubmit } = this.props  // Magic.  comes from redux-form
 
+        let summary_text = "Once you have submitted payment, your customer success rep will contact you."  // Bloody sales people
+        if (affiliate && payment_method.method == affiliate) {
+            summary_text = "Once you've completed the signup, your customer success rep will contact you."
+        }
+
         return (
             <section className={classBuilder("checkout-summary", this.props.className)}>
                 <Paper className="paper primary" zDepth={2}>
@@ -314,7 +319,7 @@ class CheckoutSummary extends Component {
                         <span className="filled-circle">{this.props.step}</span> Checkout
                     </header>
                     <summary>
-                        Once you have submitted payment, your customer success rep will contact you.
+                        {summary_text}
                     </summary>
 
                     <dl>
