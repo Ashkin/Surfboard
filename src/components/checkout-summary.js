@@ -132,11 +132,10 @@ class CheckoutSummary extends Component {
     renderOrder() {
         const { selectedPlan } = this.props.plans
 
-
         if (selectedPlan == null) {
             return (
                 <div className="order">
-                    <dt>ItsOnMe Order</dt>
+                    <dt>ItsOnMe Membership Order</dt>
                     <dd>
                         <span className="error">
                             Please select a plan
@@ -161,7 +160,7 @@ class CheckoutSummary extends Component {
 
         return (
             <div className="order">
-                <dt>ItsOnMe Order</dt>
+                <dt>ItsOnMe Membership Order</dt>
                 <dd>
                     {this.renderItem(planItemName, planItemCost)}
                     <hr/>
