@@ -78,7 +78,7 @@ class FormVenue extends Component {
 
 
     renderForm() {
-        const { handleSubmit } = this.props  // Magic.  comes from redux-form
+        const { handleSubmit, golfNow } = this.props  // handleSubmit: Magic. comes from redux-form
 
         return (
             <form className="venue" onSubmit={handleSubmit(this.handleSubmit.bind(this))}>
@@ -89,7 +89,8 @@ class FormVenue extends Component {
                 { this.buildTextField({name:"state",    required:true,   label:"State"}) }
                 { this.buildTextField({name:"zip",      required:true,   label:"Zip"}) }
                 { this.buildTextField({name:"url",      required:false,  label:"Website"}) }
-                { this.buildTextField({name:"yelp_url", required:false,  label:"Yelp URL"}) }
+                { (!golfNow ? this.buildTextField({name:"yelp_url",    required:false,  label:"Yelp URL"})          : null) }
+                { ( golfNow ? this.buildTextField({name:"golfnow_url", required:false,  label:"Golf Advisor URL"})  : null) }
                 { this.buildTextField({name:"pos",      required:false,  label:"Point-of-Sale System"}) }
 
                 <div className="group-title">

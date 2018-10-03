@@ -55,6 +55,7 @@ export function merchantSignup(data) {
                         address: data.venue.address,
                         address_2: data.venue.address_2,
                         yelp_url: data.venue.yelp_url,
+                        golfnow_url: data.venue.golfnow_url,
                         ...data,
 
                         payment_method: data.payment_method.method,  // Last to overwrite the same key in `data`
