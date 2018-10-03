@@ -8,6 +8,7 @@ import FormVenue       from '../components/form-venue'
 import FormContact     from '../components/form-contact'
 import VenuePhotos     from '../components/venue-photos'
 import Plans           from '../components/plans'
+import BankInfo        from '../components/bank-info'
 import FormCreditcard  from '../components/form-creditcard'
 import CheckoutSummary from '../components/checkout-summary'
 import Success         from '../components/success'
@@ -28,6 +29,7 @@ class ViewOnboard extends Component {
                     { title: "Business",  component: FormVenue   },
                     { title: "Contact",   component: FormContact },
                     { title: "Photos",    component: VenuePhotos },
+                    { title: "Bank Info", component: BankInfo    },
                 ]
                 break;
             default:
@@ -35,6 +37,7 @@ class ViewOnboard extends Component {
                     { title: "Business",  component: FormVenue      },
                     { title: "Contact",   component: FormContact    },
                     { title: "Photos",    component: VenuePhotos    },
+                    { title: "Bank Info", component: BankInfo       },
                     { title: "Plans",     component: Plans          },
                     { title: "Billing",   component: FormCreditcard },
                 ]

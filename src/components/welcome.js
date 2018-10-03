@@ -55,6 +55,12 @@ const Welcome = ({nextStep, className, affiliate, golfNow}) => {
                             </aside>
                         </li></ul>
                     </Paper>
+                    <Paper className="paper item" zDepth={2}>
+                        <ul><li>
+                            Bank account info
+                            <aside>So we can pay you for your gift card sales.</aside>
+                        </li></ul>
+                    </Paper>
                     <Paper className={`paper item ${golfNow ? 'hidden' : ''}`} zDepth={2}>
                         <ul><li>
                             Credit card info

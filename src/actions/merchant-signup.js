@@ -48,6 +48,7 @@ export function merchantSignup(data) {
                     // so let's make sure we send everything!
                     data: {
                         signup_source: "Surfboard",  // and a semantic signup_source here, too.
+                        bank_info: data.bank_info,
 
                         zinger: data.venue.zinger,
                         description: data.venue.description,
