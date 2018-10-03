@@ -39,6 +39,7 @@ const venue    = reducerFactory(ACTIONS.UPDATE_VENUE)
 const hours    = reducerFactory(ACTIONS.UPDATE_HOURS)
 const contact  = reducerFactory(ACTIONS.UPDATE_CONTACT)
 const photos   = reducerFactory(ACTIONS.UPDATE_PHOTO)
+const bank_info= reducerFactory(ACTIONS.UPDATE_BANK_INFO)
 const plans    = reducerFactory(ACTIONS.SELECT_PLAN)
 const stripe   = reducerFactory(ACTIONS.UPDATE_STRIPE_TOKEN)
 const payment_method = reducerFactory(ACTIONS.SET_PAYMENT_METHOD)
@@ -67,6 +68,7 @@ const rootReducer = combineReducers({
     venue,
     contact,
     photos,
+    bank_info,
     plans,
     stripe,
     payment_method,

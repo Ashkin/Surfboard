@@ -7,11 +7,44 @@ import Paper                from "material-ui/Paper"
 import PLANS                from "../config/plans"
 import classBuilder         from "../helpers/class-builder"
 import { renderCheckbox }   from "../helpers/material-ui-redux-form"
-import { merchantSignup }   from "../actions"
-
+import { merchantSignup, selectPlan, setPaymentMethod }   from "../actions"
 
 
 class CheckoutSummary extends Component {
+
+    componentWillMount() {
+        const { payment_method, affiliate } = this.props
+        let   { selectedPlan }              = this.props.plans
+
+        // Users signing up via (supported) affiliate links are not given the
+        // opportunity to select a plan, so select the affiliate's plan for them.
+        // NOTE: There *must* be a plan matching the affiliate name if that affiliate does not present the Plans step.
+        if (affiliate && selectedPlan == null) {
+            PLANS.forEach((_plan, _planId) => {
+                if (!_plan.affiliate) return
+                if ( _plan.affiliate.toLowerCase() !== affiliate.toLowerCase()) return
+                selectedPlan = _planId
+            })
+            this.props.selectPlan({selectedPlan: selectedPlan})
+        }
+
+        // If there is no matching affiliate plan, output an error to the console to aid in debugging.
+        // ( Hey you! Go make an affiliate plan! They're in ../config/plans.js )
+        if (selectedPlan == null) {
+            console.error("[component CheckoutSummary :: componentWillMount]",
+                          "Error: No plan found for the affiliate:", affiliate,
+                          "\nThe user is unable to continue.")
+        }
+
+        // Affiliate signups that are not given a credit card step do not need to pay.
+        if (affiliate && payment_method.method == null) {
+            // Set their "payment method" to their affiliate's name
+            this.props.setPaymentMethod(affiliate)
+            // We don't render the payment method section for these merchants
+            // so there's no need to set `payment_method` here
+        }
+
+    }
 
     renderContact() {
         // Ex: Sally (Maître d'hôtel)
@@ -96,14 +129,58 @@ class CheckoutSummary extends Component {
 
 
 
+    renderBankInfo() {
+        const { bank_name, routing_number, account_number, account_type, bank_address } = this.props.bank_info
+
+        let address = [
+            bank_name,
+            ...(bank_address.split("\n"))
+        ].map((item, key) => {
+            return <span key={key}>{item}<br/></span>
+        })
+
+        if (bank_name) {
+            return (
+                <div className="bank-info">
+                    <dt>Bank Info</dt>
+                    <dd>
+                        <ul>
+                            <li>
+                                <label>Routing number:</label>
+                                <span className="bank-number">{routing_number}</span>
+                            </li><li>
+                                <label>Account number:</label>
+                                <span className="bank-number">{account_number}</span> <span className="bank-account-type">({account_type})</span>
+                            </li><li>
+                                <label>Bank:</label>
+                                <div className="bank-address">{address}</div>
+                            </li>
+                        </ul>
+                    </dd>
+                </div>
+            )
+        }
+
+
+        return (
+            <div className="bank-info">
+                <dt>Bank Info</dt>
+                <dd>
+                    Not provided.
+                </dd>
+            </div>
+        )
+    }
+
+
+
     renderOrder() {
         const { selectedPlan } = this.props.plans
-
 
         if (selectedPlan == null) {
             return (
                 <div className="order">
-                    <dt>ItsOnMe Order</dt>
+                    <dt>ItsOnMe Membership Order</dt>
                     <dd>
                         <span className="error">
                             Please select a plan
@@ -122,13 +199,13 @@ class CheckoutSummary extends Component {
         case 12: { planBillingCycle = "Anually"; break }
         default: { planBillingCycle = "ohnoes";  break }
         }
-        const planItemName = `ItsOnMe ${plan.name} Membership (Billed ${planBillingCycle})`
+        const planItemName = `${plan.name} Membership` + (plan.cycleInMonths ? ` (Billed ${planBillingCycle})` : '')
         const planItemCost = plan.pricePerMonth * plan.cycleInMonths
 
 
         return (
             <div className="order">
-                <dt>ItsOnMe Order</dt>
+                <dt>ItsOnMe Membership Order</dt>
                 <dd>
                     {this.renderItem(planItemName, planItemCost)}
                     <hr/>
@@ -153,7 +230,7 @@ class CheckoutSummary extends Component {
 
 
     renderPayment() {
-        const { stripe, payment_method } = this.props
+        const { stripe, payment_method, affiliate } = this.props
 
         let method = null
         if (payment_method.method == "stripe") {
@@ -162,6 +239,8 @@ class CheckoutSummary extends Component {
             method = "by check"
         }
 
+        // Affiliate signups that are not given a creditcard step do not need to pay.  Do not render this section.
+        if (affiliate && (payment_method.method == null || payment_method.method == affiliate))  return
 
         if (method) {
             return (
@@ -231,7 +310,7 @@ class CheckoutSummary extends Component {
 
     //TODO: cleanup
     render() {
-        const { venue, contact, plans, stripe, payment_method, tos, signup } = this.props
+        const { affiliate, venue, contact, plans, stripe, payment_method, tos, signup } = this.props
 
 
         //TODO: only display error when clicking [submit]
@@ -273,6 +352,11 @@ class CheckoutSummary extends Component {
 
         const { handleSubmit } = this.props  // Magic.  comes from redux-form
 
+        let summary_text = "Once you have submitted payment, your customer success rep will contact you."  // Bloody sales people
+        if (affiliate && payment_method.method == affiliate) {
+            summary_text = "Once you've completed the signup, your customer success rep will contact you."
+        }
+
         return (
             <section className={classBuilder("checkout-summary", this.props.className)}>
                 <Paper className="paper primary" zDepth={2}>
@@ -280,7 +364,7 @@ class CheckoutSummary extends Component {
                         <span className="filled-circle">{this.props.step}</span> Checkout
                     </header>
                     <summary>
-                        Once you have submitted payment, your customer success rep will contact you.
+                        {summary_text}
                     </summary>
 
                     <dl>
@@ -288,6 +372,7 @@ class CheckoutSummary extends Component {
                         {this.renderVenue()}
                         {this.renderZinger()}
                         {this.renderDescription()}
+                        {this.renderBankInfo()}
                         {this.renderOrder()}
                         {this.renderPayment()}
                     </dl>
@@ -355,6 +440,7 @@ function mapStateToProps(state) {
         venue:      state.venue,
         contact:    state.contact,
         photos:     state.photos,
+        bank_info:  state.bank_info,
         plans:      state.plans,
         stripe:     state.stripe,
         payment_method: state.payment_method,
@@ -370,7 +456,7 @@ const formOptions = {
 }
 
 export default connect(
-    mapStateToProps, { merchantSignup }
+    mapStateToProps, { merchantSignup, selectPlan, setPaymentMethod }
 )(
     reduxForm(formOptions)(CheckoutSummary)
 )

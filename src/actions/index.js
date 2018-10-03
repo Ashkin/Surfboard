@@ -29,6 +29,7 @@ export const ACTIONS = {
     UPDATE_HOURS:        "UPDATE_HOURS",
     UPDATE_CONTACT:      "UPDATE_CONTACT",
     UPDATE_PHOTO:        "UPDATE_PHOTO",
+    UPDATE_BANK_INFO:    "UPDATE_BANK_INFO",
     SELECT_PLAN:         "SELECT_PLAN",
     UPDATE_STRIPE_TOKEN: "UPDATE_STRIPE_TOKEN",
     SET_PAYMENT_METHOD:  "SET_PAYMENT_METHOD",
@@ -71,6 +72,7 @@ export function saveVenueData(data={})    { return actionFactory(ACTIONS.UPDATE_
 export function saveHoursData(data={})    { return actionFactory(ACTIONS.UPDATE_HOURS)(data) }
 export function saveContactData(data={})  { return actionFactory(ACTIONS.UPDATE_CONTACT)(data) }
 export function savePhoto(data={})        { return actionFactory(ACTIONS.UPDATE_PHOTO)(data) }
+export function saveBankInfo(data={})     { return actionFactory(ACTIONS.UPDATE_BANK_INFO)(data) }
 export function selectPlan(data={})       { return actionFactory(ACTIONS.SELECT_PLAN)(data) }
 export function saveStripeToken(data={})  { return actionFactory(ACTIONS.UPDATE_STRIPE_TOKEN)(data) }
 export function setPaymentMethod(method)  { return actionFactory(ACTIONS.SET_PAYMENT_METHOD)({method}) }

@@ -48,12 +48,14 @@ export function merchantSignup(data) {
                     // so let's make sure we send everything!
                     data: {
                         signup_source: "Surfboard",  // and a semantic signup_source here, too.
+                        bank_info: data.bank_info,
 
                         zinger: data.venue.zinger,
                         description: data.venue.description,
                         address: data.venue.address,
                         address_2: data.venue.address_2,
                         yelp_url: data.venue.yelp_url,
+                        golfnow_url: data.venue.golfnow_url,
                         ...data,
 
                         payment_method: data.payment_method.method,  // Last to overwrite the same key in `data`

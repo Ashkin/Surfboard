@@ -1,11 +1,25 @@
 import React from "react"
 import Paper from "material-ui/Paper"
 
-const Welcome = ({nextStep, className}) => {
+
+const Welcome = ({nextStep, className, affiliate, golfNow}) => {
+    function affiliateName(affiliate) {
+        // Custom affiliates
+        if (affiliate == 'golfnow')  return 'GolfNow'
+        // Default: just capitalize
+        return affiliate.charAt(0).toUpperCase() + affiliate.slice(1);
+    }
+
+    //FIXME: Some affiliate signups in the future may require payment.  How should I support this?
+
     return (
         <section className={`welcome ${className}`}>
             <Paper className="paper primary" zDepth={2}>
-                <header>Welcome!</header>
+                <header>Welcome{affiliate
+                                ? <span>, <span className='affiliate-name'>{affiliateName(affiliate)}</span> affiliate</span>
+                                : ''
+                            }!</header>
+                <br/>
                 <summary>
                     Register your business, create your account, and go live in 15 minutes. 
                     Sign up today & sell your first gift card online tomorrow.
@@ -42,6 +56,12 @@ const Welcome = ({nextStep, className}) => {
                         </li></ul>
                     </Paper>
                     <Paper className="paper item" zDepth={2}>
+                        <ul><li>
+                            Bank account info
+                            <aside>So we can pay you for your gift card sales.</aside>
+                        </li></ul>
+                    </Paper>
+                    <Paper className={`paper item ${golfNow ? 'hidden' : ''}`} zDepth={2}>
                         <ul><li>
                             Credit card info
                             <aside>Once you've submitted payment, your customer success rep will contact you.</aside>

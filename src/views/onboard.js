@@ -8,6 +8,7 @@ import FormVenue       from '../components/form-venue'
 import FormContact     from '../components/form-contact'
 import VenuePhotos     from '../components/venue-photos'
 import Plans           from '../components/plans'
+import BankInfo        from '../components/bank-info'
 import FormCreditcard  from '../components/form-creditcard'
 import CheckoutSummary from '../components/checkout-summary'
 import Success         from '../components/success'
@@ -18,18 +19,48 @@ import { setOnboardStep, setHeaderTitle }     from '../actions'
 
 
 class ViewOnboard extends Component {
+    steps = (() => {
+        const { affiliate } = this.props
+        let steps
+
+        switch(affiliate && affiliate.toLowerCase()) {  // use downcased `affiliate` if it exists, otherwise undefined
+            case 'golfnow':
+                steps = [
+                    { title: "Business",  component: FormVenue   },
+                    { title: "Contact",   component: FormContact },
+                    { title: "Photos",    component: VenuePhotos },
+                    { title: "Bank Info", component: BankInfo    },
+                ]
+                break;
+            default:
+                steps = [
+                    { title: "Business",  component: FormVenue      },
+                    { title: "Contact",   component: FormContact    },
+                    { title: "Photos",    component: VenuePhotos    },
+                    { title: "Bank Info", component: BankInfo       },
+                    { title: "Plans",     component: Plans          },
+                    { title: "Billing",   component: FormCreditcard },
+                ]
+                break;
+        }
+
+        steps = [
+            { title: null,        component: Welcome },
+            ...steps,
+            { title: "Checkout",  component: CheckoutSummary },
+            { title: null,        component: Success },
+        ]
+
+        return steps
+    })()
 
 
     handleNext = () => {
-        // Fetch activeStep
-        let activeStep = this.props.activeStep
-
-        // and default it to -1  (catch null/undefined)
-        if (activeStep == null)
-            activeStep = -1
+        // Fetch activeStep and default it to zero
+        const activeStep = this.props.activeStep || 0
 
         // Don't go past the end, obv.
-        if (activeStep >= 7)
+        if (activeStep >= this.steps.length)
             return
 
         this.props.setOnboardStep({activeStep: activeStep + 1})
@@ -39,8 +70,8 @@ class ViewOnboard extends Component {
     handlePrev = () => {
         const { activeStep } = this.props
 
-        // Allow navigating back to step -1 (Welcome), but not before
-        if (activeStep < 0)
+        // Allow navigating back to step 0 (Welcome), but not before
+        if (activeStep < 1)
             return
 
         this.props.setOnboardStep({activeStep: activeStep - 1})
@@ -50,45 +81,40 @@ class ViewOnboard extends Component {
 
     //TODO: Add a Success step
     getStepContent() {
-        const { activeStep } = this.props
+        const { affiliate, golfNow } = this.props
+        const activeStep = this.props.activeStep || 0  // Default to zero for the Welcome step
+        const step       = this.steps[activeStep]
 
         // Scroll to top
         window.scrollTo(0,0)
 
-        switch(activeStep) {
-            case undefined:
-            case -1: return <Welcome         step={activeStep+1}                              nextStep={this.handleNext} className="fadein-fast" />
-            case 0:  return <FormVenue       step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} className="fadein-fast" />
-            case 1:  return <FormContact     step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} className="fadein-fast" />
-            case 2:  return <VenuePhotos     step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} className="fadein-fast" />
-            case 3:  return <Plans           step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} className="fadein-fast" />
-            case 4:  return <FormCreditcard  step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} className="fadein-fast" />
-            case 5:  return <CheckoutSummary step={activeStep+1}  prevStep={this.handlePrev}  nextStep={this.handleNext} className="fadein-fast" />
-            case 6:  return <Success />
-            default: return <ViewNotFound />
-        }
+        if (step === undefined)  return <ViewNotFound />
+        return <step.component step={activeStep}  prevStep={this.handlePrev}  nextStep={this.handleNext} className="fadein-fast" affiliate={affiliate} golfNow={golfNow} />
     }
 
 
 
     renderStepper() {
-        const { activeStep } = this.props
+        const activeStep = (this.props.activeStep||0) - 1 // Decrement since the <Welcome> step is not included here.
 
-        // Hide stepper on the Welcome step (-1)
+        // Hide stepper on the Welcome step
         let className = ""
-        if (activeStep === undefined || activeStep === -1)
+        if (activeStep == -1)
             className = "hidden"
 
+        // Strip out all steps with blank titles (since we're not displaying them as steps)
+        let payload = []
+        this.steps.map((step) => {
+            if (step.title == null) return
+            payload.push(step)
+        })
 
         return (
             <Paper className={`stepper paper ${className}`} zDepth={3} rounded={false}>
                 <Stepper activeStep={activeStep}>
-                    <Step className="step-item"><StepLabel><span className="step-label">Business</span></StepLabel></Step>
-                    <Step className="step-item"><StepLabel><span className="step-label">Contact</span></StepLabel></Step>
-                    <Step className="step-item"><StepLabel><span className="step-label">Photos</span></StepLabel></Step>
-                    <Step className="step-item"><StepLabel><span className="step-label">Plans</span></StepLabel></Step>
-                    <Step className="step-item"><StepLabel><span className="step-label">Billing</span></StepLabel></Step>
-                    <Step className="step-item"><StepLabel><span className="step-label">Checkout</span></StepLabel></Step>
+                    { payload.map((step) => {
+                        return <Step className="step-item" key={step.title}><StepLabel><span className="step-label">{step.title}</span></StepLabel></Step>
+                    }) }
                 </Stepper>
             </Paper>
         )
