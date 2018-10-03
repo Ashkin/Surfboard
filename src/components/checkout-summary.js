@@ -129,6 +129,36 @@ class CheckoutSummary extends Component {
 
 
 
+    renderBankInfo() {
+        const { bank_name, routing_number, account_number, account_type, bank_address } = this.props.bank_info
+
+        if (bank_name) {
+            return (
+                <div className="bank-info">
+                    <dt>Bank Info</dt>
+                    <dd>
+                        <strong>Routing number:</strong> {routing_number}<br/>
+                        <strong>Account number:</strong> {account_number}<br/>
+                        {bank_name}<br/>
+                        {bank_address}
+                    </dd>
+                </div>
+            )
+        }
+
+
+        return (
+            <div className="bank-info">
+                <dt>Bank Info</dt>
+                <dd>
+                    Not provided.
+                </dd>
+            </div>
+        )
+    }
+
+
+
     renderOrder() {
         const { selectedPlan } = this.props.plans
 
@@ -327,6 +357,7 @@ class CheckoutSummary extends Component {
                         {this.renderVenue()}
                         {this.renderZinger()}
                         {this.renderDescription()}
+                        {this.renderBankInfo()}
                         {this.renderOrder()}
                         {this.renderPayment()}
                     </dl>
@@ -394,6 +425,7 @@ function mapStateToProps(state) {
         venue:      state.venue,
         contact:    state.contact,
         photos:     state.photos,
+        bank_info:  state.bank_info,
         plans:      state.plans,
         stripe:     state.stripe,
         payment_method: state.payment_method,
