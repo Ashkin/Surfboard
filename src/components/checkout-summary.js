@@ -132,15 +132,30 @@ class CheckoutSummary extends Component {
     renderBankInfo() {
         const { bank_name, routing_number, account_number, account_type, bank_address } = this.props.bank_info
 
+        let address = [
+            bank_name,
+            ...(bank_address.split("\n"))
+        ].map((item, key) => {
+            return <span key={key}>{item}<br/></span>
+        })
+
         if (bank_name) {
             return (
                 <div className="bank-info">
                     <dt>Bank Info</dt>
                     <dd>
-                        <strong>Routing number:</strong> {routing_number}<br/>
-                        <strong>Account number:</strong> {account_number}<br/>
-                        {bank_name}<br/>
-                        {bank_address}
+                        <ul>
+                            <li>
+                                <label>Routing number:</label>
+                                <span className="bank-number">{routing_number}</span>
+                            </li><li>
+                                <label>Account number:</label>
+                                <span className="bank-number">{account_number}</span> <span className="bank-account-type">({account_type})</span>
+                            </li><li>
+                                <label>Bank:</label>
+                                <div className="bank-address">{address}</div>
+                            </li>
+                        </ul>
                     </dd>
                 </div>
             )
