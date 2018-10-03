@@ -6,7 +6,6 @@ section.checkout-summary {
     dl {
         text-align: left;
 
-
         dt {
             // fancy shmancy trailing underline
             width: 16.5em;
@@ -45,10 +44,16 @@ section.checkout-summary {
                 margin: 1em 0;
                 clear: both;
             }
+
+            // Nice table-like alignment of terms
+            ul li {
+                display: flex;
+                line-height: 1.2rem;
+            }
         }
 
 
-        .contact {
+        .contact, .bank-info {
             // Nicely formatted contact summary 'table'
             ul {
                 list-style: none;
@@ -67,8 +72,9 @@ section.checkout-summary {
                         font-weight: bold;
                     }
 
-                    .position {
+                    .position, .bank-account-type {
                         // distinguish it a little
+                        padding-left: 0.5em;
                         font-size: 0.8rem;
                         color: $iom-grey;
                     }
@@ -81,6 +87,19 @@ section.checkout-summary {
         }
 
 
+        .bank-info dd {
+
+            ul li label {
+                // Match the specificity above
+                width: 10rem;
+            }
+
+            .bank-number {
+                font-size: 1.1rem;
+                font-family: monospace;
+                color: blue;
+            }
+        }
     }
 
 
