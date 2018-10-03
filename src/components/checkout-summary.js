@@ -132,14 +132,24 @@ class CheckoutSummary extends Component {
     renderBankInfo() {
         const { bank_name, routing_number, account_number, account_type, bank_address } = this.props.bank_info
 
-        let address = [
-            bank_name,
-            ...(bank_address.split("\n"))
-        ].map((item, key) => {
-            return <span key={key}>{item}<br/></span>
-        })
+        let address = 'Not provided.'
 
-        if (bank_name) {
+        // Only display the full bank name+address to encourage the user to go back and fill out everything.
+        // This will reduce customer support load.
+        if (bank_name && bank_address) {
+
+            // Construct full address
+            address = [
+                bank_name,
+                ...(bank_address.split("\n"))
+            ].map((item, key) => {
+                // Convert \n -> <br/>
+                return <span key={key}>{item}<br/></span>
+            })
+        }
+
+        // Only display the bank info if there's useful info to display.
+        if (routing_number && account_number) {
             return (
                 <div className="bank-info">
                     <dt>Bank Info</dt>
@@ -150,7 +160,11 @@ class CheckoutSummary extends Component {
                                 <span className="bank-number">{routing_number}</span>
                             </li><li>
                                 <label>Account number:</label>
-                                <span className="bank-number">{account_number}</span> <span className="bank-account-type">({account_type})</span>
+                                <span className="bank-number">{account_number}</span>
+                                { (account_type
+                                    ? <span className="bank-account-type">({account_type})</span>
+                                    : null
+                                )}
                             </li><li>
                                 <label>Bank:</label>
                                 <div className="bank-address">{address}</div>
