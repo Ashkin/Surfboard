@@ -26,7 +26,7 @@ class ViewOnboard extends Component {
         switch(affiliate && affiliate.toLowerCase()) {  // use downcased `affiliate` if it exists, otherwise undefined
             case 'golfnow':
                 steps = [
-                    { title: "Business",  component: FormVenue   },
+                    { title: "Course",    component: FormVenue   },
                     { title: "Contact",   component: FormContact },
                     { title: "Photos",    component: VenuePhotos },
                     { title: "Bank Info", component: BankInfo    },
