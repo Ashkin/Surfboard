@@ -82,10 +82,11 @@ class FormVenue extends Component {
 
     renderForm() {
         const { handleSubmit, golfNow } = this.props  // handleSubmit: Magic. comes from redux-form
+        const name_label = (golfNow ? "Course Name" : "Business Name")
 
         return (
             <form className="venue" onSubmit={handleSubmit(this.handleSubmit.bind(this))}>
-                { this.buildTextField({name:"name",     required:true,   label:"Business Name"}) }
+                { this.buildTextField({name:"name",     required:true,   label:name_label}) }
                 { this.buildTextField({name:"address",  required:true,   label:"Address"}) }
                 { this.buildTextField({name:"address_2",required:false,  label:"Second Address line (Suite Number, etc.)"}) }
                 { this.buildTextField({name:"city",     required:true,   label:"City"}) }
