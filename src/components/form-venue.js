@@ -10,11 +10,14 @@ import { saveVenueData }   from "../actions"
 
 class FormVenue extends Component {
     render() {
+        const { golfNow } = this.props
+        const title = (golfNow ? "Course" : "Business") + " information"
+
         return (
             <section className={classBuilder("venue", this.props.className)}>
                 <Paper className="paper primary" zDepth={2}>
                     <header>
-                        <span className="filled-circle">{this.props.step}</span> Business information
+                        <span className="filled-circle">{this.props.step}</span> {title}
                     </header>
                     <summary></summary>
 
