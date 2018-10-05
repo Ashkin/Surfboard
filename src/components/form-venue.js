@@ -10,11 +10,14 @@ import { saveVenueData }   from "../actions"
 
 class FormVenue extends Component {
     render() {
+        const { golfNow } = this.props
+        const title = (golfNow ? "Course" : "Business") + " information"
+
         return (
             <section className={classBuilder("venue", this.props.className)}>
                 <Paper className="paper primary" zDepth={2}>
                     <header>
-                        <span className="filled-circle">{this.props.step}</span> Business information
+                        <span className="filled-circle">{this.props.step}</span> {title}
                     </header>
                     <summary></summary>
 
@@ -79,10 +82,11 @@ class FormVenue extends Component {
 
     renderForm() {
         const { handleSubmit, golfNow } = this.props  // handleSubmit: Magic. comes from redux-form
+        const name_label = (golfNow ? "Course Name" : "Business Name")
 
         return (
             <form className="venue" onSubmit={handleSubmit(this.handleSubmit.bind(this))}>
-                { this.buildTextField({name:"name",     required:true,   label:"Business Name"}) }
+                { this.buildTextField({name:"name",     required:true,   label:name_label}) }
                 { this.buildTextField({name:"address",  required:true,   label:"Address"}) }
                 { this.buildTextField({name:"address_2",required:false,  label:"Second Address line (Suite Number, etc.)"}) }
                 { this.buildTextField({name:"city",     required:true,   label:"City"}) }
